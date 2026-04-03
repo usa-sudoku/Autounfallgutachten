@@ -3,15 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KFZ-Gutachter | Unfallhilfe MV & Brandenburg</title>
+    <title>KFZ-Gutachter Mecklenburg-Vorpommern & Brandenburg | Unfallhilfe</title>
+    <meta name="description" content="Ihr unabhängiger KFZ-Sachverständiger in Mecklenburg-Vorpommern und Brandenburg. Schnelle Unfallgutachten & Beweissicherung direkt bei Ihnen vor Ort.">
+    <meta name="keywords" content="KFZ-Gutachten MV, Sachverständiger Brandenburg, Autounfall Hilfe, Unfallgutachten Mecklenburg-Vorpommern, Schadensregulierung">
+    
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { color: #333; line-height: 1.6; background-color: #f4f4f4; }
-        
-        /* Header Bereich mit Video */
-        header {
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+        body { color: #2c3e50; line-height: 1.6; background-color: #fdfdfd; }
+
+        /* Responsiver Video-Header */
+        .hero {
             position: relative;
-            height: 75vh;
+            height: 70vh;
             min-height: 500px;
             width: 100%;
             overflow: hidden;
@@ -22,7 +25,7 @@
             text-align: center;
         }
 
-        .video-bg {
+        .hero video {
             position: absolute;
             top: 50%;
             left: 50%;
@@ -35,154 +38,177 @@
             object-fit: cover;
         }
 
-        .overlay {
+        .hero-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 48, 95, 0.65); /* Dunkelblaues Overlay für Lesbarkeit */
+            background: rgba(0, 48, 95, 0.6);
             z-index: 2;
-        }
-
-        .header-content {
-            position: relative;
-            z-index: 3;
-            width: 90%;
-            max-width: 900px;
-            padding: 20px;
-        }
-
-        .badge {
-            background: #e63946;
-            color: white;
-            padding: 6px 16px;
-            border-radius: 50px;
-            font-size: clamp(0.7rem, 2vw, 0.9rem);
-            font-weight: bold;
-            text-transform: uppercase;
-            display: inline-block;
-            margin-bottom: 20px;
-            letter-spacing: 1px;
-        }
-
-        h1 {
-            font-size: clamp(1.8rem, 6vw, 3.8rem);
-            line-height: 1.1;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 15px rgba(0,0,0,0.6);
-        }
-
-        .lead-text {
-            font-size: clamp(1rem, 3vw, 1.3rem);
-            margin-bottom: 35px;
-            text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cta-button {
-            background-color: #e63946;
-            color: white;
-            padding: clamp(14px, 3vw, 20px) clamp(30px, 5vw, 50px);
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 5px;
-            font-size: clamp(1rem, 3vw, 1.2rem);
-            display: inline-block;
-            transition: transform 0.3s, background 0.3s;
-            box-shadow: 0 4px 20px rgba(230, 57, 70, 0.4);
-        }
-
-        .cta-button:hover {
-            background-color: #c12e3a;
-            transform: translateY(-2px);
-        }
-
-        /* Info Bereich unter dem Video */
-        .info-section {
-            padding: 60px 20px;
-            background: white;
-            text-align: center;
         }
 
         .container {
             max-width: 1100px;
             margin: 0 auto;
+            position: relative;
+            padding: 0 20px;
         }
 
-        .grid {
+        .hero .container {
+            z-index: 3;
+        }
+
+        /* Responsive Schriftgrößen */
+        h1 {
+            font-size: clamp(1.8rem, 5vw, 3rem);
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 12px rgba(0,0,0,0.7);
+            line-height: 1.2;
+        }
+
+        .promo-text {
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            margin-bottom: 30px;
+            max-width: 750px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #e63946;
+            color: white;
+            padding: clamp(14px, 3vw, 18px) clamp(25px, 5vw, 45px);
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            box-shadow: 0 4px 15px rgba(230, 57, 70, 0.4);
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            background-color: #c1121f;
+        }
+
+        .region-badge {
+            background: #e63946;
+            color: white;
+            padding: 6px 18px;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        /* SEO & Service Content */
+        .content {
+            padding: 60px 20px;
+            background: white;
+        }
+
+        h2 { color: #00305f; font-size: clamp(1.5rem, 4vw, 2.2rem); margin-bottom: 20px; }
+
+        .services {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
             margin-top: 40px;
         }
 
-        .card {
+        .service-card {
             padding: 30px;
-            background: #f9f9f9;
+            border: 1px solid #eee;
             border-radius: 10px;
+            background: #fff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
             border-bottom: 4px solid #e63946;
         }
 
-        h2 { color: #00305f; margin-bottom: 20px; }
-        h3 { color: #e63946; margin-bottom: 15px; }
+        .service-card h3 { color: #e63946; margin-bottom: 15px; margin-top: 0; }
 
-        footer {
-            background: #00305f;
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
+        .trust-box {
+            margin-top: 60px;
+            border-left: 5px solid #00305f;
+            padding: 25px;
+            background: #f8f9fa;
         }
 
-        footer a { color: #a8dadc; text-decoration: none; margin: 0 10px; }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            background: #00305f;
+            color: #fff;
+            font-size: 0.95rem;
+        }
+
+        footer a { color: #a8dadc; text-decoration: none; font-weight: bold; margin: 0 10px; }
+        footer a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
 
-    <header>
-        <video autoplay muted loop playsinline class="video-bg">
+    <header class="hero">
+        <video autoplay muted loop playsinline>
             <source src="video.mp4" type="video/mp4">
+            Ihr Browser unterstützt kein Video.
         </video>
         
-        <div class="overlay"></div>
+        <div class="hero-overlay"></div>
 
-        <div class="header-content">
-            <span class="badge">Einsatzgebiet: MV & Brandenburg</span>
-            <h1>Ihr unabhängiger <br>KFZ-Gutachter</h1>
-            <p class="lead-text">Nach einem unverschuldeten Unfall sichern wir Ihre Ansprüche. Professionelle Unfallgutachten direkt vor Ort – schnell und kompetent.</p>
+        <div class="container">
+            <span class="region-badge">Einsatzgebiet: MV & Brandenburg</span>
+            <h1>Ihr unabhängiger KFZ-Gutachter in Mecklenburg-Vorpommern & Brandenburg</h1>
+            <div class="promo-text">
+                <p>Nach einem unverschuldeten Unfall sichern wir Ihre Ansprüche. Professionelle <strong>Unfallgutachten</strong> direkt vor Ort – schnell und kompetent.</p>
+            </div>
             <a href="tel:0123456789" class="cta-button">Jetzt Hilfe anfordern: 0123 / 456789</a>
         </div>
     </header>
 
-    <section class="info-section">
+    <main class="content">
         <div class="container">
             <h2>Professionelle Schadensregulierung & Gutachten</h2>
-            <p>Ob auf der A11, A20 oder direkt in Ihrer Stadt: Wir sind Ihr Partner für Kfz-Schäden in der gesamten Region Brandenburg und Mecklenburg-Vorpommern.</p>
+            <p>Ob auf der A11, A20 oder direkt in Ihrer Stadt: Wir sind Ihr Partner für Kfz-Schäden in der gesamten Region <strong>Brandenburg</strong> und <strong>Mecklenburg-Vorpommern</strong>.</p>
             
-            <div class="grid">
-                <div class="card">
+            <div class="services">
+                <div class="service-card">
                     <h3>Unfallgutachten</h3>
                     <p>Detaillierte Schadensaufnahme zur Vorlage bei der gegnerischen Versicherung für eine vollständige Entschädigung.</p>
                 </div>
-                <div class="card">
+                <div class="service-card">
                     <h3>Vor-Ort-Service</h3>
                     <p>Wir kommen zu Ihnen nach Hause, in die Werkstatt oder zum Unfallort in ganz MV und Brandenburg.</p>
                 </div>
+                <div class="service-card">
+                    <h3>Wertgutachten</h3>
+                    <p>Präzise Wertermittlung Ihres Fahrzeugs, damit Sie schwarz auf weiß wissen, was Ihr Auto wert ist.</p>
+                </div>
             </div>
+
+            <article class="trust-box">
+                <h3>Warum Sie uns in MV & Brandenburg vertrauen sollten</h3>
+                <p>As regionale Experten kennen wir den Markt in <strong>Mecklenburg-Vorpommern</strong> und <strong>Brandenburg</strong> genau. Wir arbeiten völlig unabhängig von Versicherungen. Ein Anruf genügt!</p>
+            </article>
         </div>
-    </section>
+    </main>
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 KFZ-Gutachten Unfallhilfe. Alle Rechte vorbehalten.</p>
-            <p style="margin-top: 15px;">
+            <span>© 2026 Ihr KFZ-Sachverständigenbüro - MV & Brandenburg</span>
+            <div style="margin-top: 15px;">
                 <a href="impressum.html">Impressum</a> | 
                 <a href="#">Datenschutz</a>
-            </p>
+            </div>
         </div>
     </footer>
 
 </body>
 </html>
+
