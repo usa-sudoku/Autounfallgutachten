@@ -3,25 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KFZ-Gutachter Mecklenburg-Vorpommern & Brandenburg | Unfallhilfe</title>
-    <meta name="description" content="Ihr unabhängiger KFZ-Sachverständiger in Mecklenburg-Vorpommern und Brandenburg. Schnelle Unfallgutachten & Beweissicherung direkt bei Ihnen vor Ort.">
-    <meta name="keywords" content="KFZ-Gutachten MV, Sachverständiger Brandenburg, Autounfall Hilfe, Unfallgutachten Mecklenburg-Vorpommern, Schadensregulierung">
-    
+    <title>KFZ-Gutachter | Unfallhilfe MV & Brandenburg</title>
     <style>
-        body {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: #2c3e50;
-            margin: 0;
-            padding: 0;
-            background-color: #fdfdfd;
-        }
-
-        /* Video-Header (Audi-Style) */
-        .hero {
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { color: #333; line-height: 1.6; background-color: #f4f4f4; }
+        
+        /* Header Bereich mit Video */
+        header {
             position: relative;
-            height: 65vh;
-            min-height: 450px;
+            height: 75vh;
+            min-height: 500px;
             width: 100%;
             overflow: hidden;
             display: flex;
@@ -31,7 +22,7 @@
             text-align: center;
         }
 
-        .hero video {
+        .video-bg {
             position: absolute;
             top: 50%;
             left: 50%;
@@ -44,167 +35,154 @@
             object-fit: cover;
         }
 
-        /* Dunkle Ebene über dem Video für Lesbarkeit */
-        .hero-overlay {
+        .overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 48, 95, 0.5);
+            background: rgba(0, 48, 95, 0.65); /* Dunkelblaues Overlay für Lesbarkeit */
             z-index: 2;
         }
 
-        .container {
-            max-width: 960px;
-            margin: 0 auto;
+        .header-content {
             position: relative;
-        }
-
-        .hero .container {
             z-index: 3;
+            width: 90%;
+            max-width: 900px;
             padding: 20px;
         }
 
-        h1 {
-            font-size: 2.6rem;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
-            line-height: 1.2;
+        .badge {
+            background: #e63946;
+            color: white;
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: clamp(0.7rem, 2vw, 0.9rem);
+            font-weight: bold;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
         }
 
-        .promo-text {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            max-width: 750px;
+        h1 {
+            font-size: clamp(1.8rem, 6vw, 3.8rem);
+            line-height: 1.1;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 15px rgba(0,0,0,0.6);
+        }
+
+        .lead-text {
+            font-size: clamp(1rem, 3vw, 1.3rem);
+            margin-bottom: 35px;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
-            text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
         }
 
         .cta-button {
-            display: inline-block;
             background-color: #e63946;
             color: white;
-            padding: 18px 40px;
+            padding: clamp(14px, 3vw, 20px) clamp(30px, 5vw, 50px);
             text-decoration: none;
             font-weight: bold;
             border-radius: 5px;
-            font-size: 1.2rem;
-            box-shadow: 0 4px 15px rgba(230, 57, 70, 0.4);
-            transition: transform 0.2s;
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            display: inline-block;
+            transition: transform 0.3s, background 0.3s;
+            box-shadow: 0 4px 20px rgba(230, 57, 70, 0.4);
         }
 
         .cta-button:hover {
-            transform: scale(1.05);
-            background-color: #c1121f;
+            background-color: #c12e3a;
+            transform: translateY(-2px);
         }
 
-        .region-badge {
-            background: #e63946;
-            color: white;
-            padding: 6px 18px;
-            border-radius: 25px;
-            font-size: 0.85rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            display: inline-block;
-            margin-bottom: 20px;
-        }
-
-        /* SEO-Content */
-        .content {
+        /* Info Bereich unter dem Video */
+        .info-section {
             padding: 60px 20px;
             background: white;
+            text-align: center;
         }
 
-        h2 { color: #00305f; font-size: 1.8rem; }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
 
-        .services {
+        .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
             margin-top: 40px;
         }
 
-        .service-card {
-            padding: 25px;
-            border: 1px solid #eee;
+        .card {
+            padding: 30px;
+            background: #f9f9f9;
             border-radius: 10px;
-            background: #fff;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border-bottom: 4px solid #e63946;
         }
 
-        .service-card h3 { color: #e63946; margin-top: 0; }
+        h2 { color: #00305f; margin-bottom: 20px; }
+        h3 { color: #e63946; margin-bottom: 15px; }
 
         footer {
+            background: #00305f;
+            color: white;
+            padding: 40px 20px;
             text-align: center;
-            padding: 30px;
-            background: #f1f3f5;
-            font-size: 0.9rem;
-            border-top: 1px solid #dee2e6;
-            color: #6c757d;
         }
 
-        footer a { color: #6c757d; text-decoration: none; font-weight: bold; }
-        footer a:hover { text-decoration: underline; }
+        footer a { color: #a8dadc; text-decoration: none; margin: 0 10px; }
     </style>
 </head>
 <body>
 
-    <header class="hero">
-        <video autoplay muted loop playsinline>
+    <header>
+        <video autoplay muted loop playsinline class="video-bg">
             <source src="video.mp4" type="video/mp4">
-            Ihr Browser unterstützt kein Video.
         </video>
         
-        <div class="hero-overlay"></div>
+        <div class="overlay"></div>
 
-        <div class="container">
-            <span class="region-badge">Einsatzgebiet: MV & Brandenburg</span>
-            <h1>Ihr unabhängiger KFZ-Gutachter in Mecklenburg-Vorpommern & Brandenburg</h1>
-            <div class="promo-text">
-                <p>Nach einem unverschuldeten Unfall sichern wir Ihre Ansprüche. Professionelle <strong>Unfallgutachten</strong> direkt vor Ort – schnell und kompetent.</p>
-            </div>
-            <a href="tel:+49123456789" class="cta-button">Jetzt Hilfe anfordern: 0123 / 456789</a>
+        <div class="header-content">
+            <span class="badge">Einsatzgebiet: MV & Brandenburg</span>
+            <h1>Ihr unabhängiger <br>KFZ-Gutachter</h1>
+            <p class="lead-text">Nach einem unverschuldeten Unfall sichern wir Ihre Ansprüche. Professionelle Unfallgutachten direkt vor Ort – schnell und kompetent.</p>
+            <a href="tel:0123456789" class="cta-button">Jetzt Hilfe anfordern: 0123 / 456789</a>
         </div>
     </header>
 
-    <main class="content">
+    <section class="info-section">
         <div class="container">
             <h2>Professionelle Schadensregulierung & Gutachten</h2>
-            <p>Ob auf der A11, A20 oder direkt in Ihrer Stadt: Wir sind Ihr Partner für Kfz-Schäden in der gesamten Region <strong>Brandenburg</strong> und <strong>Mecklenburg-Vorpommern</strong>.</p>
+            <p>Ob auf der A11, A20 oder direkt in Ihrer Stadt: Wir sind Ihr Partner für Kfz-Schäden in der gesamten Region Brandenburg und Mecklenburg-Vorpommern.</p>
             
-            <div class="services">
-                <div class="service-card">
+            <div class="grid">
+                <div class="card">
                     <h3>Unfallgutachten</h3>
                     <p>Detaillierte Schadensaufnahme zur Vorlage bei der gegnerischen Versicherung für eine vollständige Entschädigung.</p>
                 </div>
-                <div class="service-card">
+                <div class="card">
                     <h3>Vor-Ort-Service</h3>
                     <p>Wir kommen zu Ihnen nach Hause, in die Werkstatt oder zum Unfallort in ganz MV und Brandenburg.</p>
                 </div>
-                <div class="service-card">
-                    <h3>Wertgutachten</h3>
-                    <p>Präzise Wertermittlung Ihres Fahrzeugs, damit Sie schwarz auf weiß wissen, was Ihr Auto wert ist.</p>
-                </div>
             </div>
-
-            <article style="margin-top: 50px; border-left: 4px solid #00305f; padding-left: 20px;">
-                <h3>Warum Sie uns in MV & Brandenburg vertrauen sollten</h3>
-                <p>Als regionale Experten kennen wir den Markt in <strong>Mecklenburg-Vorpommern</strong> und <strong>Brandenburg</strong> genau. Wir arbeiten völlig unabhängig von Versicherungen. Ein Anruf genügt!</p>
-            </article>
         </div>
-    </main>
+    </section>
 
     <footer>
         <div class="container">
-            <span>© 2026 Ihr KFZ-Sachverständigenbüro - Mecklenburg-Vorpommern & Brandenburg | </span>
-            <a href="impressum.html">Impressum</a>
+            <p>&copy; 2026 KFZ-Gutachten Unfallhilfe. Alle Rechte vorbehalten.</p>
+            <p style="margin-top: 15px;">
+                <a href="impressum.html">Impressum</a> | 
+                <a href="#">Datenschutz</a>
+            </p>
         </div>
     </footer>
 
 </body>
 </html>
-
