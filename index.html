@@ -17,23 +17,60 @@
             background-color: #fdfdfd;
         }
 
-        /* Hero-Sektion mit Fokus auf Regionen */
+        /* Video-Header (Audi-Style) */
         .hero {
-            background: linear-gradient(135deg, #00305f 0%, #0056b3 100%);
+            position: relative;
+            height: 65vh;
+            min-height: 450px;
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: white;
-            padding: 70px 20px;
             text-align: center;
+        }
+
+        .hero video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: 1;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+        }
+
+        /* Dunkle Ebene über dem Video für Lesbarkeit */
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 48, 95, 0.5);
+            z-index: 2;
         }
 
         .container {
             max-width: 960px;
             margin: 0 auto;
+            position: relative;
+        }
+
+        .hero .container {
+            z-index: 3;
+            padding: 20px;
         }
 
         h1 {
-            font-size: 2.4rem;
+            font-size: 2.6rem;
             margin-bottom: 15px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+            line-height: 1.2;
         }
 
         .promo-text {
@@ -42,18 +79,19 @@
             max-width: 750px;
             margin-left: auto;
             margin-right: auto;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
         }
 
         .cta-button {
             display: inline-block;
             background-color: #e63946;
             color: white;
-            padding: 20px 40px;
+            padding: 18px 40px;
             text-decoration: none;
             font-weight: bold;
             border-radius: 5px;
             font-size: 1.2rem;
-            box-shadow: 0 4px 15px rgba(230, 57, 70, 0.3);
+            box-shadow: 0 4px 15px rgba(230, 57, 70, 0.4);
             transition: transform 0.2s;
         }
 
@@ -62,27 +100,26 @@
             background-color: #c1121f;
         }
 
+        .region-badge {
+            background: #e63946;
+            color: white;
+            padding: 6px 18px;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
         /* SEO-Content */
         .content {
             padding: 60px 20px;
             background: white;
         }
 
-        .region-badge {
-            background: #e9ecef;
-            color: #00305f;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: bold;
-            display: inline-block;
-            margin-bottom: 10px;
-        }
-
-        h2 {
-            color: #00305f;
-            font-size: 1.8rem;
-        }
+        h2 { color: #00305f; font-size: 1.8rem; }
 
         .services {
             display: grid;
@@ -99,10 +136,7 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
 
-        .service-card h3 {
-            color: #e63946;
-            margin-top: 0;
-        }
+        .service-card h3 { color: #e63946; margin-top: 0; }
 
         footer {
             text-align: center;
@@ -113,25 +147,25 @@
             color: #6c757d;
         }
 
-        footer a {
-            color: #6c757d;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
+        footer a { color: #6c757d; text-decoration: none; font-weight: bold; }
+        footer a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
 
     <header class="hero">
+        <video autoplay muted loop playsinline>
+            <source src="video.mp4" type="video/mp4">
+            Ihr Browser unterstützt kein Video.
+        </video>
+        
+        <div class="hero-overlay"></div>
+
         <div class="container">
             <span class="region-badge">Einsatzgebiet: MV & Brandenburg</span>
             <h1>Ihr unabhängiger KFZ-Gutachter in Mecklenburg-Vorpommern & Brandenburg</h1>
             <div class="promo-text">
-                <p>Nach einem unverschuldeten Unfall im Nordosten Deutschlands sichern wir Ihre Ansprüche. Wir erstellen professionelle <strong>Unfallgutachten</strong> direkt bei Ihnen vor Ort – schnell, unabhängig und kompetent.</p>
+                <p>Nach einem unverschuldeten Unfall sichern wir Ihre Ansprüche. Professionelle <strong>Unfallgutachten</strong> direkt vor Ort – schnell und kompetent.</p>
             </div>
             <a href="tel:+49123456789" class="cta-button">Jetzt Hilfe anfordern: 0123 / 456789</a>
         </div>
@@ -159,7 +193,7 @@
 
             <article style="margin-top: 50px; border-left: 4px solid #00305f; padding-left: 20px;">
                 <h3>Warum Sie uns in MV & Brandenburg vertrauen sollten</h3>
-                <p>Als regionale Experten kennen wir den Markt in <strong>Mecklenburg-Vorpommern</strong> und <strong>Brandenburg</strong> genau. Wir arbeiten völlig unabhängig von Versicherungen, damit Sie die volle Schadenssumme inklusive Wertminderung erhalten. Ein Anruf genügt, und wir kümmern uns um die Beweissicherung.</p>
+                <p>Als regionale Experten kennen wir den Markt in <strong>Mecklenburg-Vorpommern</strong> und <strong>Brandenburg</strong> genau. Wir arbeiten völlig unabhängig von Versicherungen. Ein Anruf genügt!</p>
             </article>
         </div>
     </main>
