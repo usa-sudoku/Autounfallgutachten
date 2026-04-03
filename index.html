@@ -153,6 +153,19 @@
     </style>
 </head>
 <body>
+        <div id="menu-icon" style="position: absolute; top: 20px; right: 20px; z-index: 100; cursor: pointer; background: rgba(0,0,0,0.5); padding: 10px; border-radius: 5px;">
+        <div style="width: 25px; height: 3px; background: white; margin: 5px 0;"></div>
+        <div style="width: 25px; height: 3px; background: white; margin: 5px 0;"></div>
+        <div style="width: 25px; height: 3px; background: white; margin: 5px 0;"></div>
+    </div>
+
+    <div id="side-menu" style="position: fixed; top: 0; right: -250px; width: 250px; height: 100%; background: #00305f; z-index: 99; transition: 0.3s; padding-top: 80px; box-shadow: -5px 0 15px rgba(0,0,0,0.3);">
+        <a href="index.html" style="display: block; padding: 15px 25px; color: white; text-decoration: none; font-size: 1.1rem; border-bottom: 1px solid rgba(255,255,255,0.1);">Startseite</a>
+        <a href="#" style="display: block; padding: 15px 25px; color: white; text-decoration: none; font-size: 1.1rem; border-bottom: 1px solid rgba(255,255,255,0.1);">Unterseite 1</a>
+        <a href="#" style="display: block; padding: 15px 25px; color: white; text-decoration: none; font-size: 1.1rem; border-bottom: 1px solid rgba(255,255,255,0.1);">Unterseite 2</a>
+        <a href="#" style="display: block; padding: 15px 25px; color: white; text-decoration: none; font-size: 1.1rem; border-bottom: 1px solid rgba(255,255,255,0.1);">Unterseite 3</a>
+    </div>
+
 
     <header class="hero">
         <video autoplay muted loop playsinline>
@@ -208,6 +221,25 @@
             </div>
         </div>
     </footer>
+    <script>
+        const menuIcon = document.getElementById('menu-icon');
+        const sideMenu = document.getElementById('side-menu');
+
+        menuIcon.addEventListener('click', () => {
+            if (sideMenu.style.right === '0px') {
+                sideMenu.style.right = '-250px';
+            } else {
+                sideMenu.style.right = '0px';
+            }
+        });
+
+        // Schließt das Menü beim Klick außerhalb
+        document.addEventListener('click', (event) => {
+            if (!menuIcon.contains(event.target) && !sideMenu.contains(event.target)) {
+                sideMenu.style.right = '-250px';
+            }
+        });
+    </script>
 
 </body>
 </html>
