@@ -1,3 +1,175 @@
+/* --- 1. GRUNDDESIGN & SCHRIFTEN --- */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+}
+
+body { 
+    color: #2c3e50; 
+    line-height: 1.6; 
+    background-color: #fdfdfd; 
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    padding: 0 20px;
+}
+
+/* --- 2. VIDEO-HEADER (HERO) --- */
+.hero {
+    position: relative;
+    height: 70vh;
+    min-height: 500px;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+
+.hero video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 48, 95, 0.6);
+    z-index: 2;
+}
+
+.hero .container {
+    z-index: 3;
+}
+
+h1 {
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 12px rgba(0,0,0,0.7);
+    line-height: 1.2;
+}
+
+.promo-text {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    margin-bottom: 30px;
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+}
+
+/* --- 3. BUTTONS & BADGES --- */
+.cta-button {
+    display: inline-block;
+    background-color: #e63946;
+    color: white;
+    padding: clamp(14px, 3vw, 18px) clamp(25px, 5vw, 45px);
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    box-shadow: 0 4px 15px rgba(230, 57, 70, 0.4);
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.cta-button:hover {
+    transform: scale(1.05);
+    background-color: #c1121f;
+}
+
+.region-badge {
+    background: #e63946;
+    color: white;
+    padding: 6px 18px;
+    border-radius: 25px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+/* --- 4. INHALT & SERVICE-KARTEN --- */
+.content {
+    padding: 60px 20px;
+    background: white;
+}
+
+h2 { 
+    color: #00305f; 
+    font-size: clamp(1.5rem, 4vw, 2.2rem); 
+    margin-bottom: 20px; 
+}
+
+.services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.service-card {
+    padding: 30px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    border-bottom: 4px solid #e63946;
+}
+
+.service-card h3 { 
+    color: #e63946; 
+    margin-bottom: 15px; 
+    margin-top: 0; 
+}
+
+.trust-box {
+    margin-top: 60px;
+    border-left: 5px solid #00305f;
+    padding: 25px;
+    background: #f8f9fa;
+}
+
+/* --- 5. FOOTER --- */
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    background: #00305f;
+    color: #fff;
+    font-size: 0.95rem;
+}
+
+footer a { 
+    color: #a8dadc; 
+    text-decoration: none; 
+    font-weight: bold; 
+    margin: 0 10px; 
+}
+
+footer a:hover { 
+    text-decoration: underline; 
+}
+
+/* --- 6. WHATSAPP BUTTON (DEIN SCHNIPSEL) --- */
 .whatsapp-widget {
     position: fixed;
     bottom: 20px;
@@ -27,7 +199,7 @@
     height: 25px;
 }
 
-/* Auf kleinen Handys nur das Icon zeigen */
+/* Mobil-Optimierung für WhatsApp */
 @media (max-width: 480px) {
     .whatsapp-widget span { display: none; }
     .whatsapp-widget { padding: 12px; border-radius: 50%; }
