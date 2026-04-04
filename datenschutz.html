@@ -3,53 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Datenschutzerklärung | KFZ-Gutachter MV & Brandenburg</title>
+    <title>Datenschutzerklärung | unfallhilfe.net</title>
+    <link rel="stylesheet" href="style.css">
     <style>
-        body { font-family: 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: 0 auto; padding: 40px 20px; background: #fdfdfd; }
-        h1 { color: #00305f; border-bottom: 3px solid #e63946; padding-bottom: 10px; margin-bottom: 30px; }
-        h2 { color: #00305f; margin-top: 35px; font-size: 1.4rem; border-left: 4px solid #e63946; padding-left: 15px; }
-        h3 { color: #333; font-size: 1.1rem; margin-top: 20px; }
-        p, ul { margin-bottom: 15px; }
-        ul { padding-left: 20px; }
-        .back-link { display: inline-block; margin-bottom: 30px; color: #e63946; text-decoration: none; font-weight: bold; }
-        .back-link:hover { text-decoration: underline; }
-        .highlight-box { background: #f1f3f5; padding: 20px; border-radius: 8px; border: 1px solid #dee2e6; margin: 20px 0; }
-        .todo { background: #fff3cd; color: #856404; padding: 2px 5px; font-weight: bold; border-radius: 3px; }
+        /* Spezielles Design analog zum Impressum */
+        .legal-content h1 { 
+            font-size: 2.2rem; 
+            color: #00305f; 
+            text-shadow: none; 
+            margin-bottom: 20px;
+            border-bottom: 3px solid #e63946; /* Die rote Unterstreichung nur ganz oben */
+            padding-bottom: 10px;
+            display: inline-block;
+            width: 100%;
+        }
+        .legal-content h2 { 
+            font-size: 1.3rem; 
+            margin-top: 35px; 
+            color: #00305f; 
+            /* Akzent links wurde entfernt */
+        }
+        .legal-content h3 { 
+            font-size: 1.1rem; 
+            margin-top: 20px; 
+            color: #333;
+        }
+        .legal-content p, .legal-content ul { 
+            margin: 10px 0; 
+            color: #333;
+            line-height: 1.6;
+        }
+        .highlight-box { 
+            background: #f1f3f5; 
+            padding: 20px; 
+            border-radius: 8px; 
+            border: 1px solid #dee2e6; 
+            margin: 20px 0; 
+        }
     </style>
 </head>
 <body>
 
-    <a href="index.html" class="back-link">← Zurück zur Startseite</a>
+    <div id="menu-icon">
+        <div class="bar"></div>
+        <div class="bar)</div>
+        <div class="bar"></div>
+    </div>
 
-    <h1>Datenschutzerklärung</h1>
+    <div id="side-menu">
+        <a href="index.html">Startseite</a>
+        <a href="kontakt.html">Kontakt</a>
+        <a href="leistungen.html">Leistungen</a>
+        <a href="galerie.html">Fotogalerie</a>
+        <a href="erfahrungen.html">Erfahrungen von Kunden</a>
+    </div>
 
-    <section>
-        <h2>1. Datenschutz auf einen Blick</h2>
-        <h3>Allgemeine Hinweise</h3>
-        <p>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.</p>
-    </section>
+    <main class="content legal-content">
+        <div class="container">
+            <h1>Datenschutzerklärung</h1>
 
-    <section class="highlight-box">
-        <h2>2. Verantwortliche Stelle</h2>
-        <p>Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website und im Rahmen der Gutachtenerstellung ist:</p>
-        <p>
-            <strong><span class="todo">[Vor- und Nachname]</span></strong><br>
-            <span class="todo">[Straße und Hausnummer]</span><br>
-            <span class="todo">[PLZ und Ort]</span><br><br>
-            Telefon: <span class="todo">[Deine Telefonnummer]</span><br>
-            E-Mail: <span class="todo">[Deine E-Mail-Adresse]</span>
-        </p>
-    </section>
+            <section>
+                <h2>1. Datenschutz auf einen Blick</h2>
+                <h3>Allgemeine Hinweise</h3>
+                <p>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.</p>
+            </section>
 
-    <section>
-        <h2>3. Datenerfassung auf dieser Website</h2>
-        <h3>Hosting durch GitHub Pages</h3>
-        <p>Wir hosten unsere Website bei GitHub Pages. Anbieter ist die GitHub Inc., 88 Colin P. Kelly Jr. St, San Francisco, CA 94107, USA. Wenn Sie unsere Website besuchen, erfasst GitHub u. a. Ihre IP-Adresse und speichert diese in Logfiles. Dies ist technisch notwendig, um die Sicherheit und Stabilität der Seite zu gewährleisten.</p>
-        
-        <h3>Kontaktaufnahme</h3>
-        <p>Wenn Sie uns per E-Mail oder Telefon kontaktieren, werden Ihre Angaben (Name, Telefonnummer, E-Mail) inklusive aller daraus resultierenden personenbezogenen Daten zum Zwecke der Bearbeitung Ihres Anliegens bei uns gespeichert und verarbeitet.</p>
-    </section>
+            <section class="highlight-box">
+                <h2>2. Verantwortliche Stelle</h2>
+                <p>Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website und im Rahmen der Gutachtenerstellung ist:</p>
+                <p>
+                    <strong>[Vor- und Nachname]</strong><br>
+                    [Straße und Hausnummer]<br>
+                    [PLZ und Ort]<br><br>
+                    Telefon: [Deine Telefonnummer]<br>
+                    E-Mail: [Deine E-Mail-Adresse]
+                </p>
+            </section>
 
-    <section>
-        <h2>4. Datenverarbeitung im Rahmen der Gutachtenerstellung</h2>
-        <p>Als KFZ-Sachverständige verarbeiten wir Daten zur Erfüllung von Verträgen (Art. 6 Abs. 1 lit. b DSGVO).
+            <section>
+                <h2>3. Datenerfassung auf dieser Website</h2>
+                <h3>Hosting durch GitHub Pages</h3>
+                <p>Wir hosten unsere Website bei GitHub Pages. Anbieter ist die GitHub Inc., 88 Colin P. Kelly Jr. St, San Francisco, CA 94107, USA. Wenn Sie unsere Website besuchen, erfasst GitHub u. a. Ihre IP-Adresse und speichert diese in Logfiles. Dies ist technisch notwendig, um die Sicherheit und Stabilität der Seite zu gewährleisten.</p>
+                
+                <h3>Kontaktaufnahme</h3>
+                <p>Wenn Sie uns per E-Mail oder Telefon kontaktieren, werden Ihre Angaben (Name, Telefonnummer, E-Mail) inklusive aller daraus resultierenden personenbezogenen Daten zum Zwecke der Bearbeitung Ihres Anliegens bei uns gespeichert und verarbeitet.</p>
+            </section>
+
+            <section>
+                <h2>4. Datenverarbeitung im Rahmen der Gutachtenerstellung</h2>
+                <p>Als KFZ-Sachverständige verarbeiten wir Daten zur Erfüllung von Verträgen (Art. 6 Abs. 1 lit. b DSGVO). Dies umfasst insbesondere Fahrzeugdaten, Halterdaten und Unfalldaten zur Erstellung von Schadengutachten.</p>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <span>© 2026 Ihr KFZ-Sachverständigenbüro - MV & Brandenburg</span>
+            <div style="margin-top: 15px;">
+                <a href="impressum.html">Impressum</a> | 
+                <a href="datenschutz.html">Datenschutz</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
