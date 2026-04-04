@@ -3,10 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Impressum | KFZ-Gutachter MV & Brandenburg</title>
+    <title>Impressum | unfallhilfe.net</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Spezielles Design für die rote Linie und Abstände auf dieser Seite */
+        .legal-content h1 { 
+            font-size: 2.2rem; 
+            color: #00305f; 
+            text-shadow: none; 
+            margin-bottom: 20px;
+            border-bottom: 3px solid #e63946; /* Die rote Unterstreichung */
+            padding-bottom: 10px;
+            display: inline-block; /* Sorgt dafür, dass die Linie nur so breit wie das Wort ist */
+            width: 100%;
+        }
+        .legal-content h2 { 
+            font-size: 1.2rem; 
+            margin-top: 25px; 
+            color: #00305f; 
+        }
+        .legal-content p { 
+            margin: 8px 0; 
+            color: #333;
+            line-height: 1.5;
+        }
+    </style>
 </head>
 <body>
+
     <div id="menu-icon">
         <div class="bar"></div>
         <div class="bar"></div>
@@ -21,20 +45,18 @@
         <a href="erfahrungen.html">Erfahrungen von Kunden</a>
     </div>
 
-    <main class="content">
+    <main class="content legal-content">
         <div class="container">
             <h1>Impressum</h1>
 
-            <article class="trust-box">
-                <h2>Anbieter</h2>
-                <p><strong>[Dein Name / Firmenname]</strong></p>
-                <p>[Straße Hausnummer]</p>
-                <p>[PLZ Ort]</p>
+            <h2>Anbieter</h2>
+            <p><strong>[Dein Name / Firmenname]</strong></p>
+            <p>[Straße Hausnummer]</p>
+            <p>[PLZ Ort]</p>
 
-                <h2>Kontakt</h2>
-                <p>Telefon: <a href="tel:[DeineNummer]">[Deine Nummer]</a></p>
-                <p>E-Mail: [Deine E-Mail]</p>
-            </article>
+            <h2>Kontakt</h2>
+            <p>Telefon: [Deine Nummer]</p>
+            <p>E-Mail: [Deine E-Mail]</p>
 
             <h2>Berufsbezeichnung</h2>
             <p>Freier Sachverständiger für Kraftfahrzeugschäden und -bewertung</p>
@@ -58,6 +80,8 @@
             </div>
         </div>
     </footer>
+
     <script src="script.js"></script>
+
 </body>
 </html>
