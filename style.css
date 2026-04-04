@@ -1,25 +1,8 @@
-/* --- 1. GRUNDDESIGN & SCHRIFTEN --- */
-* { 
-    margin: 0; 
-    padding: 0; 
-    box-sizing: border-box; 
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
-}
+/* --- DEIN ORIGINALER STYLE --- */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+body { color: #2c3e50; line-height: 1.6; background-color: #fdfdfd; }
 
-body { 
-    color: #2c3e50; 
-    line-height: 1.6; 
-    background-color: #fdfdfd; 
-}
-
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
-    position: relative;
-    padding: 0 20px;
-}
-
-/* --- 2. VIDEO-HEADER (HERO) --- */
+/* Responsiver Video-Header */
 .hero {
     position: relative;
     height: 70vh;
@@ -56,10 +39,18 @@ body {
     z-index: 2;
 }
 
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    padding: 0 20px;
+}
+
 .hero .container {
     z-index: 3;
 }
 
+/* Responsive Schriftgrößen */
 h1 {
     font-size: clamp(1.8rem, 5vw, 3rem);
     margin-bottom: 15px;
@@ -76,7 +67,6 @@ h1 {
     text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
 }
 
-/* --- 3. BUTTONS & BADGES --- */
 .cta-button {
     display: inline-block;
     background-color: #e63946;
@@ -108,17 +98,13 @@ h1 {
     margin-bottom: 20px;
 }
 
-/* --- 4. INHALT & SERVICE-KARTEN --- */
+/* SEO & Service Content */
 .content {
     padding: 60px 20px;
     background: white;
 }
 
-h2 { 
-    color: #00305f; 
-    font-size: clamp(1.5rem, 4vw, 2.2rem); 
-    margin-bottom: 20px; 
-}
+h2 { color: #00305f; font-size: clamp(1.5rem, 4vw, 2.2rem); margin-bottom: 20px; }
 
 .services {
     display: grid;
@@ -136,11 +122,7 @@ h2 {
     border-bottom: 4px solid #e63946;
 }
 
-.service-card h3 { 
-    color: #e63946; 
-    margin-bottom: 15px; 
-    margin-top: 0; 
-}
+.service-card h3 { color: #e63946; margin-bottom: 15px; margin-top: 0; }
 
 .trust-box {
     margin-top: 60px;
@@ -149,7 +131,6 @@ h2 {
     background: #f8f9fa;
 }
 
-/* --- 5. FOOTER --- */
 footer {
     text-align: center;
     padding: 40px 20px;
@@ -158,18 +139,22 @@ footer {
     font-size: 0.95rem;
 }
 
-footer a { 
-    color: #a8dadc; 
-    text-decoration: none; 
-    font-weight: bold; 
-    margin: 0 10px; 
+footer a { color: #a8dadc; text-decoration: none; font-weight: bold; margin: 0 10px; }
+footer a:hover { text-decoration: underline; }
+
+/* --- ZUSÄTZE FÜR MENÜ & WHATSAPP --- */
+
+/* Fix für das Hamburger Menü Z-Index */
+#menu-icon {
+    z-index: 100;
+}
+#side-menu {
+    z-index: 99;
+    /* Damit die Links im Menü weiß sind wie im Original */
+    color: white; 
 }
 
-footer a:hover { 
-    text-decoration: underline; 
-}
-
-/* --- 6. WHATSAPP BUTTON (DEIN SCHNIPSEL) --- */
+/* WhatsApp Widget Design */
 .whatsapp-widget {
     position: fixed;
     bottom: 20px;
@@ -199,7 +184,7 @@ footer a:hover {
     height: 25px;
 }
 
-/* Mobil-Optimierung für WhatsApp */
+/* Mobile Optimierung für WhatsApp Button */
 @media (max-width: 480px) {
     .whatsapp-widget span { display: none; }
     .whatsapp-widget { padding: 12px; border-radius: 50%; }
