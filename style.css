@@ -189,3 +189,48 @@ footer a:hover { text-decoration: underline; }
     .whatsapp-widget span { display: none; }
     .whatsapp-widget { padding: 12px; border-radius: 50%; }
 }
+
+/* --- NAVIGATION DESIGN --- */
+#menu-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+    cursor: pointer;
+    background: rgba(0,0,0,0.5);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background: white;
+    margin: 5px 0;
+}
+
+#side-menu {
+    position: fixed;
+    top: 0;
+    right: -250px; /* Startet versteckt */
+    width: 250px;
+    height: 100%;
+    background: #00305f;
+    z-index: 99;
+    transition: 0.3s;
+    padding-top: 80px;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.3);
+}
+
+#side-menu a {
+    display: block;
+    padding: 15px 25px;
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+#side-menu a:hover {
+    background: rgba(255,255,255,0.1);
+}
