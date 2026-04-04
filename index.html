@@ -223,25 +223,8 @@
             </div>
         </div>
     </footer>
-    <script>
-        const menuIcon = document.getElementById('menu-icon');
-        const sideMenu = document.getElementById('side-menu');
+    <script src="script.js"></script>
 
-        menuIcon.addEventListener('click', () => {
-            if (sideMenu.style.right === '0px') {
-                sideMenu.style.right = '-250px';
-            } else {
-                sideMenu.style.right = '0px';
-            }
-        });
-
-        // Schließt das Menü beim Klick außerhalb
-        document.addEventListener('click', (event) => {
-            if (!menuIcon.contains(event.target) && !sideMenu.contains(event.target)) {
-                sideMenu.style.right = '-250px';
-            }
-        });
-    </script>
     <a href="https://wa.me/49123456789" class="whatsapp-widget" target="_blank" rel="noopener noreferrer">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
         <span>Unfall melden</span>
