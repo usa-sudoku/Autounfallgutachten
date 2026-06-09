@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+   <url>
+      <loc>https://unfallhilfe.net/</loc>
+      <priority>1.00</priority>
+   </url>
+   <url>
+      <loc>https://unfallhilfe.net/leistungen.html</loc>
+      <priority>0.80</priority>
+   </url>
+   <url>
+      <loc>https://unfallhilfe.net/kontakt.html</loc>
+      <priority>0.80</priority>
+   </url>
+   <url>
+      <loc>https://unfallhilfe.net/erfahrungen.html</loc>
+      <priority>0.60</priority>
+   </url>
+   <url>
+      <loc>https://unfallhilfe.net/galerie.html</loc>
+      <priority>0.50</priority>
+   </url>
+   <url>
+      <loc>https://unfallhilfe.net/impressum.html</loc>
+      <priority>0.30</priority>
+   </url>
+   <url>
+      <loc>https://unfallhilfe.net/datenschutz.html</loc>
+      <priority>0.30</priority>
+   </url>
+</urlset>
