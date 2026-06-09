@@ -1,0 +1,20 @@
+{
+  "name": "Bernd Hackbarth - Freier KFZ-Sachverständiger",
+  "description": "Unabhängige KFZ-Gutachten, Unfallgutachten und Fahrzeugbewertungen in Mecklenburg-Vorpommern und Brandenburg.",
+  "url": "https://unfallhilfe.net",
+  "contact": {
+    "phone": "+4939812629866",
+    "email": "info@unfallhilfe.net",
+    "address": "Schillerstraße 12, 17235 Neustrelitz"
+  },
+  "services": [
+    "Haftpflicht- & Schadengutachten",
+    "Beweissicherung & Kurzgutachten",
+    "Fahrzeug- & Wertgutachten",
+    "24/7 Vor-Ort-Service"
+  ],
+  "regions": [
+    "Mecklenburg-Vorpommern",
+    "Brandenburg"
+  ]
+}
