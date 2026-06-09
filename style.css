@@ -234,3 +234,37 @@ footer a:hover { text-decoration: underline; }
 #side-menu a:hover {
     background: rgba(255,255,255,0.1);
 }
+
+
+/* --- EXTRA DESIGN FÜR DIE LEISTUNGSSEITE --- */
+.services-detail-grid {
+    display: grid;
+    /* Erlaubt den Karten mehr Breite (min. 450px statt 280px), damit der lange Text Platz hat */
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); 
+    gap: 30px;
+    margin-top: 20px;
+}
+
+/* Nutzt deine .service-card, fügt aber Bewegung hinzu */
+.service-detail-card {
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* Lässt die Karte elegant leicht hochspringen, wenn man mit der Maus drüberfährt */
+.service-detail-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(0, 48, 95, 0.1);
+}
+
+.service-icon {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+/* Smartphone-Optimierung: Unter 500px Displaybreite wird alles sauber einspaltig */
+@media (max-width: 500px) {
+    .services-detail-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
