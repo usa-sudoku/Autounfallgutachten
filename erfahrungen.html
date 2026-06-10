@@ -1,1 +1,224 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kundenbewertungen & Erfahrungen | Ihr KFZ-Gutachter</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Spezifische Styles für die Erfahrungsberichte */
+        .reviews-intro {
+            margin-bottom: 40px;
+            max-width: 800px;
+        }
+
+        .rating-overview {
+            background: #f8f9fa;
+            border-left: 5px solid #e63946;
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .rating-score {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #00305f;
+            line-height: 1;
+        }
+
+        .rating-stars {
+            color: #ffb703;
+            font-size: 1.4rem;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .review-card {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border-top: 4px solid #00305f;
+            transition: transform 0.2s;
+        }
+
+        .review-card:hover {
+            transform: translateY(-3px);
+            border-top-color: #e63946;
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .reviewer-name {
+            font-weight: bold;
+            color: #00305f;
+            font-size: 1.05rem;
+        }
+
+        .review-date {
+            font-size: 0.85rem;
+            color: #777;
+        }
+
+        .review-text {
+            font-size: 0.95rem;
+            color: #333;
+            line-height: 1.5;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .review-tag {
+            font-size: 0.8rem;
+            background: #f1f3f5;
+            color: #00305f;
+            padding: 4px 10px;
+            border-radius: 15px;
+            align-self: flex-start;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="menu-icon">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+
+    <div id="side-menu">
+        <a href="index.html">Startseite</a>
+        <a href="kontakt.html">Kontakt</a>
+        <a href="leistungen.html">Leistungen</a>
+        <a href="galerie.html">Fotogalerie</a>
+        <a href="erfahrungen.html">Erfahrungen von Kunden</a>
+    </div>
+
+    <main class="content">
+        <div class="container">
+            <span class="region-badge">Das sagen unsere Kunden</span>
+            <h2>Erfahrungen & Kundenstimmen</h2>
+            
+            <div class="reviews-intro">
+                <p>Zufriedene Kunden sind unsere beste Visitenkarte. Als unabhängiges KFZ-Sachverständigenbüro setzen wir uns zu 100 % für Ihre Rechte gegenüber den Versicherungen ein. Lesen Sie hier ein paar Rückmeldungen von Autofahrern, denen wir nach einem Unfall schnell und unkompliziert helfen konnten.</p>
+            </div>
+
+            <!-- Gesamtbewertung Übersicht -->
+            <div class="rating-overview">
+                <div class="rating-score">4.9</div>
+                <div>
+                    <div class="rating-stars">★★★★★</div>
+                    <p style="margin: 0; color: #555; font-size: 0.9rem;">Durchschnittliche Bewertung aus über 80 Gutachten</p>
+                </div>
+            </div>
+
+            <div class="reviews-grid">
+                
+                <!-- Bewertung 1 -->
+                <div class="review-card">
+                    <div>
+                        <div class="review-header">
+                            <span class="reviewer-name">Michael T. aus Neustrelitz</span>
+                            <span class="review-stars" style="color: #ffb703;">★★★★★</span>
+                        </div>
+                        <p class="review-text">"Nach einem unverschuldeten Auffahrunfall auf der Bundesstraße wurde mir Herr Hackbarth empfohlen. Er kam noch am selben Tag direkt zu mir nach Hause, um den Schaden aufzunehmen. Das Gutachten war super schnell fertig und die gegnerische Versicherung hat alles anstandslos bezahlt. Spitzenklasse!"</p>
+                    </div>
+                    <span class="review-tag">Haftpflichtschaden</span>
+                </div>
+
+                <!-- Bewertung 2 -->
+                <div class="review-card">
+                    <div>
+                        <div class="review-header">
+                            <span class="reviewer-name">Sabine W. aus Waren (Müritz)</span>
+                            <span class="review-stars" style="color: #ffb703;">★★★★★</span>
+                        </div>
+                        <p class="review-text">"Sehr kompetent, ehrlich und unabhängig. Man merkt sofort, dass hier im Sinne des Geschädigten gearbeitet wird und nicht im Sinne der Versicherung. Die Beratung am Telefon war schon vorab extrem hilfreich. Ich würde mein Auto jederzeit wieder hier schätzen lassen."</p>
+                    </div>
+                    <span class="review-tag">Unfallgutachten</span>
+                </div>
+
+                <!-- Bewertung 3 -->
+                <div class="review-card">
+                    <div>
+                        <div class="review-header">
+                            <span class="reviewer-name">Andreas B. aus Wittstock</span>
+                            <span class="review-stars" style="color: #ffb703;">★★★★★</span>
+                        </div>
+                        <p class="review-text">"Absolut reibungsloser Ablauf! Der Gutachter kam direkt in meine Werkstatt und hat die Beweissicherung übernommen. Kein langes Warten, sehr detaillierte Dokumentation und eine sehr freundliche Kommunikation. Volle Empfehlung für jeden in Brandenburg und MV!"</p>
+                    </div>
+                    <span class="review-tag">Vor-Ort-Service</span>
+                </div>
+
+                <!-- Bewertung 4 -->
+                <div class="review-card">
+                    <div>
+                        <div class="review-header">
+                            <span class="reviewer-name">Familie Lehmann aus Neubrandenburg</span>
+                            <span class="review-stars" style="color: #ffb703;">★★★★★</span>
+                        </div>
+                        <p class="review-text">"Wir brauchten ein Wertgutachten für unseren Oldtimer zur korrekten Einstufung bei der Versicherung. Die Begutachtung war extrem gründlich, jeder kleine Aspekt wurde berücksichtigt. Das fertige Dokument war hochprofessionell. Vielen Dank für die tolle Arbeit!"</p>
+                    </div>
+                    <span class="review-tag">Wertgutachten</span>
+                </div>
+
+                <!-- Bewertung 5 -->
+                <div class="review-card">
+                    <div>
+                        <div class="review-header">
+                            <span class="reviewer-name">Christian K. aus Templin</span>
+                            <span class="review-stars" style="color: #ffb703;">★★★★☆</span>
+                        </div>
+                        <p class="review-text">"Schneller Rückruf und sehr unkomplizierte Terminabsprache. Da der Unfall am Wochenende passierte, war ich froh, so schnell jemanden zu erreichen, der mir die rechtlichen Schritte erklärt hat. Zuverlässig und kompetent."</p>
+                    </div>
+                    <span class="review-tag">24/7 Notdienst</span>
+                </div>
+
+            </div>
+
+            <article class="trust-box">
+                <h3>Hatten auch Sie einen Unfall und brauchen verlässliche Hilfe?</h3>
+                <p>Verlieren Sie keine Zeit und überlassen Sie die Schadensregulierung nicht dem Zufall oder der gegnerischen Versicherung. Rufen Sie uns direkt an – wir klären Ihre Fragen sofort.</p>
+                <div style="margin-top: 25px;">
+                    <a href="tel:039812629866" class="cta-button">Jetzt anrufen: 03981 / 2629866</a>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <span>© 2026 Ihr KFZ-Sachverständigenbüro - MV & Brandenburg</span>
+            <div style="margin-top: 15px;">
+                <a href="impressum.html">Impressum</a> | 
+                <a href="datenschutz.html">Datenschutz</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
 
