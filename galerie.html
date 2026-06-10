@@ -1,1 +1,174 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fotogalerie | Ihr KFZ-Gutachter in MV & Brandenburg</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Spezifische Styles für die Galerie */
+        .gallery-intro {
+            margin-bottom: 40px;
+            max-width: 800px;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+        
+        .gallery-item {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            border-bottom: 4px solid #00305f;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 48, 95, 0.1);
+            border-bottom-color: #e63946;
+        }
+        
+        .gallery-placeholder {
+            height: 200px;
+            background: #f4f6f8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #00305f;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .gallery-info {
+            padding: 20px;
+        }
+        
+        .gallery-info h3 {
+            font-size: 1.2rem;
+            color: #00305f;
+            margin-bottom: 8px;
+        }
+        
+        .gallery-info p {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="menu-icon">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+
+    <div id="side-menu">
+        <a href="index.html">Startseite</a>
+        <a href="kontakt.html">Kontakt</a>
+        <a href="leistungen.html">Leistungen</a>
+        <a href="galerie.html">Fotogalerie</a>
+        <a href="erfahrungen.html">Erfahrungen von Kunden</a>
+    </div>
+
+    <main class="content">
+        <div class="container">
+            <span class="region-badge">Einblick in unsere Arbeit</span>
+            <h2>Fotogalerie & Referenzen</h2>
+            
+            <div class="gallery-intro">
+                <p>Ob schwere Kaskoschäden, präzise Beweissicherung nach einem Haftpflichtschaden oder die detaillierte Wertermittlung von Liebhaberfahrzeugen – wir dokumentieren jeden Fall absolut rechtssicher und hochprofessionell. Hier sehen Sie Beispiele aus unserem täglichen Einsatzgebiet in Mecklenburg-Vorpommern und Brandenburg.</p>
+            </div>
+
+            <div class="gallery-grid">
+                
+                <!-- Kategorie 1 -->
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">🚗💥</div>
+                    <div class="gallery-info">
+                        <h3>Unfall- & Haftpflichtschäden</h3>
+                        <p>Dokumentation von Deformationen, Lackschäden und strukturellen Beschädigungen nach Verkehrsunfällen für die gegnerische Versicherung.</p>
+                    </div>
+                </div>
+
+                <!-- Kategorie 2 -->
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">🔍📋</div>
+                    <div class="gallery-info">
+                        <h3>Detaillierte Beweissicherung</h3>
+                        <p>Präzise Nahaufnahmen von versteckten Schäden, Achsaufhängungen und Unterböden zur lückenlosen Beweisführung.</p>
+                    </div>
+                </div>
+
+                <!-- Kategorie 3 -->
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">📐🚛</div>
+                    <div class="gallery-info">
+                        <h3>Nutzfahrzeuge & Transporter</h3>
+                        <p>Schadensaufnahme an LKW, Transportern und gewerblich genutzten Fahrzeugen inklusive Ermittlung des Nutzungsausfalls.</p>
+                    </div>
+                </div>
+
+                <!-- Kategorie 4 -->
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">✨💎</div>
+                    <div class="gallery-info">
+                        <h3>Wertgutachten & Klassiker</h3>
+                        <p>Zustandsbeurteilung und Wertermittlung von Oldtimern, Youngtimern und hochwertigen Fahrzeugen zur Versicherungseinstufung.</p>
+                    </div>
+                </div>
+
+                <!-- Kategorie 5 -->
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">📍⏱️</div>
+                    <div class="gallery-info">
+                        <h3>Vor-Ort-Einsatz</h3>
+                        <p>Flexibler Einsatz direkt am Unfallort, in Partnerwerkstätten oder bei Ihnen zu Hause in der gesamten Region.</p>
+                    </div>
+                </div>
+
+                <!-- Kategorie 6 -->
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">🕵️‍♂️📊</div>
+                    <div class="gallery-info">
+                        <h3>Plausibilitätsprüfungen</h3>
+                        <p>Technische Gegenüberstellung von Fahrzeugschäden zur Überprüfung, ob der Schadenverlauf zum Unfallereignis passt.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <article class="trust-box">
+                <h3>Benötigen Sie ein Gutachten für Ihr Fahrzeug?</h3>
+                <p>Wir kommen direkt zu Ihnen und nehmen den Schaden professionell auf – schnell, unabhängig und unkompliziert.</p>
+                <div style="margin-top: 25px;">
+                    <a href="kontakt.html" class="cta-button">Jetzt Gutachten anfordern</a>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <span>© 2026 Ihr KFZ-Sachverständigenbüro - MV & Brandenburg</span>
+            <div style="margin-top: 15px;">
+                <a href="impressum.html">Impressum</a> | 
+                <a href="datenschutz.html">Datenschutz</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
 
