@@ -12,7 +12,6 @@ menuIcon.addEventListener('click', () => {
     }
 });
 
-// Schließt das Menü beim Klick außerhalb
 document.addEventListener('click', (event) => {
     if (!menuIcon.contains(event.target) && !sideMenu.contains(event.target)) {
         sideMenu.style.right = '-250px';
@@ -21,7 +20,7 @@ document.addEventListener('click', (event) => {
 
 
 /* ==========================================================================
-   2. HIGH-GLOSS LACKEFFEKT (SCROLL-GLOW FÜR DEN FOOTER)
+   2. REPARIERTER HIGH-GLOSS LACKEFFEKT (SCROLL-GLOW)
    ========================================================================== */
 window.addEventListener('scroll', function() {
     const footer = document.querySelector('footer');
@@ -30,20 +29,22 @@ window.addEventListener('scroll', function() {
     const rect = footer.getBoundingClientRect();
     const viewHeight = window.innerHeight;
     
-    // Sobald die Oberkante des Footers im Bildschirm auftaucht
+    // Sobald der Footer unten ins Bild rutscht
     if (rect.top < viewHeight && rect.bottom > 0) {
         
-        // Berechnet den Scroll-Fortschritt im Footer (Wert zwischen 0 und 1)
-        const scrolledFraction = (viewHeight - rect.top) / (viewHeight + rect.height);
+        // NEUE FORMEL: Berechnet den exakten Weg von "Auftauchen" bis "Ganz oben"
+        const totalWay = viewHeight + rect.height;
+        const currentWay = viewHeight - rect.top;
+        const scrolledFraction = currentWay / totalWay;
         
-        // Berechnungen für den studioartigen Lichtbalken im Klarlack:
-        // X wandert von links nach rechts (von 10% bis 70%)
-        const glowX = 10 + (scrolledFraction * 60);
+        // Viel größere Bewegungsradien, damit das Licht nicht festklebt:
+        // X wandert jetzt großzügig von links nach rechts (0% bis 100%)
+        const glowX = scrolledFraction * 100;
         
-        // Y wandert von weit oben nach unten in die Fläche hinein (-40% bis 30%)
-        const glowY = -40 + (scrolledFraction * 70);
+        // Y startet viel tiefer und wandert nach unten weg (-10% bis 80%)
+        const glowY = -10 + (scrolledFraction * 90);
         
-        // Schreibt die berechneten Prozentwerte live als CSS-Variablen in den Footer
+        // Werte live ins CSS übergeben
         footer.style.setProperty('--glow-x', glowX + '%');
         footer.style.setProperty('--glow-y', glowY + '%');
     }
