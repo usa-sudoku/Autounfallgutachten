@@ -1,18 +1,29 @@
-/* --- DEIN LOGO-OPTIMIERTES STYLE MIT PAPIEROPTIK --- */
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+/* --- SACHVERSTÄNDIGENBÜRO STYLE MIT PAPIEROPTIK --- */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+}
 
 body { 
     color: #2c3e50; 
     line-height: 1.6; 
-    /* Champagner als Basisfarbe */
+    /* Champagner als Basisfarbe (#E2CAB1) */
     background-color: #E2CAB1; 
     
-    /* OPTION A: Einbettung einer extrem leichten SVG-Papierstruktur direkt per CSS */
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3联%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+    /* Greift direkt auf den aktuellen Namen deines Bildes im Ordner "Bilder" zu */
+    background-image: url('Bilder/1781190149157(2).png'); 
     
-    /* TIPP: Falls du ein echtes, nahtloses Papier-Hintergrundbild (z.B. paper.jpg) hast, 
-       ersetze das background-image einfach durch: 
-       background-image: url('images/paper.jpg'); background-repeat: repeat; */
+    /* Verhindert Kachelung, um harte Kanten des Farbverlaufs zu vermeiden */
+    background-repeat: no-repeat; 
+    
+    /* Streckt das Papier sauber über den gesamten Bildschirm */
+    background-size: cover; 
+    background-position: center top;
+    
+    /* Fixiert das Papier: Text fließt edel über die Struktur hinweg */
+    background-attachment: fixed; 
 }
 
 /* Responsiver Video-Header */
@@ -48,7 +59,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    /* Tiefgrün aus Logo mit Transparenz */
+    /* Tiefgrün aus Logo (#172F1B) mit Transparenz */
     background: rgba(23, 47, 27, 0.75);
     z-index: 2;
 }
@@ -82,7 +93,7 @@ h1 {
 
 .cta-button {
     display: inline-block;
-    /* Rot aus Logo */
+    /* Rot aus Logo (#B03133) */
     background-color: #B03133;
     color: white;
     padding: clamp(14px, 3vw, 18px) clamp(25px, 5vw, 45px);
@@ -114,12 +125,16 @@ h1 {
 
 .content {
     padding: 60px 20px;
-    /* Lässt den Papierhintergrund durchscheinen, hellt ihn für bessere Lesbarkeit aber leicht auf */
-    background: rgba(255, 255, 255, 0.4); 
-    backdrop-filter: blur(2px); /* Macht den Hintergrund weicher */
+    /* Lässt das edle Papier durchscheinen, hellt es aber für optimale Lesbarkeit auf */
+    background: rgba(255, 255, 255, 0.35); 
+    backdrop-filter: blur(1px); 
 }
 
-h2 { color: #172F1B; font-size: clamp(1.5rem, 4vw, 2.2rem); margin-bottom: 20px; }
+h2 { 
+    color: #172F1B; 
+    font-size: clamp(1.5rem, 4vw, 2.2rem); 
+    margin-bottom: 20px; 
+}
 
 .services {
     display: grid;
@@ -132,20 +147,24 @@ h2 { color: #172F1B; font-size: clamp(1.5rem, 4vw, 2.2rem); margin-bottom: 20px;
     padding: 30px;
     border: 1px solid rgba(23, 47, 27, 0.1);
     border-radius: 10px;
-    /* Etwas helleres Papierweiß für Kontrast */
+    /* Weiß-transparenter Kern, damit Papierstruktur fühlbar bleibt */
     background: rgba(255, 255, 255, 0.85); 
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     border-bottom: 4px solid #B03133; 
 }
 
-.service-card h3 { color: #B03133; margin-bottom: 15px; margin-top: 0; }
+.service-card h3 { 
+    color: #B03133; 
+    margin-bottom: 15px; 
+    margin-top: 0; 
+}
 
 .trust-box {
     margin-top: 60px;
     border-left: 5px solid #172F1B; 
     padding: 25px;
-    /* Harmonisches, helles Beige für die Infobox */
-    background: rgba(255, 255, 255, 0.7);
+    /* Harmonische Box-Überlagerung */
+    background: rgba(255, 255, 255, 0.65);
     border-radius: 0 10px 10px 0;
 }
 
@@ -157,8 +176,16 @@ footer {
     font-size: 0.95rem;
 }
 
-footer a { color: #E2CAB1; text-decoration: none; font-weight: bold; margin: 0 10px; }
-footer a:hover { text-decoration: underline; }
+footer a { 
+    color: #E2CAB1; 
+    text-decoration: none; 
+    font-weight: bold; 
+    margin: 0 10px; 
+}
+
+footer a:hover { 
+    text-decoration: underline; 
+}
 
 /* WhatsApp & Menü-Elemente */
 .whatsapp-widget {
@@ -185,7 +212,10 @@ footer a:hover { text-decoration: underline; }
     background-color: #128c7e;
 }
 
-.whatsapp-widget img { width: 25px; height: 25px; }
+.whatsapp-widget img { 
+    width: 25px; 
+    height: 25px; 
+}
 
 @media (max-width: 480px) {
     .whatsapp-widget span { display: none; }
@@ -203,7 +233,12 @@ footer a:hover { text-decoration: underline; }
     border-radius: 5px;
 }
 
-.bar { width: 25px; height: 3px; background: white; margin: 5px 0; }
+.bar { 
+    width: 25px; 
+    height: 3px; 
+    background: white; 
+    margin: 5px 0; 
+}
 
 #side-menu {
     position: fixed;
@@ -227,7 +262,9 @@ footer a:hover { text-decoration: underline; }
     border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
-#side-menu a:hover { background: rgba(255,255,255,0.1); }
+#side-menu a:hover { 
+    background: rgba(255,255,255,0.1); 
+}
 
 .services-detail-grid {
     display: grid;
@@ -249,7 +286,10 @@ footer a:hover { text-decoration: underline; }
     box-shadow: 0 6px 18px rgba(23, 47, 27, 0.15);
 }
 
-.service-icon { font-size: 2rem; margin-bottom: 15px; }
+.service-icon { 
+    font-size: 2rem; 
+    margin-bottom: 15px; 
+}
 
 @media (max-width: 500px) {
     .services-detail-grid { grid-template-columns: 1fr; }
