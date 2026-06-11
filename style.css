@@ -1,4 +1,4 @@
-/* --- DEIN ORIGINALER STYLE --- */
+/* --- DEIN LOGO-OPTIMIERTES STYLE --- */
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
 body { color: #2c3e50; line-height: 1.6; background-color: #fdfdfd; }
 
@@ -35,7 +35,8 @@ body { color: #2c3e50; line-height: 1.6; background-color: #fdfdfd; }
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 48, 95, 0.6);
+    /* Tiefgrün aus 1000015291_2.jpg */
+    background: rgba(23, 47, 27, 0.7);
     z-index: 2;
 }
 
@@ -50,7 +51,6 @@ body { color: #2c3e50; line-height: 1.6; background-color: #fdfdfd; }
     z-index: 3;
 }
 
-/* Responsive Schriftgrößen */
 h1 {
     font-size: clamp(1.8rem, 5vw, 3rem);
     margin-bottom: 15px;
@@ -69,24 +69,25 @@ h1 {
 
 .cta-button {
     display: inline-block;
-    background-color: #e63946;
+    /* Rot aus 1000015296_2.jpg */
+    background-color: #B03133;
     color: white;
     padding: clamp(14px, 3vw, 18px) clamp(25px, 5vw, 45px);
     text-decoration: none;
     font-weight: bold;
     border-radius: 5px;
     font-size: clamp(1rem, 2.5vw, 1.2rem);
-    box-shadow: 0 4px 15px rgba(230, 57, 70, 0.4);
+    box-shadow: 0 4px 15px rgba(176, 49, 51, 0.4);
     transition: transform 0.2s, background-color 0.2s;
 }
 
 .cta-button:hover {
     transform: scale(1.05);
-    background-color: #c1121f;
+    background-color: #8c2426;
 }
 
 .region-badge {
-    background: #e63946;
+    background: #B03133; /* Rot aus 1000015296_2.jpg */
     color: white;
     padding: 6px 18px;
     border-radius: 25px;
@@ -98,13 +99,12 @@ h1 {
     margin-bottom: 20px;
 }
 
-/* SEO & Service Content */
 .content {
     padding: 60px 20px;
     background: white;
 }
 
-h2 { color: #00305f; font-size: clamp(1.5rem, 4vw, 2.2rem); margin-bottom: 20px; }
+h2 { color: #172F1B; font-size: clamp(1.5rem, 4vw, 2.2rem); margin-bottom: 20px; }
 
 .services {
     display: grid;
@@ -119,14 +119,14 @@ h2 { color: #00305f; font-size: clamp(1.5rem, 4vw, 2.2rem); margin-bottom: 20px;
     border-radius: 10px;
     background: #fff;
     box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-    border-bottom: 4px solid #e63946;
+    border-bottom: 4px solid #B03133; /* Rot aus 1000015296_2.jpg */
 }
 
-.service-card h3 { color: #e63946; margin-bottom: 15px; margin-top: 0; }
+.service-card h3 { color: #B03133; margin-bottom: 15px; margin-top: 0; }
 
 .trust-box {
     margin-top: 60px;
-    border-left: 5px solid #00305f;
+    border-left: 5px solid #172F1B; /* Grün aus 1000015291_2.jpg */
     padding: 25px;
     background: #f8f9fa;
 }
@@ -134,27 +134,17 @@ h2 { color: #00305f; font-size: clamp(1.5rem, 4vw, 2.2rem); margin-bottom: 20px;
 footer {
     text-align: center;
     padding: 40px 20px;
-    background: #00305f;
+    background: #172F1B; /* Grün aus 1000015291_2.jpg */
     color: #fff;
     font-size: 0.95rem;
 }
 
-footer a { color: #a8dadc; text-decoration: none; font-weight: bold; margin: 0 10px; }
+footer a { color: #E2CAB1; /* Champagner aus 1000015212_2.jpg */ text-decoration: none; font-weight: bold; margin: 0 10px; }
 footer a:hover { text-decoration: underline; }
 
-/* --- ZUSÄTZE FÜR MENÜ & WHATSAPP --- */
+#menu-icon { z-index: 100; }
+#side-menu { z-index: 99; color: white; }
 
-/* Fix für das Hamburger Menü Z-Index */
-#menu-icon {
-    z-index: 100;
-}
-#side-menu {
-    z-index: 99;
-    /* Damit die Links im Menü weiß sind wie im Original */
-    color: white; 
-}
-
-/* WhatsApp Widget Design */
 .whatsapp-widget {
     position: fixed;
     bottom: 20px;
@@ -179,43 +169,33 @@ footer a:hover { text-decoration: underline; }
     background-color: #128c7e;
 }
 
-.whatsapp-widget img {
-    width: 25px;
-    height: 25px;
-}
+.whatsapp-widget img { width: 25px; height: 25px; }
 
-/* Mobile Optimierung für WhatsApp Button */
 @media (max-width: 480px) {
     .whatsapp-widget span { display: none; }
     .whatsapp-widget { padding: 12px; border-radius: 50%; }
 }
 
-/* --- NAVIGATION DESIGN --- */
 #menu-icon {
     position: absolute;
     top: 20px;
     right: 20px;
     z-index: 100;
     cursor: pointer;
-    background: rgba(0,0,0,0.5);
+    background: rgba(23, 47, 27, 0.7); /* Grün aus 1000015291_2.jpg */
     padding: 10px;
     border-radius: 5px;
 }
 
-.bar {
-    width: 25px;
-    height: 3px;
-    background: white;
-    margin: 5px 0;
-}
+.bar { width: 25px; height: 3px; background: white; margin: 5px 0; }
 
 #side-menu {
     position: fixed;
     top: 0;
-    right: -250px; /* Startet versteckt */
+    right: -250px;
     width: 250px;
     height: 100%;
-    background: #00305f;
+    background: #172F1B; /* Grün aus 1000015291_2.jpg */
     z-index: 99;
     transition: 0.3s;
     padding-top: 80px;
@@ -231,40 +211,23 @@ footer a:hover { text-decoration: underline; }
     border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
-#side-menu a:hover {
-    background: rgba(255,255,255,0.1);
-}
+#side-menu a:hover { background: rgba(255,255,255,0.1); }
 
-
-/* --- EXTRA DESIGN FÜR DIE LEISTUNGSSEITE --- */
 .services-detail-grid {
     display: grid;
-    /* Erlaubt den Karten mehr Breite (min. 450px statt 280px), damit der lange Text Platz hat */
-    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); 
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
     gap: 30px;
     margin-top: 20px;
 }
 
-/* Nutzt deine .service-card, fügt aber Bewegung hinzu */
-.service-detail-card {
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-/* Lässt die Karte elegant leicht hochspringen, wenn man mit der Maus drüberfährt */
+.service-detail-card { transition: transform 0.2s, box-shadow 0.2s; }
 .service-detail-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 6px 18px rgba(0, 48, 95, 0.1);
+    box-shadow: 0 6px 18px rgba(23, 47, 27, 0.1);
 }
 
-.service-icon {
-    font-size: 2rem;
-    margin-bottom: 15px;
-}
+.service-icon { font-size: 2rem; margin-bottom: 15px; }
 
-/* Smartphone-Optimierung: Unter 500px Displaybreite wird alles sauber einspaltig */
 @media (max-width: 500px) {
-    .services-detail-grid {
-        grid-template-columns: 1fr;
-    }
+    .services-detail-grid { grid-template-columns: 1fr; }
 }
-
