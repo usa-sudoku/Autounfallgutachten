@@ -170,20 +170,38 @@ h2 {
 
 footer {
     text-align: center;
-    padding: 40px 20px;
-    background: #172F1B; 
+    padding: 50px 20px;
+    
+    /* Dein Logo-Grün als solide Basis */
+    background-color: #172F1B; 
+    
+    /* Erzeugt den metallischen Tiefen-Effekt (emailliertes Zahnrad) */
+    background-image: 
+        linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, transparent 50%, rgba(0, 0, 0, 0.25) 100%),
+        radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.08) 0%, transparent 60%);
+    
+    /* Ein feiner, heller Lichtrand an der Oberkante wie geschliffenes Metall */
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    
+    /* Tiefer Innenschatten für den hochwertigen "Plaketten-Look" */
+    box-shadow: inset 0 15px 30px rgba(0, 0, 0, 0.4), 0 -4px 10px rgba(0, 0, 0, 0.05); 
+    
     color: #fff;
     font-size: 0.95rem;
 }
 
 footer a { 
-    color: #E2CAB1; 
+    color: #E2CAB1; /* Champagner aus deinem Logo */
     text-decoration: none; 
     font-weight: bold; 
     margin: 0 10px; 
+    /* Weicher Schatten für perfekte Lesbarkeit auf dem metallischen Untergrund */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+    transition: color 0.2s ease;
 }
 
 footer a:hover { 
+    color: #fff;
     text-decoration: underline; 
 }
 
