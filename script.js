@@ -20,32 +20,31 @@ document.addEventListener('click', (event) => {
 
 
 /* ==========================================================================
-   2. REPARIERTER HIGH-GLOSS LACKEFFEKT (SCROLL-GLOW)
+   2. FREIER HIGH-GLOSS LACKEFFEKT (MAUS- & TOUCH-STEUERUNG)
    ========================================================================== */
-window.addEventListener('scroll', function() {
-    const footer = document.querySelector('footer');
-    if (!footer) return;
-    
-    const rect = footer.getBoundingClientRect();
-    const viewHeight = window.innerHeight;
-    
-    // Sobald der Footer unten ins Bild rutscht
-    if (rect.top < viewHeight && rect.bottom > 0) {
+const footer = document.querySelector('footer');
+
+if (footer) {
+    // Funktion zur Berechnung der freien Lichtposition
+    function moveLight(e) {
+        const rect = footer.getBoundingClientRect();
         
-        // NEUE FORMEL: Berechnet den exakten Weg von "Auftauchen" bis "Ganz oben"
-        const totalWay = viewHeight + rect.height;
-        const currentWay = viewHeight - rect.top;
-        const scrolledFraction = currentWay / totalWay;
+        // Holt die Position entweder vom Touch-Event (Handy) oder Maus-Event (PC)
+        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+        const clientY = e.touches ? e.touches[0].clientY : e.clientY;
         
-        // Viel größere Bewegungsradien, damit das Licht nicht festklebt:
-        // X wandert jetzt großzügig von links nach rechts (0% bis 100%)
-        const glowX = scrolledFraction * 100;
+        // Berechnet die exakte Position in Prozent innerhalb des Footers
+        const x = ((clientX - rect.left) / rect.width) * 100;
+        const y = ((clientY - rect.top) / rect.height) * 100;
         
-        // Y startet viel tiefer und wandert nach unten weg (-10% bis 80%)
-        const glowY = -10 + (scrolledFraction * 90);
-        
-        // Werte live ins CSS übergeben
-        footer.style.setProperty('--glow-x', glowX + '%');
-        footer.style.setProperty('--glow-y', glowY + '%');
+        // Übergibt die freien Koordinaten live ans CSS
+        footer.style.setProperty('--glow-x', x + '%');
+        footer.style.setProperty('--glow-y', y + '%');
     }
-});
+
+    // Event-Listener für PC (Mausbewegung)
+    footer.addEventListener('mousemove', moveLight);
+
+    // Event-Listener für Handys (Finger bewegen)
+    footer.addEventListener('touchmove', moveLight, { passive: true });
+}
