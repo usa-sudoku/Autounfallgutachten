@@ -168,30 +168,90 @@ h2 {
     border-radius: 0 10px 10px 0;
 }
 
+/* --- ERGÄNZUNG: HIGH-GLOSS CANDY LACK FOOTER --- */
 footer {
     text-align: center;
-    padding: 50px 20px;
+    padding: 80px 20px;
+    position: relative;
+    overflow: hidden;
     
-    /* Dein originales, sattes Logo-Grün – matt und elegant */
-    background-color: #172F1B; 
+    /* 1. SCHICHT: Das tiefe, satte Candy-Waldgrün */
+    background-color: #112414; /* Sehr dunkler Schatten-Grundton */
+    background-image: linear-gradient(
+        180deg, 
+        #1b3a20 0%,   /* Helles Metallic-Zentrum */
+        #172F1B 50%,  /* Dein Logo-Grün */
+        #0b160c 100%  /* Tiefer Schatten unten */
+    );
     
-    /* Ein feiner Schatten, damit der Übergang zum Papier extrem plastisch wirkt */
-    box-shadow: inset 0 8px 16px rgba(0, 0, 0, 0.3); 
+    /* Ein hauchdünner, extrem scharfer Lichtblitz an der Oberkante (Glaskante) */
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+    
+    /* Starker Innenschatten, der die Tiefe der Emaillie-Schicht zeigt */
+    box-shadow: 
+        inset 0 15px 30px rgba(0, 0, 0, 0.6),
+        0 -10px 20px rgba(0, 0, 0, 0.15); 
     
     color: #fff;
     font-size: 0.95rem;
+}
+
+/* 2. SCHICHT: Die hochglänzende Klarlack-Reflektion (Studio-Licht) */
+footer::before {
+    content: '';
+    position: absolute;
+    /* Startposition des Lichtbalkens (wird per JS gesteuert) */
+    top: var(--glow-y, -20%);
+    left: var(--glow-x, 20%);
+    
+    /* Die Form der Softbox-Spiegelung: Eine schräge, scharfkantige Licht-Ellipse */
+    width: 60%;
+    height: 140px;
+    transform: rotate(-15deg); 
+    
+    /* Extrem harter Glanz-Kern, der schnell in Transparenz übergeht */
+    background: radial-gradient(
+        ellipse at center, 
+        rgba(255, 255, 255, 0.35) 0%, 
+        rgba(255, 255, 255, 0.1) 20%, 
+        transparent 55%
+    );
+    
+    /* Mischt das Licht physikalisch korrekt in den grünen Lack */
+    mix-blend-mode: overlay; 
+    pointer-events: none; /* Macht Links unter dem Lichtkegel anklickbar */
+    
+    /* Hardware-Beschleunigung für absolut ruckelfreies Scrollen */
+    will-change: top, left;
+}
+
+/* Texte, Buttons und das runde Logo müssen über der Klarlack-Schicht liegen */
+footer .container {
+    position: relative;
+    z-index: 2;
+}
+
+.footer-logo {
+    max-width: 140px;
+    height: auto;
+    margin-bottom: 25px;
+    /* Wirft den Schatten des runden Logos plastisch in den tiefen Lack hinein */
+    filter: drop-shadow(0px 12px 20px rgba(0, 0, 0, 0.6)); 
 }
 
 footer a { 
     color: #E2CAB1; /* Champagner aus deinem Logo */
     text-decoration: none; 
     font-weight: bold; 
-    margin: 0 10px; 
+    margin: 0 15px; 
+    display: inline-block;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Sichert die Lesbarkeit auf glänzenden Flächen */
+    transition: color 0.2s ease, text-shadow 0.2s ease;
 }
 
 footer a:hover { 
     color: #fff;
-    text-decoration: underline; 
+    text-shadow: 0 0 8px rgba(255,255,255,0.6);
 }
 
 /* WhatsApp & Menü-Elemente */
