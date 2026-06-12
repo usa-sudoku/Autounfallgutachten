@@ -1,216 +1,336 @@
 /* ==========================================================================
-   1. GLOBALE EINSTELLUNGEN & RESETS
-   ========================================================================== */
-*, *::before, *::after {
-    box-sizing: border-box;
+1. BASICS & LAYOUT (SACHVERSTÄNDIGENBÜRO MIT PAPIEROPTIK)
+========================================================================== */
+
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #333333;
-    background-color: #E2CAB1; /* Deine Standard-Beige-Farbe */
-    background-image: url('Bilder/papier-hintergrund.jpg'); /* Dein Original-Papier */
-    background-repeat: repeat;
-    background-attachment: fixed;
+color: #2c3e50;
+line-height: 1.6;
+background-color: #E2CAB1;
+background-image: url('Bilder/1781190149157(2).png');
+background-repeat: no-repeat;
+background-size: cover;
+background-position: center top;
+background-attachment: fixed;
 }
 
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
+.container {
+max-width: 1100px;
+margin: 0 auto;
+position: relative;
+padding: 0 20px;
 }
 
-/* ==========================================================================
-   2. TYPOGRAFIE
-   ========================================================================== */
-h1, h2, h3, h4, h5, h6 {
-    color: #172F1B; /* Dein Standard-Dunkelgrün */
-    margin-top: 0;
-    font-weight: 700;
+.content {
+padding: 60px 20px;
+background: rgba(255, 255, 255, 0.35);
+backdrop-filter: blur(1px);
 }
 
-p {
-    line-height: 1.6;
-    margin-bottom: 15px;
-}
-
-a {
-    color: #B03133; /* Dein Standard-Signalrot für Links */
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-a:hover {
-    color: #172F1B;
-}
 
 /* ==========================================================================
-   3. HAUPTMENÜ & NAVIGATION (HAMBURGER)
-   ========================================================================== */
-.main-header {
-    background-color: #172F1B; /* Dein Standard-Grün */
-    padding: 15px 20px;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+2. HERO VIDEO HEADER
+========================================================================== */
+.hero {
+position: relative;
+height: 70vh;
+min-height: 500px;
+width: 100%;
+overflow: hidden;
+display: flex;
+align-items: center;
+justify-content: center;
+color: white;
+text-align: center;
 }
 
-.header-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.hero video {
+position: absolute;
+top: 50%;
+left: 50%;
+min-width: 100%;
+min-height: 100%;
+width: auto;
+height: auto;
+z-index: 1;
+transform: translate(-50%, -50%);
+object-fit: cover;
 }
 
-.site-logo {
-    color: #ffffff !important;
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-decoration: none;
+.hero-overlay {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(23, 47, 27, 0.75);
+z-index: 2;
 }
 
-/* Hamburger Icon */
+.hero .container {
+z-index: 3;
+}
+
+
+/* ==========================================================================
+3. TYPOGRAFIE & BUTTONS
+========================================================================== */
+h1 {
+font-size: clamp(1.8rem, 5vw, 3rem);
+margin-bottom: 15px;
+text-shadow: 2px 2px 12px rgba(0,0,0,0.7);
+line-height: 1.2;
+}
+
+h2 {
+color: #172F1B;
+font-size: clamp(1.5rem, 4vw, 2.2rem);
+margin-bottom: 20px;
+}
+
+.promo-text {
+font-size: clamp(1rem, 2.5vw, 1.25rem);
+margin-bottom: 30px;
+max-width: 750px;
+margin-left: auto;
+margin-right: auto;
+text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+}
+
+.cta-button {
+display: inline-block;
+background-color: #B03133;
+color: white;
+padding: clamp(14px, 3vw, 18px) clamp(25px, 5vw, 45px);
+text-decoration: none;
+font-weight: bold;
+border-radius: 5px;
+font-size: clamp(1rem, 2.5vw, 1.2rem);
+box-shadow: 0 4px 15px rgba(176, 49, 51, 0.4);
+transition: transform 0.2s, background-color 0.2s;
+}
+
+.cta-button:hover {
+transform: scale(1.05);
+background-color: #8c2426;
+}
+
+.region-badge {
+background: #B03133;
+color: white;
+padding: 6px 18px;
+border-radius: 25px;
+font-size: 0.85rem;
+font-weight: bold;
+text-transform: uppercase;
+letter-spacing: 1px;
+display: inline-block;
+margin-bottom: 20px;
+}
+
+
+/* ==========================================================================
+4. LAYOUT-ELEMENTE & CARDS
+========================================================================== */
+.services {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+gap: 25px;
+margin-top: 40px;
+}
+
+.service-card {
+padding: 30px;
+border: 1px solid rgba(23, 47, 27, 0.1);
+border-radius: 10px;
+background: rgba(255, 255, 255, 0.85);
+box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+border-bottom: 4px solid #B03133;
+}
+
+.service-card h3 {
+color: #B03133;
+margin-bottom: 15px;
+margin-top: 0;
+}
+
+.services-detail-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+gap: 30px;
+margin-top: 20px;
+}
+
+.service-detail-card {
+background: rgba(255, 255, 255, 0.85);
+padding: 25px;
+border-radius: 10px;
+border: 1px solid rgba(23, 47, 27, 0.1);
+transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.service-detail-card:hover {
+transform: translateY(-3px);
+box-shadow: 0 6px 18px rgba(23, 47, 27, 0.15);
+}
+
+.service-icon {
+font-size: 2rem;
+margin-bottom: 15px;
+}
+
+.trust-box {
+margin-top: 60px;
+border-left: 5px solid #172F1B;
+padding: 25px;
+background: rgba(255, 255, 255, 0.65);
+border-radius: 0 10px 10px 0;
+}
+
+
+/* ==========================================================================
+5. NAVIGATION & WIDGETS
+========================================================================== */
 #menu-icon {
-    cursor: pointer;
-    background: transparent;
-    border: none;
-    padding: 5px;
+position: absolute;
+top: 20px;
+right: 20px;
+z-index: 100;
+cursor: pointer;
+background: rgba(23, 47, 27, 0.8);
+padding: 10px;
+border-radius: 5px;
 }
 
-#menu-icon .bar {
-    width: 25px;
-    height: 3px;
-    background-color: #ffffff;
-    margin: 5px 0;
-    transition: all 0.4s ease;
+.bar {
+width: 25px;
+height: 3px;
+background: white;
+margin: 5px 0;
 }
 
-/* Hamburger Transformation bei Aktivierung */
-#menu-icon.active .bar:nth-child(1) {
-    transform: rotate(-45deg) translate(-5px, 6px);
-}
-#menu-icon.active .bar:nth-child(2) {
-    opacity: 0;
-}
-#menu-icon.active .bar:nth-child(3) {
-    transform: rotate(45deg) translate(-5px, -6px);
-}
-
-/* Seitliches Slide-Menü */
 #side-menu {
-    position: fixed;
-    top: 0;
-    right: -250px;
-    width: 250px;
-    height: 100vh;
-    background-color: #172F1B;
-    padding-top: 80px;
-    transition: right 0.4s ease;
-    z-index: 999;
-    box-shadow: -5px 0 15px rgba(0,0,0,0.2);
-}
-
-#side-menu.active {
-    right: 0;
+position: fixed;
+top: 0;
+right: -250px;
+width: 250px;
+height: 100%;
+background: #172F1B;
+z-index: 99;
+transition: 0.3s;
+padding-top: 80px;
+box-shadow: -5px 0 15px rgba(0,0,0,0.3);
 }
 
 #side-menu a {
-    display: block;
-    padding: 15px 25px;
-    color: #ffffff !important;
-    font-size: 1.1rem;
-    text-decoration: none;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    transition: background 0.3s ease;
+display: block;
+padding: 15px 25px;
+color: white;
+text-decoration: none;
+font-size: 1.1rem;
+border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
 #side-menu a:hover {
-    background-color: rgba(255,255,255,0.1);
+background: rgba(255,255,255,0.1);
 }
+
+.whatsapp-widget {
+position: fixed;
+bottom: 20px;
+left: 20px;
+background-color: #25d366;
+color: white;
+padding: 12px 20px;
+border-radius: 50px;
+display: flex;
+align-items: center;
+gap: 10px;
+text-decoration: none;
+font-weight: bold;
+font-size: 0.9rem;
+box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+z-index: 9999;
+transition: transform 0.3s ease;
+}
+
+.whatsapp-widget:hover {
+transform: scale(1.05);
+background-color: #128c7e;
+}
+
+.whatsapp-widget img {
+width: 25px;
+height: 25px;
+}
+
 
 /* ==========================================================================
-   4. LAYOUT-CONTAINER & SEITEN-STRUKTUR
-   ========================================================================== */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-main {
-    padding: 40px 0;
-}
-
-/* ==========================================================================
-   5. KOMPONENTEN (FORMULARE, UNTERSEITEN-CARDS)
-   ========================================================================== */
-.card {
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 8px;
-    padding: 25px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    border-top: 4px solid #172F1B;
-}
-
-/* ==========================================================================
-   6. FOOTER (MIT DEINEM HINTERGRUNDBILD)
-   ========================================================================== */
+6. NEUER FOOTER (BILD PASST SICH JEDEM DISPLAY AN)
+========================================================================== */
 footer {
-    background-color: #172F1B;
-    background-image: url('Bilder/1781263694012(1).png'); /* Dein Footer-Hintergrundbild */
-    background-size: cover;
-    background-position: center;
-    color: #ffffff;
-    padding: 40px 0 20px 0;
-    margin-top: auto;
-    text-align: center;
+text-align: center;
+padding: 80px 20px;
+position: relative;
+overflow: hidden;
+
+/* Hintergrundbild aktivieren */
+background-image: url('Bilder/1781263694012(1).png');
+
+/* Zwingt das Bild, exakt so breit und hoch wie der Footer zu sein (Keine Lücken) */
+background-size: 100% 100%;
+
+background-position: center;
+background-repeat: no-repeat;
+
+border-top: 1px solid rgba(255, 255, 255, 0.3);
+color: #fff;
+font-size: 0.95rem;
+}
+
+footer .container {
+position: relative;
+z-index: 2;
+text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8); /* Schützt die Lesbarkeit */
 }
 
 footer a {
-    color: #ffffff !important;
-    margin: 0 10px;
-    text-decoration: none;
-    opacity: 0.8;
+color: #E2CAB1;
+text-decoration: none;
+font-weight: bold;
+margin: 0 15px;
+display: inline-block;
+text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+transition: color 0.2s ease, text-shadow 0.2s ease;
 }
 
 footer a:hover {
-    opacity: 1;
-    text-decoration: underline;
+color: #fff;
+text-shadow: 0 0 10px rgba(255,255,255,0.8);
 }
+
 
 /* ==========================================================================
-   7. MEDIA QUERIES (RESPONSIVE DESIGN)
-   ========================================================================== */
-@media (max-width: 768px) {
-    main {
-        padding: 20px 0;
-    }
+7. RESPONSIVE MEDIA QUERIES
+========================================================================== */
+@media (max-width: 500px) {
+.services-detail-grid {
+grid-template-columns: 1fr;
+}
 }
 
-/* ==========================================================================
-   8. ULTRA-CLEAN INDEX RESETS & ACCORDIONS (DEINE BASE-COLORS & PAPIEROPTIK)
-   ========================================================================== */
-.minimal-index {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    margin: 0;
-    padding: 0;
+@media (max-width: 480px) {
+.whatsapp-widget span {
+display: none;
 }
-
-.minimal-index .main-header {
-    background: #172F1B;
-    padding: 15px 20px;
-    width: 100%;
+.whatsapp-widget {
+padding: 12px;
+border-radius: 50%;
 }
-
-.content-minimal {
-    flex: 1;
-    padding: 30px 15px;
-    display: flex;
-    flex-direction: column
+}
