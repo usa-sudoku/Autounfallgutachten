@@ -22,14 +22,14 @@ if (menuIcon && sideMenu) {
 
 
 /* ==========================================================================
-   2. CANDY-LACK EFFECT (BRUTALE KANTEN-KOMPESSION NACH LOGO-VORBILD)
+   2. CANDY-LACK EFFECT (GEOMETRISCHE ECKEN-BRECHUNG & SICHEL-SCHNITT)
    ========================================================================== */
 const footer = document.querySelector('footer');
 
 if (footer) {
     let isFooterVisible = false;
 
-    // Performance-Optimierung via IntersectionObserver
+    // Performance-Schutzschild: Rechnet nur, wenn der Footer sichtbar ist
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             isFooterVisible = entry.isIntersecting;
@@ -43,65 +43,76 @@ if (footer) {
 
         const rect = footer.getBoundingClientRect();
         
-        // Maus- oder Touch-Koordinaten abfangen
+        // Touch- oder Maus-Koordinaten auslesen
         const clientX = e.touches ? e.touches[0].clientX : e.clientX;
         const clientY = e.touches ? e.touches[0].clientY : e.clientY;
 
-        // Relative Position (0 bis 1)
+        // Relative Position im Footer (0 bis 1)
         const relX = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
         const relY = Math.max(0, Math.min(1, (clientY - rect.top) / rect.height));
 
-        // Prozentuale Werte für das CSS
+        // Prozentuale Position für das CSS
         const xPercent = relX * 100;
         const yPercent = relY * 100;
 
-        // --- DIE ABSTANDS-PHYSIK (0 in der Mitte, 1 direkt an der Kante) ---
+        // --- HARDWARE-PHYSIK: ABSTAND ZU DEN RANDLINIEN (0 bis 1) ---
         const edgeFactorX = Math.abs(relX - 0.5) * 2; 
         const edgeFactorY = Math.abs(relY - 0.5) * 2; 
 
-        // --- EXPONENTIELLE EFFEKT-KURVE (Für den plötzlichen Kanten-Knick) ---
-        // Durch Math.pow(..., 3) reagiert das Licht im Zentrum fast gar nicht (bleibt rund)
-        // und schießt erst in den letzten Millimetern vor dem Rand extrem steil ab.
-        const intensityX = Math.pow(edgeFactorX, 3);
-        const intensityY = Math.pow(edgeFactorY, 3);
+        // Exponentieller Knick: Licht bleibt im Zentrum ruhig, bricht an Kanten extrem aus
+        const intensityX = Math.pow(edgeFactorX, 4);
+        const intensityY = Math.pow(edgeFactorY, 4);
 
-        // --- LACK-GEOMETRIE: BASIS-ZUSTAND (Runder Studio-Blitz wie Pfeffermühlen-Kopf) ---
-        // Im Zentrum klein, kompakt und extrem intensiv fokussiert
-        let glowWidth = 90;
-        let glowHeight = 90;
-        let rotation = 0;
-
-        // --- DIE LOGO-TRANSFORMATION (Radikale Stauchung zu Licht-Sicheln) ---
+        // --- BASIS-GEOMETRIE IM FLACHEN ZENTRUM (Der scharfe Studio-Kern) ---
+        let glowWidth = 110;
+        let glowHeight = 110;
         
-        // Annäherung an Ober- oder Unterkante (Horizontale Lichtlinie)
-        if (intensityY > 0) {
-            glowWidth += intensityY * 650;     // Breite explodiert auf bis zu 740px
-            glowHeight -= intensityY * 72;     // HÖHE STAUCHT SICH RADIKAL AUF 18px RUNTER!
+        // Corner-Radius: Startet bei 50% (absolut kreisrund im Zentrum)
+        let borderRadius = 50; 
+
+        // --- DIE LOGO-ECKEN-TRANSFORMATION ---
+        // Wenn sich die Intensitäten in den Ecken kreuzen, ziehen wir das Licht
+        // zu einem rechtwinkligen Keil zusammen, statt es als Kreis verpuffen zu lassen.
+        
+        if (intensityX > 0.4 && intensityY > 0.4) {
+            // EXTREM-ECKE: Der Lichtblitz kollidiert mit der eckigen Schale
+            glowWidth = 240;
+            glowHeight = 240;
+            
+            // Radiale Rundung wird vernichtet! Das Licht wird physikalisch eckig.
+            borderRadius = Math.max(0, 50 - (intensityX * intensityY * 50)); 
+        } else {
+            // Normale Kanten-Stauchung (Flachwalzen zu messerscharfen Lichtlinien)
+            if (intensityY > intensityX) {
+                glowWidth += intensityY * 580;  // Explodiert in der Breite
+                glowHeight -= intensityY * 85;  // Presst sich extrem flach (bis zu 25px)
+            } else if (intensityX > intensityY) {
+                glowHeight += intensityX * 320; // Zieht sich extrem in die Länge
+                glowWidth -= intensityX * 85;   // Schrumpft zu einem schmalen Strich zusammen
+            }
         }
 
-        // Annäherung an die Seitenwände (Vertikale Lichtlinie)
-        if (intensityX > 0) {
-            glowHeight += intensityX * 350;    // Höhe zieht sich extrem lang
-            glowWidth -= intensityX * 72;      // BREITE SCHRUMPFT AUF HAUCHDÜNNE 18px ZUSAMMEN!
-        }
+        // --- ERMITTLUNG DER AKTUELLEN QUANDRANTEN (Für den perfekten Ecken-Schnitt) ---
+        // Das CSS muss wissen, in welche Richtung die Lichtecke zeigen soll.
+        const quadX = relX > 0.5 ? 100 : 0;
+        const quadY = relY > 0.5 ? 100 : 0;
 
-        // --- ECKTANGENTEN-ILLUSION (Perfekte Kurvenschmiegung) ---
-        if (intensityX > 0 && intensityY > 0) {
-            const angleX = relX > 0.5 ? 1 : -1;
-            const angleY = relY > 0.5 ? 1 : -1;
-            // Rotiert den hauchdünnen Lichtblitz exakt mit dem mathematischen Winkel der Schalen-Ecke
-            rotation = angleX * angleY * (intensityX * intensityY) * 45;
-        }
-
-        // --- ÜBERGABE AN CSS-VARIABLEN ---
+        // --- ÜBERGABE DER GEOMETRIE-WERTE AN DAS CSS ---
         footer.style.setProperty('--glow-x', xPercent + '%');
         footer.style.setProperty('--glow-y', yPercent + '%');
         footer.style.setProperty('--glow-width', glowWidth + 'px');
         footer.style.setProperty('--glow-height', glowHeight + 'px');
-        footer.style.setProperty('--glow-rotate', rotation + 'deg'); 
+        footer.style.setProperty('--glow-radius', borderRadius + '%');
+        
+        // Richtungs-Variablen für das eckige Abschneiden im CSS
+        footer.style.setProperty('--quad-x', quadX + '%');
+        footer.style.setProperty('--quad-y', quadY + '%');
+        
+        // Ecken-Intensität mischen (0 = rund im Zentrum, 1 = knallharte Lichtecke)
+        footer.style.setProperty('--corner-mix', (intensityX * intensityY));
     }
 
-    // Event-Listener aktivieren
+    // Event-Listener registrieren
     window.addEventListener('mousemove', handleLackReflektion);
     window.addEventListener('touchmove', handleLackReflektion, { passive: true });
 }
