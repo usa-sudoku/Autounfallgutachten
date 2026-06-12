@@ -110,13 +110,15 @@ body {
 }
 
 /* ==========================================================================
-3. HAUPTINHALT & PAPIERHINTERGRUND (JETZT BOMBENFEST FIXIERT)
+3. HAUPTINHALT & PAPIERHINTERGRUND (PASST SICH JETZT DEM DISPLAY AN)
 ========================================================================== */
 .content {
     background-image: url('Bilder/1781190149157(2).png'); /* Dein Papierbild */
-    background-size: auto;
-    background-repeat: repeat;
-    background-attachment: fixed; /* <- Das sorgt dafür, dass das Papier beim Scrollen stehen bleibt! */
+    background-position: center center;
+    background-repeat: no-repeat;
+    /* Streckt und staucht das Papier exakt auf die 100% Breite und Höhe des Displays */
+    background-size: 100% 100%; 
+    background-attachment: fixed; /* Bleibt beim Scrollen stehen */
     padding: 60px 0;
     min-height: 100vh;
 }
@@ -208,12 +210,14 @@ body {
 }
 
 /* ==========================================================================
-6. FOOTER
+6. FOOTER (PASST SICH FLEXIBEL AN)
 ========================================================================== */
 footer {
     background-image: url('Bilder/1781263694012(1).png'); /* Dein Footerbild */
-    background-size: cover;
-    background-position: center;
+    background-position: center center;
+    background-repeat: no-repeat;
+    /* Füllt den Footer-Bereich immer perfekt aus, egal wie breit das Display ist */
+    background-size: cover; 
     color: rgba(255,255,255,0.7);
     padding: 40px 0;
     text-align: center;
