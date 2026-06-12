@@ -23,62 +23,88 @@ if (menuIcon && sideMenu) {
 
 
 /* ==========================================================================
-   2. REPARIERTER LACKEFFEKT (DYNAMISCHE STRECKUNG & STAUCHUNG IN X + Y)
+   2. CANDY-LACK EFFECT (ADAPTIVE KANTEN-SCHMIEGUNG & VERZERRUNG)
    ========================================================================== */
 const footer = document.querySelector('footer');
 
 if (footer) {
     let isFooterVisible = false;
 
-    // Performance-Optimierung: Berechnet den Effekt nur, wenn der Footer im Bild ist
+    // Performance-Optimierung via IntersectionObserver
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             isFooterVisible = entry.isIntersecting;
         });
-    }, { threshold: 0.05 });
+    }, { threshold: 0.01 });
 
     observer.observe(footer);
 
     function handleLackReflektion(e) {
-        if (!isFooterVisible) return; // Schont den Akku auf Mobilgeräten
+        if (!isFooterVisible) return; 
 
         const rect = footer.getBoundingClientRect();
         
-        // Finger- oder Maus-Koordinaten abfangen
+        // Koordinaten für Maus oder Touch abfangen
         const clientX = e.touches ? e.touches[0].clientX : e.clientX;
         const clientY = e.touches ? e.touches[0].clientY : e.clientY;
 
-        // Position des Lichtpunkts in Prozent (0% bis 100%)
-        const xPercent = ((clientX - rect.left) / rect.width) * 100;
-        const yPercent = ((clientY - rect.top) / rect.height) * 100;
+        // Position des Fingers relativ im Footer (0 bis 1)
+        const relX = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
+        const relY = Math.max(0, Math.min(1, (clientY - rect.top) / rect.height));
 
-        // --- HORIZONTALE BERECHNUNG (Links nach Rechts) ---
-        const footerCenterX = rect.left + (rect.width / 2);
-        const distanceX = clientX - footerCenterX; 
-        const maxDistanceX = rect.width / 2;
-        const relativeDistanceX = Math.min(Math.abs(distanceX) / maxDistanceX, 1);
+        // Umrechnung in Prozent für die CSS-Position
+        const xPercent = relX * 100;
+        const yPercent = relY * 100;
 
-        // --- VERTIKALE BERECHNUNG (Oben nach Unten) ---
-        const footerCenterY = rect.top + (rect.height / 2);
-        const distanceY = clientY - footerCenterY;
-        const maxDistanceY = rect.height / 2;
-        const relativeDistanceY = Math.min(Math.abs(distanceY) / maxDistanceY, 1);
+        // --- MATHEMATISCHER ABSTAND ZU DEN RAND-BIEGUNGEN ---
+        // Berechnet, wie nah wir am linken/rechten Rand (X) und oberen/unteren Rand (Y) sind.
+        // Wert ist 0 in der Mitte und geht hoch gegen 1, je näher man der Kante kommt.
+        const edgeFactorX = Math.abs(relX - 0.5) * 2; 
+        const edgeFactorY = Math.abs(relY - 0.5) * 2; 
 
-        // --- DYNAMISCHE STRECKUNG & STAUCHUNG ---
-        // Breite: Wird breiter an den Rändern links/rechts (+300px) UND breiter am oberen Rand (+100px)
-        const currentGlowWidth = 300 + (relativeDistanceX * 300) + (yPercent < 50 ? (1 - yPercent / 50) * 100 : 0);
-        
-        // Höhe: Staucht sich in der vertikalen Mitte (ca. 140px) und streckt sich am oberen/unteren Rand (bis zu 280px)
-        const currentGlowHeight = 140 + (relativeDistanceY * 140);
+        // --- DER SPÄTE EFFEKT-EINSTIEG (SCHALEN-LOGIK) ---
+        // Erst ab 70% des Weges zum Rand hin (0.7) reagiert das Licht und verformt sich steil.
+        const threshold = 0.7;
+        const intensityX = edgeFactorX > threshold ? (edgeFactorX - threshold) / (1 - threshold) : 0;
+        const intensityY = edgeFactorY > threshold ? (edgeFactorY - threshold) / (1 - threshold) : 0;
 
-        // Werte live an die CSS-Variablen übergeben
+        // --- DYNAMISCHE STRÄNKUNG & STAUCHUNG BERECHNEN ---
+        // Basisgröße im flachen Zentrum: 140px mal 140px (Runder Studiopunkt)
+        let glowWidth = 140;
+        let glowHeight = 140;
+        let rotation = 0;
+
+        // Wenn wir uns der Ober- oder Unterkante nähern -> Licht extrem in die Breite ziehen
+        if (intensityY > 0) {
+            glowWidth += intensityY * 510;    // Zieht sich bis zu 650px in die Breite
+            glowHeight -= intensityY * 60;    // Staucht sich flach auf 80px zusammen
+        }
+
+        // Wenn wir uns den Seitenwänden nähern -> Licht extrem in die Höhe ziehen
+        if (intensityX > 0) {
+            glowHeight += intensityX * 260;   // Zieht sich bis zu 400px in die Höhe
+            glowWidth -= intensityX * 60;     // Staucht sich schmal auf 80px zusammen
+        }
+
+        // --- ECK-KOLLISION & ROTATION ---
+        // Wenn sich X- und Y-Verzerrung in den Ecken treffen, lassen wir den Lichtblitz 
+        // elegant mit dem Winkel der Schalen-Ecke rotieren (Tangenten-Illusion).
+        if (intensityX > 0 && intensityY > 0) {
+            const angleX = relX > 0.5 ? 1 : -1;
+            const angleY = relY > 0.5 ? 1 : -1;
+            // Rotiert den Lichtfleck in den Ecken um ca. 45 Grad mit
+            rotation = angleX * angleY * (intensityX * intensityY) * 45;
+        }
+
+        // --- ÜBERGABE AN DAS CSS ---
         footer.style.setProperty('--glow-x', xPercent + '%');
         footer.style.setProperty('--glow-y', yPercent + '%');
-        footer.style.setProperty('--glow-width', currentGlowWidth + 'px');
-        footer.style.setProperty('--glow-height', currentGlowHeight + 'px');
+        footer.style.setProperty('--glow-width', glowWidth + 'px');
+        footer.style.setProperty('--glow-height', glowHeight + 'px');
+        footer.style.setProperty('transform', `translate(-50%, -50%) rotate(${rotation}deg)`);
     }
 
-    // Events für Desktop (Maus) und Mobile (Touch) registrieren
+    // Event-Listener aktivieren
     window.addEventListener('mousemove', handleLackReflektion);
     window.addEventListener('touchmove', handleLackReflektion, { passive: true });
 }
