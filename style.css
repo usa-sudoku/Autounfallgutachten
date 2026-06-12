@@ -271,81 +271,88 @@ h2 {
 
 
 /* ==========================================================================
-   6. KONKAVE HOHLKEHLE: HIGH-GLOSS RADIAL-LACK FÜR PERFEKTE RUNDUM-WÖLBUNG
+   6. EDLE FLACHE LACK-SCHALE MIT SPÄTER KANTEN-BIEGUNG (CANDY-EFFECT)
    ========================================================================== */
 footer {
     text-align: center;
     padding: 100px 20px;
     position: relative;
     overflow: hidden;
-    
-    /* Fallback-Farbe */
     background-color: #172F1B;
     
-    /* RADIAL GRADIENT: Das Zentrum (Mitte) ist DEIN reines Grün (#172F1B). 
-       Zu ALLER RÄNDERN (X und Y) hin wird es heller, um die konkave Schale zu formen. */
+    /* RADIAL GRADIENT NEU STAFFELIERT: 
+       Bis 75% bleibt die Fläche absolut ruhig und flach in deinem Grün (#172F1B).
+       Erst ab 80% knickt die Schale steil ein und bricht das Licht hell zu den Rändern hin. */
     background-image: radial-gradient(
         ellipse at center, 
-        #172F1B 0%,     /* Die tiefe Mitte ist exakt dein Grün */
-        #1d3c22 45%,    /* Sanfter Übergang zu den Seiten */
-        #274c2d 85%,    /* Aufhellung zu den Rändern hin (X + Y) */
-        #2f5b36 100%    /* Die äußersten Ecken/Kanten reflektieren das Licht */
+        #172F1B 0%,       /* Zentrum rein grün */
+        #172F1B 75%,      /* Bis weit nach außen flach gehalten (keine Kugel-Optik mehr!) */
+        #224427 88%,      /* Später, steiler Anstieg (Knick) */
+        #35633b 97%,      /* Heller, metallischer Candy-Glanz kurz vor Schluss */
+        #4d8554 100%      /* Scharfe Reflexions-Kante ganz außen */
     );
     
-    /* Glasklare weiße Lichtkante oben, die den Hohlkehlen-Effekt einleitet */
-    border-top: 1px solid rgba(255, 255, 255, 0.4);
+    /* Scharf geschlagene obere Lichtkante */
+    border-top: 1px solid rgba(255, 255, 255, 0.45);
     
-    /* 3D-Spiegelungen nach innen für die Wölbung */
+    /* Tiefe Innenschatten simulieren die späte Kantenkrümmung rundherum */
     box-shadow: 
-        inset 0 20px 25px rgba(0, 0, 0, 0.4),
-        inset 0 -20px 25px rgba(0, 0, 0, 0.4),
+        inset 0 30px 30px rgba(0, 0, 0, 0.45),
+        inset 0 -30px 30px rgba(0, 0, 0, 0.45),
+        inset 30px 0 30px rgba(0, 0, 0, 0.3),
+        inset -30px 0 30px rgba(0, 0, 0, 0.3),
         0 -15px 30px rgba(0, 0, 0, 0.15); 
         
     color: #fff;
     font-size: 0.95rem;
 }
 
-/* Horizontale Lichtstreifung – legt einen "Emaille-Film" über das Grün */
+/* Klarlack-Emaille-Film für den nassen Studio-Look */
 footer::after {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 40%;
+    height: 35%;
     background: linear-gradient(
         to bottom,
-        rgba(255, 255, 255, 0.25) 0%,
-        rgba(255, 255, 255, 0.08) 50%,
+        rgba(255, 255, 255, 0.22) 0%,
+        rgba(255, 255, 255, 0.06) 60%,
         transparent 100%
     );
     pointer-events: none;
     z-index: 1;
 }
 
-/* Dynamischer Lichtblitz – steuerbar per JS für organischen Scheinwerfer-Effekt */
+/* Interaktiver Lichtreflex (Wandert & schmiegt sich per JS flüssig an Kanten an) */
 footer::before {
     content: '';
     position: absolute;
     top: var(--glow-y, 50%);
     left: var(--glow-x, 50%);
-    width: var(--glow-width, 400px);
-    height: var(--glow-height, 220px); 
+    
+    /* Dynamische Größensteuerung aus dem angepassten JS */
+    width: var(--glow-width, 140px);
+    height: var(--glow-height, 140px); 
     transform: translate(-50%, -50%); 
     
-    /* Weißer Lichtreflex, der intensiv über den grünen Lack gleitet */
+    /* Scharf gebündelter Studio-Reflex im Kern, der extrem intensiv strahlt */
     background: radial-gradient(
         ellipse at center, 
-        rgba(255, 255, 255, 0.75) 0%, 
-        rgba(255, 255, 255, 0.3) 25%, 
-        rgba(255, 255, 255, 0.05) 50%, 
-        transparent 70%
+        rgba(255, 255, 255, 0.95) 0%, 
+        rgba(255, 255, 255, 0.5) 15%, 
+        rgba(255, 255, 255, 0.15) 45%, 
+        transparent 65%
     );
     
     mix-blend-mode: screen; 
     pointer-events: none; 
     z-index: 1;
-    will-change: top, left, width, height; 
+    
+    /* Transform hinzugefügt, damit das Licht flüssig rotiert oder verzerrt werden kann */
+    will-change: top, left, width, height, transform; 
+    transition: width 0.15s ease-out, height 0.15s ease-out;
 }
 
 footer .container {
@@ -359,7 +366,7 @@ footer a {
     font-weight: bold; 
     margin: 0 15px; 
     display: inline-block;
-    text-shadow: 0 2px 5px rgba(0,0,0,0.5); 
+    text-shadow: 0 2px 5px rgba(0,0,0,0.6); 
     transition: color 0.2s ease, text-shadow 0.2s ease;
 }
 
