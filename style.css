@@ -110,17 +110,21 @@ body {
 }
 
 /* ==========================================================================
-3. HAUPTINHALT & PAPIERHINTERGRUND (PASST SICH JETZT DEM DISPLAY AN)
+3. HAUPTINHALT & PAPIERHINTERGRUND (ZENTRIERT DIE BOXEN BEIM LADEN)
 ========================================================================== */
 .content {
     background-image: url('Bilder/1781190149157(2).png'); /* Dein Papierbild */
     background-position: center center;
     background-repeat: no-repeat;
-    /* Streckt und staucht das Papier exakt auf die 100% Breite und Höhe des Displays */
     background-size: 100% 100%; 
-    background-attachment: fixed; /* Bleibt beim Scrollen stehen */
-    padding: 60px 0;
+    background-attachment: fixed;
+    padding: 40px 0;
+    
+    /* Diese Zeilen zentrieren die Boxen perfekt in der Mitte des ersten Bildschirms */
     min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* ==========================================================================
@@ -210,13 +214,12 @@ body {
 }
 
 /* ==========================================================================
-6. FOOTER (PASST SICH FLEXIBEL AN)
+6. FOOTER
 ========================================================================== */
 footer {
     background-image: url('Bilder/1781263694012(1).png'); /* Dein Footerbild */
     background-position: center center;
     background-repeat: no-repeat;
-    /* Füllt den Footer-Bereich immer perfekt aus, egal wie breit das Display ist */
     background-size: cover; 
     color: rgba(255,255,255,0.7);
     padding: 40px 0;
@@ -268,7 +271,7 @@ footer a:hover {
 .minimal-wrap {
     width: 100%;
     max-width: 650px;
-    margin: 40px auto;
+    margin: 0 auto; /* Zentrierung optimiert */
 }
 
 .acc-card {
@@ -279,6 +282,10 @@ footer a:hover {
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     border-bottom: 4px solid #B03133; /* Rote Kante */
     overflow: hidden;
+}
+
+.acc-card:last-child {
+    margin-bottom: 0; /* Verhindert ungleichen Abstand nach unten */
 }
 
 .acc-header-btn {
