@@ -67,7 +67,7 @@
         border-radius: 10px;
         margin-bottom: 20px;
         box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        border-bottom: 4px solid #B03133; /* Deine rote Kante */
+        border-bottom: 4px solid #B03133; 
         overflow: hidden;
     }
 
@@ -79,7 +79,7 @@
         text-align: left;
         font-size: 1.25rem;
         font-weight: bold;
-        color: #172F1B; /* Dein Dunkelgrün */
+        color: #172F1B; 
         cursor: pointer;
         display: flex;
         justify-content: space-between;
@@ -87,7 +87,6 @@
         outline: none;
     }
 
-    /* WICHTIG: Inhalt ist standardmäßig absolut ZU und versteckt */
     .acc-panel {
         display: none;
         padding: 0 20px 20px 20px;
@@ -104,47 +103,15 @@
         line-height: 1.5;
     }
 
-    /* Plus/Minus Zeichen */
     .acc-icon {
         font-size: 1.4rem;
         color: #B03133;
         font-weight: bold;
     }
 
-    /* Die zwei fetten Buttons nebeneinander */
-    .skizzen-buttons {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 15px;
-        margin: 30px 0;
-    }
-
-    .skizzen-btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-        padding: 16px;
-        border-radius: 8px;
-        font-weight: bold;
-        font-size: 1.05rem;
-        color: white !important;
-        text-decoration: none;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-        text-align: center;
-        transition: transform 0.2s;
-    }
-
-    .skizzen-btn:hover {
-        transform: scale(1.03);
-    }
-
-    .btn-telefon { background-color: #B03133 !important; }
-    .btn-whatsapp { background-color: #25d366 !important; }
-
     /* SEO Bereich unten drunter unauffälliger */
     .seo-card {
-        border-bottom-color: #172F1B; /* Grüne Kante statt Rot */
+        border-bottom-color: #172F1B; 
         background: rgba(255, 255, 255, 0.75);
     }
     .seo-card .acc-header-btn {
@@ -159,6 +126,50 @@
     }
     .seo-card .acc-panel p:last-child {
         margin-bottom: 0;
+    }
+
+    /* DAS NEUE TELEFON-EMBLEM DIREKT ÜBER WHATSAPP (LINKS GESTAPELT) */
+    .phone-widget {
+        position: fixed;
+        bottom: 85px; /* Sitzt exakt über dem WhatsApp-Widget (das bei 20px ist) */
+        left: 20px;
+        background-color: #B03133; /* Dein originales Rot */
+        color: white;
+        padding: 12px 20px;
+        border-radius: 50px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 0.9rem;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        z-index: 9999;
+        transition: transform 0.3s ease;
+    }
+
+    .phone-widget:hover {
+        transform: scale(1.05);
+        background-color: #8c2426;
+    }
+
+    .phone-widget .phone-icon {
+        font-size: 1.2rem;
+    }
+
+    /* Auf kleinen Handys wird der Text ausgeblendet und es stapeln sich zwei runde Kreise */
+    @media (max-width: 480px) {
+        .phone-widget span {
+            display: none;
+        }
+        .phone-widget {
+            padding: 12px;
+            border-radius: 50%;
+            width: 49px; /* Exakt die gleiche Größe wie dein WhatsApp-Kreis */
+            height: 49px;
+            justify-content: center;
+            bottom: 80px; /* Perfekter Abstand auf Mobilgeräten */
+        }
     }
 </style>
 </head>
@@ -224,11 +235,6 @@ Ihr Browser unterstützt kein Video.
             </div>
         </div>
 
-        <div class="skizzen-buttons">
-            <a href="tel:039812629866" class="skizzen-btn btn-telefon">📞 Telefonbutton</a>
-            <a href="https://wa.me/4915205270675" target="_blank" rel="noopener noreferrer" class="skizzen-btn btn-whatsapp">💬 Whatsappbutton</a>
-        </div>
-
         <div class="acc-card seo-card">
             <button class="acc-header-btn">Ergänzende Informationen <span class="acc-icon">+</span></button>
             <div class="acc-panel">
@@ -254,9 +260,15 @@ Ihr Browser unterstützt kein Video.
 
 <script src="script.js" defer></script>
 
+
 <a href="https://wa.me/4915205270675" class="whatsapp-widget" target="_blank" rel="noopener noreferrer">
 <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
 <span>Gutachter beauftragen</span>
+</a>
+
+<a href="tel:039812629866" class="phone-widget">
+<span class="phone-icon">📞</span>
+<span>Anrufen</span>
 </a>
 
 </body>
