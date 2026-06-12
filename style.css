@@ -271,7 +271,7 @@ h2 {
 
 
 /* ==========================================================================
-   6. EDLE FLACHE LACK-SCHALE MIT SPÄTER KANTEN-BIEGUNG (CANDY-EFFECT)
+   6. EDLE FLACHE LACK-SCHALE MIT GESTOCHEN SCHARFEM STUDIO-REFLEX
    ========================================================================== */
 footer {
     text-align: center;
@@ -280,34 +280,33 @@ footer {
     overflow: hidden;
     background-color: #172F1B;
     
-    /* RADIAL GRADIENT NEU STAFFELIERT: 
-       Bis 75% bleibt die Fläche absolut ruhig und flach in deinem Grün (#172F1B).
-       Erst ab 80% knickt die Schale steil ein und bricht das Licht hell zu den Rändern hin. */
+    /* RADIAL GRADIENT: Bis 78% absolute Farbstille im tiefen Waldgrün.
+       Erst kurz vor dem Rand knickt das Material steil ein. */
     background-image: radial-gradient(
         ellipse at center, 
-        #172F1B 0%,       /* Zentrum rein grün */
-        #172F1B 75%,      /* Bis weit nach außen flach gehalten (keine Kugel-Optik mehr!) */
-        #224427 88%,      /* Später, steiler Anstieg (Knick) */
-        #35633b 97%,      /* Heller, metallischer Candy-Glanz kurz vor Schluss */
-        #4d8554 100%      /* Scharfe Reflexions-Kante ganz außen */
+        #172F1B 0%,       
+        #172F1B 78%,      /* Große flache Ruhezone, verhindert Kugeloptik */
+        #1f4124 90%,      /* Kompakter Übergang an der Wölbung */
+        #3c6e43 97%,      /* Konzentrierter Candy-Glanz kurz vor der Kante */
+        #599661 100%      /* Scharfe, spiegelnde Außenkante */
     );
     
-    /* Scharf geschlagene obere Lichtkante */
+    /* Glasklare, scharf geschlagene Lichtkante oben */
     border-top: 1px solid rgba(255, 255, 255, 0.45);
     
-    /* Tiefe Innenschatten simulieren die späte Kantenkrümmung rundherum */
+    /* Brutale Innenschatten stauchen die Schalenkrümmung optisch an die Ränder */
     box-shadow: 
-        inset 0 30px 30px rgba(0, 0, 0, 0.45),
-        inset 0 -30px 30px rgba(0, 0, 0, 0.45),
-        inset 30px 0 30px rgba(0, 0, 0, 0.3),
-        inset -30px 0 30px rgba(0, 0, 0, 0.3),
+        inset 0 35px 30px rgba(0, 0, 0, 0.5),
+        inset 0 -35px 30px rgba(0, 0, 0, 0.5),
+        inset 35px 0 30px rgba(0, 0, 0, 0.35),
+        inset -35px 0 30px rgba(0, 0, 0, 0.35),
         0 -15px 30px rgba(0, 0, 0, 0.15); 
         
     color: #fff;
     font-size: 0.95rem;
 }
 
-/* Klarlack-Emaille-Film für den nassen Studio-Look */
+/* Klarlack-Schicht (simuliert den nassen Spiegel-Look) */
 footer::after {
     content: '';
     position: absolute;
@@ -317,36 +316,36 @@ footer::after {
     height: 35%;
     background: linear-gradient(
         to bottom,
-        rgba(255, 255, 255, 0.22) 0%,
-        rgba(255, 255, 255, 0.06) 60%,
+        rgba(255, 255, 255, 0.25) 0%,
+        rgba(255, 255, 255, 0.05) 60%,
         transparent 100%
     );
     pointer-events: none;
     z-index: 1;
 }
 
-/* Interaktiver Lichtreflex (Nimmt jetzt die Rotation sicher aus dem JS auf) */
+/* GESTOCHEN SCHARFER LICHTPUNKT (Das Studio-Licht der Pfeffermühle) */
 footer::before {
     content: '';
     position: absolute;
     top: var(--glow-y, 50%);
     left: var(--glow-x, 50%);
     
-    /* Dynamische Größensteuerung aus dem angepassten JS */
     width: var(--glow-width, 140px);
     height: var(--glow-height, 140px); 
     
-    /* DAS SCHÜTZT VOR DEM SPRINGEN: Das CSS transformiert NUR den Lichtpunkt selbst. 
-       Der Footer bleibt unberührt im Layout verankert. `--glow-rotate` kommt aus dem JS. */
+    /* Schützt das Layout vor dem Zittern, rotiert den scharfen Blitz mit */
     transform: translate(-50%, -50%) rotate(var(--glow-rotate, 0deg)); 
     
-    /* Scharf gebündelter Studio-Reflex im Kern, der extrem intensiv strahlt */
+    /* RADIAL GRADIENT NEU: Der Weichzeichner ist weg! 
+       Extrem dichter, gleißend weißer Glaskern, der sofort hart abbricht. */
     background: radial-gradient(
         ellipse at center, 
-        rgba(255, 255, 255, 0.95) 0%, 
-        rgba(255, 255, 255, 0.5) 15%, 
-        rgba(255, 255, 255, 0.15) 45%, 
-        transparent 65%
+        rgba(255, 255, 255, 1.0) 0%,     /* Absolut deckendes Studio-Weiß */
+        rgba(255, 255, 255, 0.9) 8%,     /* Knallharter, definierter Kern */
+        rgba(255, 255, 255, 0.4) 18%,    /* Minimaler, scharfer Auslaufsaum */
+        rgba(255, 255, 255, 0.05) 28%,   /* Sofortiger Sturzflug ins Dunkel */
+        transparent 35%                  /* Keine matschige Aura um den Fleck */
     );
     
     mix-blend-mode: screen; 
@@ -354,7 +353,7 @@ footer::before {
     z-index: 1;
     
     will-change: top, left, width, height, transform; 
-    transition: width 0.15s ease-out, height 0.15s ease-out;
+    transition: width 0.12s ease-out, height 0.12s ease-out;
 }
 
 footer .container {
