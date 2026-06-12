@@ -22,14 +22,14 @@ if (menuIcon && sideMenu) {
 
 
 /* ==========================================================================
-   2. CANDY-LACK EFFECT (GEOMETRISCHE ECKEN-BRECHUNG & SICHEL-SCHNITT)
+   2. CANDY-LACK EFFECT (MESSERSCHARFE ECKEN-BRECHUNG NACH LOGO-VORBILD)
    ========================================================================== */
 const footer = document.querySelector('footer');
 
 if (footer) {
     let isFooterVisible = false;
 
-    // Performance-Schutzschild: Rechnet nur, wenn der Footer sichtbar ist
+    // Performance-Schutzschild: Rechnet nur, wenn der Footer im Bild ist (Perfekt für Google)
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             isFooterVisible = entry.isIntersecting;
@@ -66,34 +66,33 @@ if (footer) {
         // --- BASIS-GEOMETRIE IM FLACHEN ZENTRUM (Der scharfe Studio-Kern) ---
         let glowWidth = 110;
         let glowHeight = 110;
-        
-        // Corner-Radius: Startet bei 50% (absolut kreisrund im Zentrum)
-        let borderRadius = 50; 
+        let borderRadius = '50%'; // Kreisrund im Zentrum
 
-        // --- DIE LOGO-ECKEN-TRANSFORMATION ---
-        // Wenn sich die Intensitäten in den Ecken kreuzen, ziehen wir das Licht
-        // zu einem rechtwinkligen Keil zusammen, statt es als Kreis verpuffen zu lassen.
-        
-        if (intensityX > 0.4 && intensityY > 0.4) {
-            // EXTREM-ECKE: Der Lichtblitz kollidiert mit der eckigen Schale
+        // --- DIE LOGO-ECKEN-TRANSFORMATION (HART UND RECHTWINKLIG) ---
+        // Sobald wir uns einer der vier Ecken nähern (Schwelle bei 0.35), 
+        // vernichten wir die Rundung komplett, damit kein runder "Pfannkuchen" entsteht.
+        if (intensityX > 0.35 && intensityY > 0.35) {
+            // Das Licht wird vergrößert, damit der Clip-Path genug Futter zum Schneiden hat
             glowWidth = 240;
             glowHeight = 240;
             
-            // Radiale Rundung wird vernichtet! Das Licht wird physikalisch eckig.
-            borderRadius = Math.max(0, 50 - (intensityX * intensityY * 50)); 
+            // DIE RETTUNG: Radius eiskalt auf Null! Das Licht wird physikalisch absolut eckig.
+            borderRadius = '0%'; 
         } else {
-            // Normale Kanten-Stauchung (Flachwalzen zu messerscharfen Lichtlinien)
+            // Normale Kanten-Stauchung (Flachwalzen zu messerscharfen Lichtlinien an den Seiten)
             if (intensityY > intensityX) {
-                glowWidth += intensityY * 580;  // Explodiert in der Breite
-                glowHeight -= intensityY * 85;  // Presst sich extrem flach (bis zu 25px)
+                glowWidth += intensityY * 580;  // Breite explodiert parallel zur Kante
+                glowHeight -= intensityY * 85;  // Höhe presst sich flach (bis zu 25px)
             } else if (intensityX > intensityY) {
-                glowHeight += intensityX * 320; // Zieht sich extrem in die Länge
-                glowWidth -= intensityX * 85;   // Schrumpft zu einem schmalen Strich zusammen
+                glowHeight += intensityX * 320; // Zieht sich vertikal lang
+                glowWidth -= intensityX * 85;   // Schrumpft auf hauchdünne Linie zusammen
             }
+            // Im reinen Kantenbetrieb bleibt das Licht an den Enden geschmeidig abgerundet
+            borderRadius = '50%'; 
         }
 
-        // --- ERMITTLUNG DER AKTUELLEN QUANDRANTEN (Für den perfekten Ecken-Schnitt) ---
-        // Das CSS muss wissen, in welche Richtung die Lichtecke zeigen soll.
+        // --- ERMITTLUNG DER QUADRANTEN (Für den perfekten Ecken-Schnitt) ---
+        // Das CSS muss wissen, in welches Eck-Dreieck das Licht gepresst werden soll.
         const quadX = relX > 0.5 ? 100 : 0;
         const quadY = relY > 0.5 ? 100 : 0;
 
@@ -102,9 +101,9 @@ if (footer) {
         footer.style.setProperty('--glow-y', yPercent + '%');
         footer.style.setProperty('--glow-width', glowWidth + 'px');
         footer.style.setProperty('--glow-height', glowHeight + 'px');
-        footer.style.setProperty('--glow-radius', borderRadius + '%');
+        footer.style.setProperty('--glow-radius', borderRadius);
         
-        // Richtungs-Variablen für das eckige Abschneiden im CSS
+        // Richtungs-Variablen für das eckige Abschneiden im CSS via clip-path
         footer.style.setProperty('--quad-x', quadX + '%');
         footer.style.setProperty('--quad-y', quadY + '%');
         
