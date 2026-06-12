@@ -271,7 +271,7 @@ h2 {
 
 
 /* ==========================================================================
-   6. KONKAVE HOHLKEHLE: OPTIMIERTER HIGH-GLOSS LACK FOOTER
+   6. KONKAVE HOHLKEHLE: HIGH-GLOSS LACK FOOTER (X- & Y-STRECKUNG)
    ========================================================================== */
 footer {
     text-align: center;
@@ -327,7 +327,7 @@ footer::before {
     top: var(--glow-y, 50%);
     left: var(--glow-x, 50%);
     width: var(--glow-width, 400px);
-    height: 220px;
+    height: var(--glow-height, 220px); /* Nutzt die dynamische Höhe aus dem JS */
     transform: translate(-50%, -50%); 
     
     /* Weicher, matterer Verlauf ohne störende Linienbildung */
@@ -342,7 +342,7 @@ footer::before {
     mix-blend-mode: screen; 
     pointer-events: none; 
     z-index: 1;
-    will-change: top, left, width;
+    will-change: top, left, width, height; /* Optimiert für ruckelfreie Animationen */
 }
 
 footer .container {
