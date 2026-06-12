@@ -13,7 +13,6 @@ if (menuIcon && sideMenu) {
         }
     });
 
-    // Schließt das Menü, wenn man außerhalb klickt
     document.addEventListener('click', (event) => {
         if (!menuIcon.contains(event.target) && !sideMenu.contains(event.target)) {
             sideMenu.style.right = '-250px';
@@ -23,7 +22,7 @@ if (menuIcon && sideMenu) {
 
 
 /* ==========================================================================
-   2. CANDY-LACK EFFECT (ADAPTIVE KANTEN-SCHMIEGUNG & VERZERRUNG)
+   2. CANDY-LACK EFFECT (BRUTALE KANTEN-KOMPESSION NACH LOGO-VORBILD)
    ========================================================================== */
 const footer = document.querySelector('footer');
 
@@ -44,59 +43,57 @@ if (footer) {
 
         const rect = footer.getBoundingClientRect();
         
-        // Koordinaten für Maus oder Touch abfangen
+        // Maus- oder Touch-Koordinaten abfangen
         const clientX = e.touches ? e.touches[0].clientX : e.clientX;
         const clientY = e.touches ? e.touches[0].clientY : e.clientY;
 
-        // Position des Fingers relativ im Footer (0 bis 1)
+        // Relative Position (0 bis 1)
         const relX = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
         const relY = Math.max(0, Math.min(1, (clientY - rect.top) / rect.height));
 
-        // Umrechnung in Prozent für die CSS-Position
+        // Prozentuale Werte für das CSS
         const xPercent = relX * 100;
         const yPercent = relY * 100;
 
-        // --- MATHEMATISCHER ABSTAND ZU DEN RAND-BIEGUNGEN ---
-        // Berechnet, wie nah wir am linken/rechten Rand (X) und oberen/unteren Rand (Y) sind.
-        // Wert ist 0 in der Mitte und geht hoch gegen 1, je näher man der Kante kommt.
+        // --- DIE ABSTANDS-PHYSIK (0 in der Mitte, 1 direkt an der Kante) ---
         const edgeFactorX = Math.abs(relX - 0.5) * 2; 
         const edgeFactorY = Math.abs(relY - 0.5) * 2; 
 
-        // --- DER SPÄTE EFFEKT-EINSTIEG (SCHALEN-LOGIK) ---
-        // Erst ab 70% des Weges zum Rand hin (0.7) reagiert das Licht und verformt sich steil.
-        const threshold = 0.7;
-        const intensityX = edgeFactorX > threshold ? (edgeFactorX - threshold) / (1 - threshold) : 0;
-        const intensityY = edgeFactorY > threshold ? (edgeFactorY - threshold) / (1 - threshold) : 0;
+        // --- EXPONENTIELLE EFFEKT-KURVE (Für den plötzlichen Kanten-Knick) ---
+        // Durch Math.pow(..., 3) reagiert das Licht im Zentrum fast gar nicht (bleibt rund)
+        // und schießt erst in den letzten Millimetern vor dem Rand extrem steil ab.
+        const intensityX = Math.pow(edgeFactorX, 3);
+        const intensityY = Math.pow(edgeFactorY, 3);
 
-        // --- DYNAMISCHE STRÄNKUNG & STAUCHUNG BERECHNEN ---
-        // Basisgröße im flachen Zentrum: 140px mal 140px (Runder Studiopunkt)
-        let glowWidth = 140;
-        let glowHeight = 140;
+        // --- LACK-GEOMETRIE: BASIS-ZUSTAND (Runder Studio-Blitz wie Pfeffermühlen-Kopf) ---
+        // Im Zentrum klein, kompakt und extrem intensiv fokussiert
+        let glowWidth = 90;
+        let glowHeight = 90;
         let rotation = 0;
 
-        // Wenn wir uns der Ober- oder Unterkante nähern -> Licht extrem in die Breite ziehen
+        // --- DIE LOGO-TRANSFORMATION (Radikale Stauchung zu Licht-Sicheln) ---
+        
+        // Annäherung an Ober- oder Unterkante (Horizontale Lichtlinie)
         if (intensityY > 0) {
-            glowWidth += intensityY * 510;    // Zieht sich bis zu 650px in die Breite
-            glowHeight -= intensityY * 60;    // Staucht sich flach auf 80px zusammen
+            glowWidth += intensityY * 650;     // Breite explodiert auf bis zu 740px
+            glowHeight -= intensityY * 72;     // HÖHE STAUCHT SICH RADIKAL AUF 18px RUNTER!
         }
 
-        // Wenn wir uns den Seitenwänden nähern -> Licht extrem in die Höhe ziehen
+        // Annäherung an die Seitenwände (Vertikale Lichtlinie)
         if (intensityX > 0) {
-            glowHeight += intensityX * 260;   // Zieht sich bis zu 400px in die Höhe
-            glowWidth -= intensityX * 60;     // Staucht sich schmal auf 80px zusammen
+            glowHeight += intensityX * 350;    // Höhe zieht sich extrem lang
+            glowWidth -= intensityX * 72;      // BREITE SCHRUMPFT AUF HAUCHDÜNNE 18px ZUSAMMEN!
         }
 
-        // --- ECK-KOLLISION & ROTATION ---
-        // Wenn sich X- und Y-Verzerrung in den Ecken treffen, lassen wir den Lichtblitz 
-        // elegant mit dem Winkel der Schalen-Ecke rotieren (Tangenten-Illusion).
+        // --- ECKTANGENTEN-ILLUSION (Perfekte Kurvenschmiegung) ---
         if (intensityX > 0 && intensityY > 0) {
             const angleX = relX > 0.5 ? 1 : -1;
             const angleY = relY > 0.5 ? 1 : -1;
-            // Rotiert den Lichtfleck in den Ecken um ca. 45 Grad mit
+            // Rotiert den hauchdünnen Lichtblitz exakt mit dem mathematischen Winkel der Schalen-Ecke
             rotation = angleX * angleY * (intensityX * intensityY) * 45;
         }
 
-        // --- ÜBERGABE AN DAS CSS (NUR NOCH REINE VARIABLEN!) ---
+        // --- ÜBERGABE AN CSS-VARIABLEN ---
         footer.style.setProperty('--glow-x', xPercent + '%');
         footer.style.setProperty('--glow-y', yPercent + '%');
         footer.style.setProperty('--glow-width', glowWidth + 'px');
