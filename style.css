@@ -1,4 +1,6 @@
-/* --- SACHVERSTÄNDIGENBÜRO STYLE MIT PAPIEROPTIK --- */
+/* ==========================================================================
+   1. BASICS & LAYOUT (SACHVERSTÄNDIGENBÜRO MIT PAPIEROPTIK)
+   ========================================================================== */
 * { 
     margin: 0; 
     padding: 0; 
@@ -17,7 +19,23 @@ body {
     background-attachment: fixed; 
 }
 
-/* Responsiver Video-Header */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    padding: 0 20px;
+}
+
+.content {
+    padding: 60px 20px;
+    background: rgba(255, 255, 255, 0.35); 
+    backdrop-filter: blur(1px); 
+}
+
+
+/* ==========================================================================
+   2. HERO VIDEO HEADER
+   ========================================================================== */
 .hero {
     position: relative;
     height: 70vh;
@@ -54,22 +72,25 @@ body {
     z-index: 2;
 }
 
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
-    position: relative;
-    padding: 0 20px;
-}
-
 .hero .container {
     z-index: 3;
 }
 
+
+/* ==========================================================================
+   3. TYPOGRAFIE & BUTTONS
+   ========================================================================== */
 h1 {
     font-size: clamp(1.8rem, 5vw, 3rem);
     margin-bottom: 15px;
     text-shadow: 2px 2px 12px rgba(0,0,0,0.7);
     line-height: 1.2;
+}
+
+h2 { 
+    color: #172F1B; 
+    font-size: clamp(1.5rem, 4vw, 2.2rem); 
+    margin-bottom: 20px; 
 }
 
 .promo-text {
@@ -112,18 +133,10 @@ h1 {
     margin-bottom: 20px;
 }
 
-.content {
-    padding: 60px 20px;
-    background: rgba(255, 255, 255, 0.35); 
-    backdrop-filter: blur(1px); 
-}
 
-h2 { 
-    color: #172F1B; 
-    font-size: clamp(1.5rem, 4vw, 2.2rem); 
-    margin-bottom: 20px; 
-}
-
+/* ==========================================================================
+   4. LAYOUT-ELEMENTE & CARDS
+   ========================================================================== */
 .services {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -146,6 +159,31 @@ h2 {
     margin-top: 0; 
 }
 
+.services-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.service-detail-card { 
+    background: rgba(255, 255, 255, 0.85);
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid rgba(23, 47, 27, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s; 
+}
+
+.service-detail-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(23, 47, 27, 0.15);
+}
+
+.service-icon { 
+    font-size: 2rem; 
+    margin-bottom: 15px; 
+}
+
 .trust-box {
     margin-top: 60px;
     border-left: 5px solid #172F1B; 
@@ -154,113 +192,10 @@ h2 {
     border-radius: 0 10px 10px 0;
 }
 
-/* --- KONKAVE HOHLKEHLE: HIGH-GLOSS LACK FOOTER --- */
-footer {
-    text-align: center;
-    padding: 100px 20px;
-    position: relative;
-    overflow: hidden;
-    
-    /* 1. SCHICHT: Mulden-Lackuntergrund (Mitte nach hinten gezogen) */
-    background-color: #060d07;
-    background-image: linear-gradient(
-        90deg, 
-        #1a331e 0%, 
-        #0f2113 25%, 
-        #050a05 50%, 
-        #0f2113 75%, 
-        #1a331e 100%
-    );
-    
-    border-top: 1px solid rgba(255, 255, 255, 0.4);
-    box-shadow: 
-        inset 0 20px 40px rgba(0, 0, 0, 0.8),
-        inset 0 -20px 40px rgba(0, 0, 0, 0.8),
-        0 -15px 30px rgba(0, 0, 0, 0.2); 
-        
-    color: #fff;
-    font-size: 0.95rem;
-}
 
-/* 2. SCHICHT: DYNAMISCHER LICHTBLITZ (SCHARF & VERZERRBAR) */
-footer::before {
-    content: '';
-    position: absolute;
-    top: var(--glow-y, 50%);
-    left: var(--glow-x, 50%);
-    width: var(--glow-width, 350px);
-    height: 160px;
-    transform: translate(-50%, -50%); 
-    
-    /* GESTOCHENE RÄNDER: Extrem weißer Kern, schneller Abfall */
-    background: radial-gradient(
-        ellipse at center, 
-        rgba(255, 255, 255, 0.9) 0%, 
-        rgba(255, 255, 255, 0.7) 12%, 
-        rgba(255, 255, 255, 0.15) 20%, 
-        transparent 45%
-    );
-    
-    mix-blend-mode: screen; 
-    pointer-events: none; 
-    will-change: top, left, width;
-}
-
-footer .container {
-    position: relative;
-    z-index: 2;
-}
-
-footer a { 
-    color: #E2CAB1; 
-    text-decoration: none; 
-    font-weight: bold; 
-    margin: 0 15px; 
-    display: inline-block;
-    text-shadow: 0 3px 8px rgba(0,0,0,0.9); 
-    transition: color 0.2s ease, text-shadow 0.2s ease;
-}
-
-footer a:hover { 
-    color: #fff;
-    text-shadow: 0 0 10px rgba(255,255,255,0.8);
-}
-
-/* WhatsApp & Menü-Elemente */
-.whatsapp-widget {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    background-color: #25d366;
-    color: white;
-    padding: 12px 20px;
-    border-radius: 50px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 0.9rem;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    z-index: 9999;
-    transition: transform 0.3s ease;
-}
-
-.whatsapp-widget:hover {
-    transform: scale(1.05);
-    background-color: #128c7e;
-}
-
-.whatsapp-widget img { 
-    width: 25px; 
-    height: 25px; 
-}
-
-@media (max-width: 480px) {
-    .whatsapp-widget span { display: none; }
-    .whatsapp-widget { padding: 12px; border-radius: 50%; }
-}
-
+/* ==========================================================================
+   5. NAVIGATION & WIDGETS
+   ========================================================================== */
 #menu-icon {
     position: absolute;
     top: 20px;
@@ -305,52 +240,147 @@ footer a:hover {
     background: rgba(255,255,255,0.1); 
 }
 
-.services-detail-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-    gap: 30px;
-    margin-top: 20px;
+.whatsapp-widget {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: #25d366;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    z-index: 9999;
+    transition: transform 0.3s ease;
 }
 
-.service-detail-card { 
-    background: rgba(255, 255, 255, 0.85);
-    padding: 25px;
-    border-radius: 10px;
-    border: 1px solid rgba(23, 47, 27, 0.1);
-    transition: transform 0.2s, box-shadow 0.2s; 
+.whatsapp-widget:hover {
+    transform: scale(1.05);
+    background-color: #128c7e;
 }
 
-.service-detail-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 18px rgba(23, 47, 27, 0.15);
+.whatsapp-widget img { 
+    width: 25px; 
+    height: 25px; 
 }
 
-.service-icon { 
-    font-size: 2rem; 
-    margin-bottom: 15px; 
-}
-
-@media (max-width: 500px) {
-    .services-detail-grid { grid-template-columns: 1fr; }
-}
 
 /* ==========================================================================
-   1. MENÜ-STEUERUNG (SIDE-MENU & HAMBURGER)
+   6. KONKAVE HOHLKEHLE: OPTIMIERTER HIGH-GLOSS LACK FOOTER
    ========================================================================== */
-const menuIcon = document.getElementById('menu-icon');
-const sideMenu = document.getElementById('side-menu');
+footer {
+    text-align: center;
+    padding: 100px 20px;
+    position: relative;
+    overflow: hidden;
+    
+    /* Tiefer, satter Lackgrund – verläuft von oben nach unten für echte 3D-Wölbung */
+    background-color: #050a05;
+    background-image: linear-gradient(
+        to bottom, 
+        #122415 0%, 
+        #09120a 15%, 
+        #040704 60%, 
+        #0b170c 100%
+    );
+    
+    /* Feine Lichtkante am oberen Rand */
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+    
+    /* Tiefenwirkung durch nach innen gerichtete Schatten */
+    box-shadow: 
+        inset 0 25px 30px rgba(0, 0, 0, 0.9),
+        inset 0 -25px 40px rgba(0, 0, 0, 0.9),
+        0 -15px 30px rgba(0, 0, 0, 0.3); 
+        
+    color: #fff;
+    font-size: 0.95rem;
+}
 
-menuIcon.addEventListener('click', () => {
-    if (sideMenu.style.right === '0px') {
-        sideMenu.style.right = '-250px';
-    } else {
-        sideMenu.style.right = '0px';
+/* Horizontale Lichtstreifung – erzeugt den "Emaille-Spiegel-Look" der Umgebung */
+footer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 35%;
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.15) 0%,
+        rgba(255, 255, 255, 0.05) 40%,
+        transparent 100%
+    );
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Dynamischer Lichtblitz – steuerbar per JS für organischen Scheinwerfer-Effekt */
+footer::before {
+    content: '';
+    position: absolute;
+    top: var(--glow-y, 50%);
+    left: var(--glow-x, 50%);
+    width: var(--glow-width, 400px);
+    height: 220px;
+    transform: translate(-50%, -50%); 
+    
+    /* Weicher, matterer Verlauf ohne störende Linienbildung */
+    background: radial-gradient(
+        ellipse at center, 
+        rgba(255, 255, 255, 0.7) 0%, 
+        rgba(255, 255, 255, 0.3) 20%, 
+        rgba(255, 255, 255, 0.05) 50%, 
+        transparent 70%
+    );
+    
+    mix-blend-mode: screen; 
+    pointer-events: none; 
+    z-index: 1;
+    will-change: top, left, width;
+}
+
+footer .container {
+    position: relative;
+    z-index: 2;
+}
+
+footer a { 
+    color: #E2CAB1; 
+    text-decoration: none; 
+    font-weight: bold; 
+    margin: 0 15px; 
+    display: inline-block;
+    text-shadow: 0 3px 8px rgba(0,0,0,0.9); 
+    transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+footer a:hover { 
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255,255,255,0.8);
+}
+
+
+/* ==========================================================================
+   7. RESPONSIVE MEDIA QUERIES
+   ========================================================================== */
+@media (max-width: 500px) {
+    .services-detail-grid { 
+        grid-template-columns: 1fr; 
     }
-});
+}
 
-document.addEventListener('click', (event) => {
-    if (!menuIcon.contains(event.target) && !sideMenu.contains(event.target)) {
-        sideMenu.style.right = '-250px';
+@media (max-width: 480px) {
+    .whatsapp-widget span { 
+        display: none; 
     }
-});
-
+    .whatsapp-widget { 
+        padding: 12px; 
+        border-radius: 50%; 
+    }
+}
