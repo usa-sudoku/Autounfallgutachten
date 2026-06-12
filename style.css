@@ -110,14 +110,14 @@ body {
 }
 
 /* ==========================================================================
-3. HAUPTINHALT & PAPIERHINTERGRUND
+3. HAUPTINHALT & PAPIERHINTERGRUND (JETZT MIT DEINEM BILD!)
 ========================================================================== */
 .content {
-    background-image: radial-gradient(rgba(23, 47, 27, 0.03) 1px, transparent 0), radial-gradient(rgba(23, 47, 27, 0.03) 1px, transparent 0);
-    background-size: 8px 8px;
-    background-position: 0 0, 4px 4px;
-    background-color: #f9f7f1; /* Papier-Grundton */
+    background-image: url('Bilder/1781190149157(2).png'); /* Dein Papierbild */
+    background-size: auto;
+    background-repeat: repeat;
     padding: 60px 0;
+    min-height: 100vh;
 }
 
 /* ==========================================================================
@@ -207,10 +207,12 @@ body {
 }
 
 /* ==========================================================================
-6. FOOTER
+6. FOOTER (JETZT MIT DEINEM FOOTERBILD!)
 ========================================================================== */
 footer {
-    background-color: #172F1B;
+    background-image: url('Bilder/1781263694012(1).png'); /* Dein Footerbild */
+    background-size: cover;
+    background-position: center;
     color: rgba(255,255,255,0.7);
     padding: 40px 0;
     text-align: center;
