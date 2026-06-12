@@ -271,7 +271,7 @@ h2 {
 
 
 /* ==========================================================================
-   6. NEUER FOOTER MIT BILD-HINTERGRUND
+   6. NEUER FOOTER (BILD PASST SICH JEDEM DISPLAY AN)
    ========================================================================== */
 footer {
     text-align: center;
@@ -279,12 +279,14 @@ footer {
     position: relative;
     overflow: hidden;
     
-    /* Hintergrundbild aktivieren und anpassen */
+    /* Hintergrundbild aktivieren */
     background-image: url('Bilder/1781263694012(1).png');
-    background-size: cover;
+    
+    /* Zwingt das Bild, exakt so breit und hoch wie der Footer zu sein (Keine Lücken) */
+    background-size: 100% 100%;
+    
     background-position: center;
     background-repeat: no-repeat;
-    background-color: #172F1B; /* Fallback-Farbe */
     
     border-top: 1px solid rgba(255, 255, 255, 0.3);
     color: #fff;
@@ -294,7 +296,7 @@ footer {
 footer .container {
     position: relative;
     z-index: 2;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8); /* Erhöht die Lesbarkeit auf dem Bild */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8); /* Schützt die Lesbarkeit */
 }
 
 footer a { 
