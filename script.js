@@ -96,12 +96,12 @@ if (footer) {
             rotation = angleX * angleY * (intensityX * intensityY) * 45;
         }
 
-        // --- ÜBERGABE AN DAS CSS ---
+        // --- ÜBERGABE AN DAS CSS (NUR NOCH REINE VARIABLEN!) ---
         footer.style.setProperty('--glow-x', xPercent + '%');
         footer.style.setProperty('--glow-y', yPercent + '%');
         footer.style.setProperty('--glow-width', glowWidth + 'px');
         footer.style.setProperty('--glow-height', glowHeight + 'px');
-        footer.style.setProperty('transform', `translate(-50%, -50%) rotate(${rotation}deg)`);
+        footer.style.setProperty('--glow-rotate', rotation + 'deg'); 
     }
 
     // Event-Listener aktivieren
