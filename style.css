@@ -109,4 +109,108 @@ a:hover {
     height: 100vh;
     background-color: #172F1B;
     padding-top: 80px;
-    transition: right 0.4
+    transition: right 0.4s ease;
+    z-index: 999;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+}
+
+#side-menu.active {
+    right: 0;
+}
+
+#side-menu a {
+    display: block;
+    padding: 15px 25px;
+    color: #ffffff !important;
+    font-size: 1.1rem;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    transition: background 0.3s ease;
+}
+
+#side-menu a:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+/* ==========================================================================
+   4. LAYOUT-CONTAINER & SEITEN-STRUKTUR
+   ========================================================================== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+main {
+    padding: 40px 0;
+}
+
+/* ==========================================================================
+   5. KOMPONENTEN (FORMULARE, UNTERSEITEN-CARDS)
+   ========================================================================== */
+.card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border-top: 4px solid #172F1B;
+}
+
+/* ==========================================================================
+   6. FOOTER (MIT DEINEM HINTERGRUNDBILD)
+   ========================================================================== */
+footer {
+    background-color: #172F1B;
+    background-image: url('Bilder/1781263694012(1).png'); /* Dein Footer-Hintergrundbild */
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+    padding: 40px 0 20px 0;
+    margin-top: auto;
+    text-align: center;
+}
+
+footer a {
+    color: #ffffff !important;
+    margin: 0 10px;
+    text-decoration: none;
+    opacity: 0.8;
+}
+
+footer a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   7. MEDIA QUERIES (RESPONSIVE DESIGN)
+   ========================================================================== */
+@media (max-width: 768px) {
+    main {
+        padding: 20px 0;
+    }
+}
+
+/* ==========================================================================
+   8. ULTRA-CLEAN INDEX RESETS & ACCORDIONS (DEINE BASE-COLORS & PAPIEROPTIK)
+   ========================================================================== */
+.minimal-index {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.minimal-index .main-header {
+    background: #172F1B;
+    padding: 15px 20px;
+    width: 100%;
+}
+
+.content-minimal {
+    flex: 1;
+    padding: 30px 15px;
+    display: flex;
+    flex-direction: column
