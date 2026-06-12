@@ -110,7 +110,7 @@ body {
 }
 
 /* ==========================================================================
-3. HAUPTINHALT & PAPIERHINTERGRUND (JETZT MIT DEINEM BILD!)
+3. HAUPTINHALT & PAPIERHINTERGRUND (MIT DEINEM BILD)
 ========================================================================== */
 .content {
     background-image: url('Bilder/1781190149157(2).png'); /* Dein Papierbild */
@@ -207,7 +207,7 @@ body {
 }
 
 /* ==========================================================================
-6. FOOTER (JETZT MIT DEINEM FOOTERBILD!)
+6. FOOTER (ROTER STRICH DIREKT ENTFERNT!)
 ========================================================================== */
 footer {
     background-image: url('Bilder/1781263694012(1).png'); /* Dein Footerbild */
@@ -217,7 +217,7 @@ footer {
     padding: 40px 0;
     text-align: center;
     font-size: 0.95rem;
-    border-top: 5px solid #B03133;
+    border-top: none; /* Rote Trennlinie komplett gelöscht */
 }
 
 footer a {
