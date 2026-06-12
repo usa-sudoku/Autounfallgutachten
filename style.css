@@ -325,7 +325,7 @@ footer::after {
     z-index: 1;
 }
 
-/* Interaktiver Lichtreflex (Wandert & schmiegt sich per JS flüssig an Kanten an) */
+/* Interaktiver Lichtreflex (Nimmt jetzt die Rotation sicher aus dem JS auf) */
 footer::before {
     content: '';
     position: absolute;
@@ -335,7 +335,10 @@ footer::before {
     /* Dynamische Größensteuerung aus dem angepassten JS */
     width: var(--glow-width, 140px);
     height: var(--glow-height, 140px); 
-    transform: translate(-50%, -50%); 
+    
+    /* DAS SCHÜTZT VOR DEM SPRINGEN: Das CSS transformiert NUR den Lichtpunkt selbst. 
+       Der Footer bleibt unberührt im Layout verankert. `--glow-rotate` kommt aus dem JS. */
+    transform: translate(-50%, -50%) rotate(var(--glow-rotate, 0deg)); 
     
     /* Scharf gebündelter Studio-Reflex im Kern, der extrem intensiv strahlt */
     background: radial-gradient(
@@ -350,7 +353,6 @@ footer::before {
     pointer-events: none; 
     z-index: 1;
     
-    /* Transform hinzugefügt, damit das Licht flüssig rotiert oder verzerrt werden kann */
     will-change: top, left, width, height, transform; 
     transition: width 0.15s ease-out, height 0.15s ease-out;
 }
