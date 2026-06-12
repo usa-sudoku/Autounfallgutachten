@@ -60,7 +60,7 @@
         margin: 40px auto;
     }
 
-    /* Akkordeon-Boxen im Stil deiner Service-Cards */
+    /* Akkordeon-Boxen im Stil deiner originalen Service-Cards */
     .acc-card {
         background: rgba(255, 255, 255, 0.9);
         border: 1px solid rgba(23, 47, 27, 0.1);
@@ -253,24 +253,6 @@ Ihr Browser unterstützt kein Video.
 </footer>
 
 <script src="script.js" defer></script>
-
-<script>
-    document.querySelectorAll('.acc-header-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
-            const panel = this.nextElementSibling;
-            const icon = this.querySelector('.acc-icon');
-            
-            // Schauen, ob das Panel gerade offen oder zu ist
-            if (panel.style.display === "block") {
-                panel.style.display = "none";
-                icon.textContent = "+";
-            } else {
-                panel.style.display = "block";
-                icon.textContent = "−";
-            }
-        });
-    });
-</script>
 
 <a href="https://wa.me/4915205270675" class="whatsapp-widget" target="_blank" rel="noopener noreferrer">
 <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
