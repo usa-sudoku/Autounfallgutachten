@@ -1,34 +1,36 @@
-
 /* ==========================================================================
    1. MENÜ-STEUERUNG (SIDE-MENU & HAMBURGER)
    ========================================================================== */
 const menuIcon = document.getElementById('menu-icon');
 const sideMenu = document.getElementById('side-menu');
 
-menuIcon.addEventListener('click', () => {
-    if (sideMenu.style.right === '0px') {
-        sideMenu.style.right = '-250px';
-    } else {
-        sideMenu.style.right = '0px';
-    }
-});
+if (menuIcon && sideMenu) {
+    menuIcon.addEventListener('click', () => {
+        if (sideMenu.style.right === '0px') {
+            sideMenu.style.right = '-250px';
+        } else {
+            sideMenu.style.right = '0px';
+        }
+    });
 
-document.addEventListener('click', (event) => {
-    if (!menuIcon.contains(event.target) && !sideMenu.contains(event.target)) {
-        sideMenu.style.right = '-250px';
-    }
-});
+    // Schließt das Menü, wenn man außerhalb klickt
+    document.addEventListener('click', (event) => {
+        if (!menuIcon.contains(event.target) && !sideMenu.contains(event.target)) {
+            sideMenu.style.right = '-250px';
+        }
+    });
+}
 
 
 /* ==========================================================================
-   2. REPARIERTER MULDEN-LACKEFFEKT (BERECHNUNG ZUR FOOTER-MITTE)
+   2. REPARIERTER LACKEFFEKT (FLÜSSIGER GLANZ-REFLEX FÜR DEN FOOTER)
    ========================================================================== */
 const footer = document.querySelector('footer');
 
 if (footer) {
     let isFooterVisible = false;
 
-    // Der Performance-Türsteher: Trackt nur, wenn der Footer sichtbar ist
+    // Performance-Optimierung: Berechnet den Effekt nur, wenn der Footer im Bild ist
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             isFooterVisible = entry.isIntersecting;
@@ -38,37 +40,34 @@ if (footer) {
     observer.observe(footer);
 
     function handleLackReflektion(e) {
-        if (!isFooterVisible) return; // Akku-Schonung
+        if (!isFooterVisible) return; // Schont den Akku auf Mobilgeräten
 
         const rect = footer.getBoundingClientRect();
         
-        // Finger- oder Maus-Koordinaten holen
+        // Finger- oder Maus-Koordinaten abfangen
         const clientX = e.touches ? e.touches[0].clientX : e.clientX;
         const clientY = e.touches ? e.touches[0].clientY : e.clientY;
 
-        // 1. Position des Lichts im Footer berechnen (0% bis 100%) für top/left
+        // Position des Lichtpunkts in Prozent (0% bis 100%)
         const xPercent = ((clientX - rect.left) / rect.width) * 100;
         const yPercent = ((clientY - rect.top) / rect.height) * 100;
 
-        // 2. KORREKTUR: Mathematische Verzerrung relativ zur FOOTER-MITTE
-        const footerCenter = rect.left + (rect.width / 2); // Der exakte Mittelpunkt des Footers
-        const distanceFromCenter = clientX - footerCenter; // Abstand in Pixeln (negativ oder positiv)
-        
-        // Wir wandeln den Pixel-Abstand in einen relativen Wert zwischen 0 (Mitte) und 1 (ganz am Rand) um
+        // Berechnung für die organische Streckung zu den Außenrändern hin
+        const footerCenter = rect.left + (rect.width / 2);
+        const distanceFromCenter = clientX - footerCenter; 
         const maxPossibleDistance = rect.width / 2;
         const relativeDistance = Math.min(Math.abs(distanceFromCenter) / maxPossibleDistance, 1);
 
-        // Lichtbreite steuern: In der Footer-Mitte schmal (220px), an den Footer-Rändern breit gestreckt (580px)
-        const currentGlowWidth = 220 + (relativeDistance * 360);
+        // Die Lichtbreite verändert sich jetzt geschmeidig von 300px (Mitte) bis 600px (Rand)
+        const currentGlowWidth = 300 + (relativeDistance * 300);
 
-        // Werte live an das CSS übergeben
+        // Werte live an die CSS-Variablen übergeben
         footer.style.setProperty('--glow-x', xPercent + '%');
         footer.style.setProperty('--glow-y', yPercent + '%');
         footer.style.setProperty('--glow-width', currentGlowWidth + 'px');
     }
 
-    // Lauscht auf dem gesamten Fenster für flüssige Annäherung
+    // Events für Desktop (Maus) und Mobile (Touch) registrieren
     window.addEventListener('mousemove', handleLackReflektion);
     window.addEventListener('touchmove', handleLackReflektion, { passive: true });
 }
-
