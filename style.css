@@ -280,7 +280,7 @@ footer {
     overflow: hidden;
     background-color: #172F1B;
     
-    /* Tiefe Farbstille im Zentrum, steiler Helligkeitsknick erst ganz außen */
+    /* Tiefe Farbstille im Zentrum, steiler Helligkeitsknick erst ganz außen an der Wölbung */
     background-image: radial-gradient(
         ellipse at center, 
         #172F1B 0%,       
@@ -303,7 +303,7 @@ footer {
     font-size: 0.95rem;
 }
 
-/* Klarlack-Spiegelung für die Tiefenwirkung */
+/* Klarlack-Spiegelung für die glänzende Tiefenwirkung */
 footer::after {
     content: '';
     position: absolute;
@@ -321,7 +321,7 @@ footer::after {
     z-index: 1;
 }
 
-/* DER LICHTBLITZ: Mutiert in den Ecken vom Kreis zum rechtwinkligen Keil */
+/* DER LICHTBLITZ: Mutiert in den Ecken INSTANT vom Kreis zum rechtwinkligen Keil */
 footer::before {
     content: '';
     position: absolute;
@@ -331,30 +331,29 @@ footer::before {
     width: var(--glow-width, 110px);
     height: var(--glow-height, 110px); 
     
-    /* Dynamischer Radius aus dem JS: Stirbt in den Ecken auf 0% ab (Knallharte Ecke) */
+    /* Dynamischer Radius aus dem JS: Fällt in den Ecken blitzartig auf 0% ab */
     border-radius: var(--glow-radius, 50%);
     
-    /* Die Haupt-Ausrichtung zentriert das Licht perfekt unter dem Finger */
     transform: translate(-50%, -50%); 
     
-    /* GESTOCHEN SCHARFE STUDIO-REFLEXION (Kein matschiger Nebel mehr!) */
+    /* GESTOCHEN SCHARFE STUDIO-REFLEXION (Knackweiß, brutaler Helligkeitssturz) */
     background: radial-gradient(
         ellipse at center, 
         rgba(255, 255, 255, 1.0) 0%,     /* Gleißendes Kern-Weiß */
-        rgba(255, 255, 255, 0.9) 12%,    /* Messerscharfer Studio-Rand */
-        rgba(255, 255, 255, 0.3) 22%,    /* Minimaler Brechungssaum */
-        transparent 32%                  /* Sofortiger Absturz ins dunkle Grün */
+        rgba(255, 255, 255, 0.9) 12%,    /* Definiertes Zentrum */
+        rgba(255, 255, 255, 0.3) 22%,    /* Minimaler Auslauf-Saum */
+        transparent 32%                  /* Sofortiger Sturzflug ins dunkle Grün */
     );
     
     /* DER ENTSCHEIDENDE LOGO-TRICK:
        Ein dynamischer Clip-Path schneidet das Licht in den Ecken rechtwinklig ab.
-       Verbindet per CSS-Interpolation die normale Kreisform (0% Einfluss) 
-       mit einem scharf gezogenen Ecken-Dreieck im Kollisionsfall. */
+       Verbindet die normale Kreisform mit einem scharf gezogenen Ecken-Dreieck. */
     clip-path: polygon(
         0% 0%, 
         100% 0%, 
         100% 100%, 
-        calc(100% - (var(--quad-x, 0%) * var(--corner-mix, 0))) calc(100% - (var(--quad-y, 0%) * var(--corner-mix, 0))),
+        calc(100% - (var(--quad-x, 0%) * var(--corner-mix, 0))), 
+        calc(100% - (var(--quad-y, 0%) * var(--corner-mix, 0))),
         0% 100%
     );
     
@@ -363,7 +362,10 @@ footer::before {
     z-index: 1;
     
     will-change: top, left, width, height, border-radius, clip-path; 
-    transition: width 0.12s ease-out, height 0.12s ease-out, border-radius 0.12s ease-out;
+    
+    /* PERFORMANCE & RETTUNG: Keine Transition auf border-radius! 
+       Nur so wird der Pfannkuchen-Bogen in der Ecke augenblicklich gekillt. */
+    transition: width 0.12s ease-out, height 0.12s ease-out, clip-path 0.12s ease-out;
 }
 
 footer .container {
@@ -389,7 +391,7 @@ footer a:hover {
 
 /* ==========================================================================
    7. RESPONSIVE MEDIA QUERIES
-   ========================================================================= */
+   ========================================================================== */
 @media (max-width: 500px) {
     .services-detail-grid { 
         grid-template-columns: 1fr; 
