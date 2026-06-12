@@ -55,7 +55,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(23, 47, 27, 0.7); /* Dunkelgrün mit Transparenz */
+    background: rgba(23, 47, 27, 0.7);
     z-index: 2;
 }
 
@@ -110,25 +110,23 @@ body {
 }
 
 /* ==========================================================================
-3. HAUPTINHALT & PAPIERHINTERGRUND (ZENTRIERT DIE BOXEN BEIM LADEN)
+3. HAUPTINHALT & PAPIERHINTERGRUND (FIXIERT & GESTRECKT)
 ========================================================================== */
 .content {
-    background-image: url('Bilder/1781190149157(2).png'); /* Dein Papierbild */
+    background-image: url('Bilder/1781190149157(2).png');
     background-position: center center;
     background-repeat: no-repeat;
     background-size: 100% 100%; 
     background-attachment: fixed;
-    padding: 40px 0;
-    
-    /* Diese Zeilen zentrieren die Boxen perfekt in der Mitte des ersten Bildschirms */
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 40px 0;
 }
 
 /* ==========================================================================
-4. WHATSAPP FLOATING WIDGET (UNTEN LINKS)
+4. WHATSAPP & TELEFON WIDGETS
 ========================================================================== */
 .whatsapp-widget {
     position: fixed;
@@ -149,203 +147,8 @@ body {
     transition: transform 0.3s ease;
 }
 
-.whatsapp-widget:hover {
-    transform: scale(1.05);
-}
-
-.whatsapp-widget img {
-    width: 25px;
-    height: 25px;
-}
-
-/* ==========================================================================
-5. HAMBURGER NAVIGATION & SIDE-MENU
-========================================================================== */
-#menu-icon {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    width: 45px;
-    height: 45px;
-    background-color: #172F1B;
-    border-radius: 5px;
-    padding: 10px;
-    cursor: pointer;
-    z-index: 10001;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-}
-
-#menu-icon .bar {
-    width: 100%;
-    height: 4px;
-    background-color: white;
-    border-radius: 2px;
-    transition: 0.4s;
-}
-
-#side-menu {
-    position: fixed;
-    top: 0;
-    right: -250px;
-    width: 250px;
-    height: 100%;
-    background-color: #172F1B;
-    padding-top: 80px;
-    z-index: 10000;
-    transition: 0.4s ease;
-    box-shadow: -5px 0 15px rgba(0,0,0,0.2);
-}
-
-#side-menu a {
-    display: block;
-    padding: 15px 25px;
-    color: white;
-    text-decoration: none;
-    font-size: 1.1rem;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-    transition: background-color 0.2s;
-}
-
-#side-menu a:hover {
-    background-color: rgba(255,255,255,0.1);
-}
-
-/* ==========================================================================
-6. FOOTER
-========================================================================== */
-footer {
-    background-image: url('Bilder/1781263694012(1).png'); /* Dein Footerbild */
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover; 
-    color: rgba(255,255,255,0.7);
-    padding: 40px 0;
-    text-align: center;
-    font-size: 0.95rem;
-    border-top: none;
-}
-
-footer a {
-    color: white;
-    text-decoration: none;
-    margin: 0 10px;
-    transition: color 0.2s;
-}
-
-footer a:hover {
-    color: #B03133;
-}
-
-/* ==========================================================================
-7. RESPONSIVE BASE STYLES
-========================================================================== */
-@media (max-width: 768px) {
-    .hero h1 {
-        font-size: 1.9rem;
-    }
-    .promo-text {
-        font-size: 1.05rem;
-    }
-    .cta-button {
-        padding: 14px 24px;
-        font-size: 1.05rem;
-    }
-    .whatsapp-widget span {
-        display: none;
-    }
-    .whatsapp-widget {
-        padding: 12px;
-        border-radius: 50%;
-        width: 49px;
-        height: 49px;
-        justify-content: center;
-    }
-}
-
-/* ==========================================================================
-8. NEUE ZUSATZ-STYLES FÜR DIE AKKORDEONS & DAS GESTAPELTE TELEFON-WIDGET
-========================================================================== */
-.minimal-wrap {
-    width: 100%;
-    max-width: 650px;
-    margin: 0 auto; /* Zentrierung optimiert */
-}
-
-.acc-card {
-    background: rgba(255, 255, 255, 0.9);
-    border: 1px solid rgba(23, 47, 27, 0.1);
-    border-radius: 10px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    border-bottom: 4px solid #B03133; /* Rote Kante */
-    overflow: hidden;
-}
-
-.acc-card:last-child {
-    margin-bottom: 0; /* Verhindert ungleichen Abstand nach unten */
-}
-
-.acc-header-btn {
-    width: 100%;
-    background: none;
-    border: none;
-    padding: 20px;
-    text-align: left;
-    font-size: 1.25rem;
-    font-weight: bold;
-    color: #172F1B; 
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    outline: none;
-}
-
-.acc-panel {
-    display: none;
-    padding: 0 20px 20px 20px;
-    color: #2c3e50;
-}
-
-.acc-panel ol {
-    padding-left: 20px;
-    margin: 0;
-}
-
-.acc-panel li {
-    margin-bottom: 12px;
-    line-height: 1.5;
-}
-
-.acc-icon {
-    font-size: 1.4rem;
-    color: #B03133;
-    font-weight: bold;
-}
-
-.seo-card {
-    border-bottom-color: #172F1B; /* Grüne Kante */
-    background: rgba(255, 255, 255, 0.75);
-}
-
-.seo-card .acc-header-btn {
-    font-size: 1.05rem;
-    color: #555;
-    padding: 15px 20px;
-}
-
-.seo-card .acc-panel p {
-    margin-bottom: 15px;
-    font-size: 0.95rem;
-    line-height: 1.6;
-}
-
-.seo-card .acc-panel p:last-child {
-    margin-bottom: 0;
-}
+.whatsapp-widget:hover { transform: scale(1.05); }
+.whatsapp-widget img { width: 25px; height: 25px; }
 
 .phone-widget {
     position: fixed;
@@ -365,34 +168,78 @@ footer a:hover {
     z-index: 9999;
     transition: transform 0.3s ease;
 }
+.phone-widget:hover { transform: scale(1.05); background-color: #8c2426; }
+.phone-btn-img { width: 25px; height: 25px; border-radius: 50%; object-fit: cover; }
 
-.phone-widget:hover {
-    transform: scale(1.05);
-    background-color: #8c2426;
+/* ==========================================================================
+5. NAVIGATION
+========================================================================== */
+#menu-icon {
+    position: fixed; top: 20px; right: 20px; width: 45px; height: 45px;
+    background-color: #172F1B; border-radius: 5px; padding: 10px; cursor: pointer;
+    z-index: 10001; display: flex; flex-direction: column; justify-content: space-between;
+}
+#menu-icon .bar { width: 100%; height: 4px; background-color: white; border-radius: 2px; }
+
+#side-menu {
+    position: fixed; top: 0; right: -250px; width: 250px; height: 100%;
+    background-color: #172F1B; padding-top: 80px; z-index: 10000; transition: 0.4s;
+}
+#side-menu a { display: block; padding: 15px 25px; color: white; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.05); }
+
+/* ==========================================================================
+6. FOOTER
+========================================================================== */
+footer {
+    background-image: url('Bilder/1781263694012(1).png');
+    background-position: center center;
+    background-size: cover; 
+    color: rgba(255,255,255,0.7);
+    padding: 40px 0;
+    text-align: center;
+    font-size: 0.95rem;
+    border-top: none;
+}
+footer a { color: white; text-decoration: none; margin: 0 10px; }
+footer a:hover { color: #B03133; }
+
+/* ==========================================================================
+7. RESPONSIVE
+========================================================================== */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 1.9rem; }
+    .whatsapp-widget span, .phone-widget span { display: none; }
+    .whatsapp-widget, .phone-widget { padding: 0; width: 49px; height: 49px; justify-content: center; border-radius: 50%; }
 }
 
-.phone-btn-img {
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    object-fit: cover;
+/* ==========================================================================
+8. ZENTRIERTE AKKORDEONS & ZUSATZ-BUTTON
+========================================================================== */
+.minimal-wrap { width: 100%; max-width: 650px; margin: 0 auto; display: flex; flex-direction: column; justify-content: center; }
+
+.acc-card {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(23, 47, 27, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border-bottom: 4px solid #B03133;
+    overflow: hidden;
 }
 
-@media (max-width: 480px) {
-    .phone-widget span {
-        display: none; 
-    }
-    .phone-widget {
-        padding: 0;
-        width: 49px; 
-        height: 49px;
-        justify-content: center;
-        bottom: 80px; 
-        border-radius: 50%;
-        overflow: hidden;
-    }
-    .phone-btn-img {
-        width: 100%;
-        height: 100%;
-    }
+.acc-card:first-child { margin-bottom: 20px; }
+
+.acc-header-btn {
+    width: 100%; background: none; border: none; padding: 20px;
+    text-align: left; font-size: 1.25rem; font-weight: bold; color: #172F1B;
+    cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+}
+
+.acc-panel { display: none; padding: 0 20px 20px 20px; color: #2c3e50; }
+.acc-icon { font-size: 1.4rem; color: #B03133; font-weight: bold; }
+
+/* FLACHER ZENTRIERTER BUTTON */
+.extra-info-btn {
+    width: 100%; background-color: #172F1B; color: rgba(255,255,255,0.7);
+    padding: 4px 25px; font-size: 0.95rem; font-weight: normal;
+    display: flex; justify-content: center; align-items: center; gap: 10px; cursor: pointer; border: none;
 }
