@@ -9,20 +9,11 @@
 body { 
     color: #2c3e50; 
     line-height: 1.6; 
-    /* Champagner als Basisfarbe (#E2CAB1) */
     background-color: #E2CAB1; 
-    
-    /* Greift direkt auf den aktuellen Namen deines Bildes im Ordner "Bilder" zu */
     background-image: url('Bilder/1781190149157(2).png'); 
-    
-    /* Verhindert Kachelung, um harte Kanten des Farbverlaufs zu vermeiden */
     background-repeat: no-repeat; 
-    
-    /* Streckt das Papier sauber über den gesamten Bildschirm */
     background-size: cover; 
     background-position: center top;
-    
-    /* Fixiert das Papier: Text fließt edel über die Struktur hinweg */
     background-attachment: fixed; 
 }
 
@@ -59,7 +50,6 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    /* Tiefgrün aus Logo (#172F1B) mit Transparenz */
     background: rgba(23, 47, 27, 0.75);
     z-index: 2;
 }
@@ -93,7 +83,6 @@ h1 {
 
 .cta-button {
     display: inline-block;
-    /* Rot aus Logo (#B03133) */
     background-color: #B03133;
     color: white;
     padding: clamp(14px, 3vw, 18px) clamp(25px, 5vw, 45px);
@@ -125,7 +114,6 @@ h1 {
 
 .content {
     padding: 60px 20px;
-    /* Lässt das edle Papier durchscheinen, hellt es aber für optimale Lesbarkeit auf */
     background: rgba(255, 255, 255, 0.35); 
     backdrop-filter: blur(1px); 
 }
@@ -147,7 +135,6 @@ h2 {
     padding: 30px;
     border: 1px solid rgba(23, 47, 27, 0.1);
     border-radius: 10px;
-    /* Weiß-transparenter Kern, damit Papierstruktur fühlbar bleibt */
     background: rgba(255, 255, 255, 0.85); 
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     border-bottom: 4px solid #B03133; 
@@ -163,91 +150,62 @@ h2 {
     margin-top: 60px;
     border-left: 5px solid #172F1B; 
     padding: 25px;
-    /* Harmonische Box-Überlagerung */
     background: rgba(255, 255, 255, 0.65);
     border-radius: 0 10px 10px 0;
 }
 
-/* --- REPARIERT & OPTIMIERT: HIGH-GLOSS CANDY LACK FOOTER --- */
+/* --- KONKAVE HOHLKEHLE: HIGH-GLOSS LACK FOOTER --- */
 footer {
     text-align: center;
-    padding: 90px 20px;
+    padding: 100px 20px;
     position: relative;
     overflow: hidden;
     
-    /* 1. SCHICHT: Extrem tiefes, sattes Candy-Waldgrün */
-    background-color: #0c1a0e; /* Sehr dunkler Basisschatten */
+    /* 1. SCHICHT: Mulden-Lackuntergrund (Mitte nach hinten gezogen) */
+    background-color: #060d07;
     background-image: linear-gradient(
-        180deg, 
-        #172F1B 0%,   /* Dein originales Logo-Grün an der Oberkante */
-        #0b140c 100%  /* Satter Metallic-Schatten nach unten hin */
+        90deg, 
+        #1a331e 0%, 
+        #0f2113 25%, 
+        #050a05 50%, 
+        #0f2113 75%, 
+        #1a331e 100%
     );
     
-    /* Knackige Lichtkante an der Glas-Oberfläche */
-    border-top: 1px solid rgba(255, 255, 255, 0.35);
-    
-    /* Massiver Innenschatten für echte räumliche Tiefe im Lack */
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
     box-shadow: 
-        inset 0 15px 30px rgba(0, 0, 0, 0.7),
-        0 -10px 20px rgba(0, 0, 0, 0.1); 
-    
+        inset 0 20px 40px rgba(0, 0, 0, 0.8),
+        inset 0 -20px 40px rgba(0, 0, 0, 0.8),
+        0 -15px 30px rgba(0, 0, 0, 0.2); 
+        
     color: #fff;
     font-size: 0.95rem;
 }
 
-/* 2. SCHICHT: Die ultra-glänzende, wandernde Softbox-Reflektion */
-/* --- BROWSER-SICHER: HIGH-GLOSS CANDY LACK FOOTER --- */
-footer {
-    text-align: center;
-    padding: 90px 20px;
-    position: relative;
-    overflow: hidden;
-    
-    /* 1. SCHICHT: Satter, tiefer Emaillie-Untergrund */
-    background-color: #0c1a0e; 
-    background-image: linear-gradient(
-        180deg, 
-        #172F1B 0%,   /* Dein Logo-Grün oben */
-        #060d07 100%  /* Satter Schatten unten */
-    );
-    
-    border-top: 1px solid rgba(255, 255, 255, 0.35);
-    box-shadow: 
-        inset 0 15px 30px rgba(0, 0, 0, 0.7),
-        0 -10px 20px rgba(0, 0, 0, 0.15); 
-    color: #fff;
-    font-size: 0.95rem;
-}
-
-/* CROSS-BROWSER LICHTEFFEKT (FOLGT DEM FINGER) */
+/* 2. SCHICHT: DYNAMISCHER LICHTBLITZ (SCHARF & VERZERRBAR) */
 footer::before {
     content: '';
     position: absolute;
-    
-    /* Standardmäßig perfekt in der Mitte platziert */
     top: var(--glow-y, 50%);
     left: var(--glow-x, 50%);
-    
-    /* Eine schöne, breite Studio-Lichtreflexion */
-    width: 500px;
-    height: 350px;
-    
-    /* Zentriert den Lichtkegel exakt unter dem Finger/Mauszeiger */
+    width: var(--glow-width, 350px);
+    height: 160px;
     transform: translate(-50%, -50%); 
     
-    /* Ultra-starkes Reinweiß im Kern, das in Firefox und Tor identisch brutal strahlt */
+    /* GESTOCHENE RÄNDER: Extrem weißer Kern, schneller Abfall */
     background: radial-gradient(
         ellipse at center, 
-        rgba(255, 255, 255, 0.45) 0%, 
-        rgba(255, 255, 255, 0.15) 25%, 
-        transparent 65%
+        rgba(255, 255, 255, 0.9) 0%, 
+        rgba(255, 255, 255, 0.7) 12%, 
+        rgba(255, 255, 255, 0.15) 20%, 
+        transparent 45%
     );
     
+    mix-blend-mode: screen; 
     pointer-events: none; 
-    will-change: top, left;
+    will-change: top, left, width;
 }
 
-/* Texte und Links sichern */
 footer .container {
     position: relative;
     z-index: 2;
@@ -259,14 +217,14 @@ footer a {
     font-weight: bold; 
     margin: 0 15px; 
     display: inline-block;
-    text-shadow: 0 2px 6px rgba(0,0,0,0.8); /* Maximaler Schutz vor dem hellen Licht */
-    transition: color 0.2s ease;
+    text-shadow: 0 3px 8px rgba(0,0,0,0.9); 
+    transition: color 0.2s ease, text-shadow 0.2s ease;
 }
 
 footer a:hover { 
     color: #fff;
+    text-shadow: 0 0 10px rgba(255,255,255,0.8);
 }
-
 
 /* WhatsApp & Menü-Elemente */
 .whatsapp-widget {
