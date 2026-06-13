@@ -21,11 +21,11 @@ if (menuIcon && sideMenu) {
 }
 
 /* ==========================================================================
-2. AKKORDEON-STEUERUNG & DYNAMISCHE FLOATING BUTTONS
+2. AKKORDEON-STEUERUNG & DYNAMISCHE FLOATING BUTTONS (Geprüfte Logik)
 ========================================================================== */
 const accButtons = document.querySelectorAll('.acc-header-btn');
 const floatingNotruf = document.getElementById('floating-notruf');
-const floatingGutachter = document.getElementById('floating-gutachter');
+const floatingGutachterGroup = document.getElementById('floating-gutachter-group');
 
 accButtons.forEach(btn => {
     btn.addEventListener('click', function() {
@@ -33,31 +33,43 @@ accButtons.forEach(btn => {
         const icon = this.querySelector('.acc-icon');
         const dataType = this.getAttribute('data-type');
         
-        // Prüfen, ob das aktuell angeklickte Panel bereits offen ist
+        // Prüfen, ob das angeklickte Panel aktuell bereits geöffnet ist
         const isAlreadyOpen = panel && panel.style.display === "block";
 
-        // 1. ZUERST ALLE PANELS SCHLIESSEN & ALLE BUTTONS AUSBLENDEN
+        // 1. SCHRITT: Alle Akkordeon-Panels schließen & Icons auf "+" zurücksetzen
         accButtons.forEach(otherBtn => {
             const otherPanel = otherBtn.nextElementSibling;
             const otherIcon = otherBtn.querySelector('.acc-icon');
-            if (otherPanel) otherPanel.style.display = "none";
-            if (otherIcon) otherIcon.textContent = "+";
+            if (otherPanel) {
+                otherPanel.style.display = "none";
+            }
+            if (otherIcon) {
+                otherIcon.textContent = "+";
+            }
         });
         
-        if (floatingNotruf) floatingNotruf.classList.remove('active');
-        if (floatingGutachter) floatingGutachter.classList.remove('active');
+        // 2. SCHRITT: Beide Floating-Button-Gruppen komplett ausblenden (Klasse entfernen)
+        if (floatingNotruf) {
+            floatingNotruf.classList.remove('active');
+        }
+        if (floatingGutachterGroup) {
+            floatingGutachterGroup.classList.remove('active');
+        }
 
-        // 2. WENN ES NICHT SCHON OFFEN WAR, JETZT DAS ANGEKLICKTE ÖFFNEN
+        // 3. SCHRITT: Wenn das Panel vorher ZU war, öffnen wir es jetzt und zeigen die passenden Buttons
         if (!isAlreadyOpen && panel) {
             panel.style.display = "block";
-            if (icon) icon.textContent = "−";
+            if (icon) {
+                icon.textContent = "−"; // Ändert das Icon zu einem echten Minuszeichen
+            }
 
-            // 3. JE NACH BEREICH DEN PASSENDEN FLOATING-BUTTON ANZEIGEN
+            // Aktivierung anhand des data-type Attributs des Buttons
             if (dataType === 'erste-hilfe' && floatingNotruf) {
                 floatingNotruf.classList.add('active');
-            } else if (dataType === 'gutachter' && floatingGutachter) {
-                floatingGutachter.classList.add('active');
+            } else if (dataType === 'gutachter' && floatingGutachterGroup) {
+                floatingGutachterGroup.classList.add('active');
             }
         }
+        // WICHTIG: War das Panel bereits offen, greift Schritt 1 & 2 -> Alles schließt sich, Buttons verschwinden (reine Start-Übersicht).
     });
 });
