@@ -182,6 +182,22 @@ body {
 /* ==========================================================================
 5. NAVIGATION
 ========================================================================== */
+/* Positioniert das runde Logo oben links fest auf der Seite */
+.logo-container {
+    position: fixed;
+    top: 15px;
+    left: 20px;
+    z-index: 10001;
+    display: inline-block;
+}
+
+.logo-container img {
+    width: 85px;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0px 2px 8px rgba(0,0,0,0.3));
+}
+
 #menu-icon {
     position: fixed; top: 20px; right: 20px; width: 45px; height: 45px;
     background-color: #172F1B; border-radius: 5px; padding: 10px; cursor: pointer;
@@ -216,6 +232,11 @@ footer a:hover { color: #B03133; }
 ========================================================================== */
 @media (max-width: 768px) {
     .hero h1 { font-size: 1.9rem; }
+    
+    /* Macht das Logo auf Smartphones etwas kompakter */
+    .logo-container img {
+        width: 65px;
+    }
     
     /* Blendet auf dem Smartphone die Texte aus */
     .whatsapp-widget span, .phone-widget span { display: none; }
