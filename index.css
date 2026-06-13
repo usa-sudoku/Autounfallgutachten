@@ -2,15 +2,15 @@
    INDEX-EXKLUSIVE STYLES (Nur für die Startseite)
    ========================================================================== */
 
-/* 1. LOGO-ANPASSUNG (Groß, oben rechts & beim Scrollen fixiert) */
+/* 1. LOGO-ANPASSUNG (Exakt doppelt so groß wie vorher, oben rechts & fixiert) */
 .logo-container {
     display: block;  /* Aktiviert das Logo exklusiv auf der Startseite */
     position: fixed; /* Bleibt beim Scrollen fest am Bildschirm kleben */
     top: 25px;
     right: 85px;     /* Platziert das Logo links neben das Burger-Menü-Icon */
     left: auto;      /* Hebt eventuelle Links-Ausrichtungen auf */
-    width: 140px !important;  /* Deutlich vergrößerte Breite */
-    height: 140px !important; /* Deutlich vergrößerte Höhe */
+    width: 160px !important;  /* Genau doppelt so groß (vorher 80px) */
+    height: 160px !important; /* Genau doppelt so groß (vorher 80px) */
     z-index: 10001;
     transition: all 0.3s ease;
 }
@@ -110,12 +110,12 @@
    RESPONSIVE ANPASSUNGEN (Smartphone-Optimierung für die Startseite)
    ========================================================================== */
 @media (max-width: 768px) {
-    /* Logo auf Smartphones etwas kompakter, damit es nicht zu viel Raum einnimmt */
+    /* Logo auf Smartphones etwas kompakter, damit es nicht das halbe Display füllt */
     .logo-container {
         top: 15px;
         right: 75px;
-        width: 85px !important;
-        height: 85px !important;
+        width: 95px !important; /* Auf Handys leicht angepasst, damit es harmonisch aussieht */
+        height: 95px !important;
     }
 
     .fab-button {
