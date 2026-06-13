@@ -12,7 +12,7 @@ body {
     background-color: #f4f4f4;
     color: #172F1B;
     line-height: 1.6;
-    transition: padding-bottom 0.3s ease; /* Puffer für die Sticky-Leisten unten */
+    transition: padding-bottom 0.3s ease;
 }
 
 .container {
@@ -111,7 +111,7 @@ body {
 }
 
 /* ==========================================================================
-3. HAUPTINHALT & PAPIERHINTERGRUND (FIXIERT & GESTRECKT)
+3. HAUPTINHALT & PAPIERHINTERGRUND
 ========================================================================== */
 .content {
     background-image: url('Bilder/1781190149157(2).png');
@@ -127,66 +127,66 @@ body {
 }
 
 /* ==========================================================================
-4. REINES FLOATING-ACTION-BUTTON (FAB) SYSTEM
+4. REINES FLOATING-ACTION-BUTTON (FAB) SYSTEM (Links platziert, ohne Rand)
 ========================================================================== */
 
-/* Standardzustand: Komplett unsichtbar im Hintergrund */
+/* Standardzustand: Unsichtbar im Hintergrund */
 #floating-notruf, 
 #floating-gutachter-group {
     display: none;
     position: fixed;
-    z-index: 99999 !important; /* Überlagert garantiert alles, auch den Footer */
+    z-index: 99999 !important; /* Steht stabil über allen Elementen & Footern */
 }
 
-/* Aktivierungsklassen – werden sauber über JavaScript gesteuert */
+/* Aktivierungsklassen über JavaScript */
 #floating-notruf.active {
     display: flex !important;
 }
 
 #floating-gutachter-group.active {
     display: flex !important;
-    flex-direction: column; /* Stapelt die Buttons exakt vertikal */
-    gap: 12px;              /* Definiert den Abstand zwischen den beiden Buttons */
+    flex-direction: column; /* Stapelt WhatsApp über Telefon */
+    gap: 12px;              /* Abstand zwischen den beiden Buttons */
 }
 
-/* Positionierung laut deinen Skizzen */
+/* Positionierung auf dem Display: Beide sauber LINKS unten platziert */
 #floating-notruf {
     bottom: 25px;
-    left: 25px; /* Erste Hilfe Modus: Ein einzelner Button LINKS unten */
+    left: 25px;
 }
 
 #floating-gutachter-group {
     bottom: 25px;
-    right: 25px; /* Gutachter Modus: Buttons RECHTS unten */
+    left: 25px;
 }
 
-/* Einheitsgröße & Form für ALLE schwebenden Buttons */
+/* Einheitsgröße & runde Form für alle schwebenden Buttons */
 .fab-button {
     width: 65px !important;
     height: 65px !important;
-    border-radius: 50% !important; /* Macht den Button perfekt kreisrund */
+    border-radius: 50% !important; /* Perfekter Kreis */
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Kräftiger Schatten für Tiefenwirkung */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
     text-decoration: none;
-    overflow: hidden; /* Schneidet überstehende Bildränder kreisrund ab */
+    overflow: hidden; /* Schneidet Bilder exakt kreisrund ab */
+    border: none !important; /* Verhindert jegliche Rahmen- oder Randlinien */
     transition: transform 0.15s ease-in-out;
-    -webkit-tap-highlight-color: transparent; /* Verhindert unschöne blaue Boxen beim Tippen auf Handys */
+    -webkit-tap-highlight-color: transparent;
 }
 
-/* Klick-/Touch-Feedback für eine native App-Optik */
+/* Klick-/Touch-Effekt */
 .fab-button:active {
     transform: scale(0.9);
 }
 
-/* SPEZIFISCHE BUTTON-STYLES */
+/* SPEZIFISCHE STYLES FÜR DIE DEKORATION */
 
-/* 1. Notruf 112 (Rot mit weißem Rand) */
+/* 1. Notruf Button (Reines Rot) */
 .emergency-red {
     background-color: #B03133 !important;
     color: white !important;
-    border: 2px solid white;
 }
 
 .fab-text {
@@ -196,7 +196,7 @@ body {
     text-align: center;
 }
 
-/* 2. WhatsApp Button (Grün) */
+/* 2. WhatsApp Button (Reines WhatsApp-Grün) */
 .whatsapp-green {
     background-color: #25d366 !important;
 }
@@ -207,22 +207,19 @@ body {
     object-fit: contain;
 }
 
-/* 3. Gutachter Telefon-Button (Papas Bild füllt den Kreis) */
+/* 3. Gutachter Telefon-Button (Papas Bild füllt den Kreis komplett) */
 .gutachter-phone {
     background-color: #B03133 !important;
-    border: 2px solid white;
 }
 
 .gutachter-phone img {
     width: 100% !important;
     height: 100% !important;
-    object-fit: cover; /* Verhindert das Verzerren von Papas Gesicht */
+    object-fit: cover; /* Verhindert Verzerrungen des Gesichts */
 }
 
-
-
 /* ==========================================================================
-5. NAVIGATION
+5. NAVIGATION & SEITENMENÜ
 ========================================================================== */
 .logo-container {
     position: fixed;
@@ -240,51 +237,52 @@ body {
     object-fit: contain;
 }
 
+/* Burger Menu */
 #menu-icon {
-    position: fixed; top: 20px; right: 20px; width: 45px; height: 45px;
-    background-color: #172F1B; border-radius: 5px; padding: 10px; cursor: pointer;
-    z-index: 10001; display: flex; flex-direction: column; justify-content: space-between;
+    position: fixed; 
+    top: 20px; 
+    right: 20px; 
+    width: 45px; 
+    height: 45px;
+    background-color: #172F1B; 
+    border-radius: 5px; 
+    padding: 10px; 
+    cursor: pointer;
+    z-index: 10001; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between;
 }
-#menu-icon .bar { width: 100%; height: 4px; background-color: white; border-radius: 2px; }
+
+#menu-icon .bar { 
+    width: 100%; 
+    height: 4px; 
+    background-color: white; 
+    border-radius: 2px; 
+}
 
 #side-menu {
-    position: fixed; top: 0; right: -250px; width: 250px; height: 100%;
-    background-color: #172F1B; padding-top: 80px; z-index: 10000; transition: 0.4s;
+    position: fixed; 
+    top: 0; 
+    right: -250px; 
+    width: 250px; 
+    height: 100%;
+    background-color: #172F1B; 
+    padding-top: 80px; 
+    z-index: 10000; 
+    transition: 0.4s;
 }
-#side-menu a { display: block; padding: 15px 25px; color: white; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.05); }
 
-/* ==========================================================================
-6. FOOTER
-========================================================================== */
-footer {
-    background-image: url('Bilder/1781263694012(1).png');
-    background-position: center center;
-    background-size: cover; 
-    color: rgba(255,255,255,0.7);
-    padding: 40px 0;
-    text-align: center;
-    font-size: 0.95rem;
-    border-top: none;
-}
-footer a { color: white; text-decoration: none; margin: 0 10px; }
-footer a:hover { color: #B03133; }
-
-/* ==========================================================================
-7. RESPONSIVE
-========================================================================== */
-@media (max-width: 768px) {
-    .hero h1 { font-size: 1.9rem; }
-    
-    .logo-container {
-        width: 65px;
-        height: 65px;
-        top: 15px;
-        left: 15px;
-    }
+#side-menu a { 
+    display: block; 
+    padding: 15px 25px; 
+    color: white; 
+    text-decoration: none; 
+    border-bottom: 1px solid rgba(255,255,255,0.05); 
 }
 
 /* ==========================================================================
-8. ZENTRIERTE AKKORDEONS & ZUSATZ-BUTTON
+6. ZENTRIERTE AKKORDEONS & ERWEITERTE INFOS
 ========================================================================== */
 .minimal-wrap { 
     width: 100%; 
@@ -304,12 +302,23 @@ footer a:hover { color: #B03133; }
     overflow: hidden;
 }
 
-.acc-card:first-child { margin-bottom: 20px; }
+.acc-card:first-child { 
+    margin-bottom: 20px; 
+}
 
 .acc-header-btn {
-    width: 100%; background: none; border: none; padding: 20px;
-    text-align: left; font-size: 1.25rem; font-weight: bold; color: #172F1B;
-    cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+    width: 100%; 
+    background: none; 
+    border: none; 
+    padding: 20px;
+    text-align: left; 
+    font-size: 1.25rem; 
+    font-weight: bold; 
+    color: #172F1B;
+    cursor: pointer; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
 }
 
 .acc-panel { 
@@ -319,11 +328,96 @@ footer a:hover { color: #B03133; }
     color: #172F1B; 
 }
 
-.acc-icon { font-size: 1.4rem; color: #B03133; font-weight: bold; }
+.acc-icon { 
+    font-size: 1.4rem; 
+    color: #B03133; 
+    font-weight: bold; 
+}
 
-/* FLACHER ZENTRIERTER BUTTON */
+/* Flacher zentrierter Button (Erweiterte Infos) */
+.extra-info-container {
+    width: 100%; 
+    background-color: #172F1B; 
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
 .extra-info-btn {
-    width: 100%; background-color: #172F1B; color: rgba(255,255,255,0.7);
-    padding: 4px 25px; font-size: 0.95rem; font-weight: normal;
-    display: flex; justify-content: center; align-items: center; gap: 10px; cursor: pointer; border: none;
+    width: 100%; 
+    background-color: #172F1B; 
+    color: rgba(255,255,255,0.7);
+    padding: 4px 25px; 
+    font-size: 0.95rem; 
+    font-weight: normal;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    gap: 10px; 
+    cursor: pointer; 
+    border: none;
+}
+
+.extra-panel-bg {
+    background-color: rgba(255, 255, 255, 0.95); 
+    color: #172F1B;
+}
+
+.extra-content-wrap {
+    max-width: 650px; 
+    margin: 0 auto; 
+    padding: 30px 20px;
+}
+
+.extra-content-wrap h1 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+/* ==========================================================================
+7. FOOTER
+========================================================================== */
+footer {
+    background-image: url('Bilder/1781263694012(1).png');
+    background-position: center center;
+    background-size: cover; 
+    color: rgba(255,255,255,0.7);
+    padding: 40px 0;
+    text-align: center;
+    font-size: 0.95rem;
+    border-top: none;
+}
+
+footer a { 
+    color: white; 
+    text-decoration: none; 
+    margin: 0 10px; 
+}
+
+footer a:hover { 
+    color: #B03133; 
+}
+
+.footer-links {
+    margin-top: 15px;
+}
+
+/* ==========================================================================
+8. RESPONSIVE ANPASSUNGEN (SMARTPHONE)
+========================================================================== */
+@media (max-width: 768px) {
+    .hero h1 { 
+        font-size: 1.9rem; 
+    }
+    
+    .logo-container {
+        width: 65px;
+        height: 65px;
+        top: 15px;
+        left: 15px;
+    }
+    
+    /* Auf sehr kleinen Bildschirmen die Buttons minimal verkleinern */
+    .fab-button {
+        width: 58px !important;
+        height: 58px !important;
+    }
 }
