@@ -126,50 +126,58 @@ body {
 }
 
 /* ==========================================================================
-4. WHATSAPP & TELEFON WIDGETS
+4. WHATSAPP & TELEFON WIDGETS (VERGRÖSSERT)
 ========================================================================== */
 .whatsapp-widget {
     position: fixed;
-    bottom: 20px;
-    left: 20px;
+    bottom: 25px;
+    left: 25px;
     background-color: #25d366;
     color: white;
-    padding: 10px 20px 10px 12px;
+    padding: 14px 24px 14px 16px; /* Mehr Padding für einen größeren Button */
     border-radius: 50px;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     text-decoration: none;
     font-weight: bold;
-    font-size: 0.9rem;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    font-size: 1.05rem; /* Schrift etwas größer */
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
     z-index: 9999;
     transition: transform 0.3s ease;
 }
 
 .whatsapp-widget:hover { transform: scale(1.05); }
-.whatsapp-widget img { width: 25px; height: 25px; }
+.whatsapp-widget img { width: 30px; height: 30px; } /* Icon vergrößert */
 
 .phone-widget {
     position: fixed;
-    bottom: 85px; 
-    left: 20px;
+    bottom: 105px; /* Höher gesetzt, damit Platz zum größeren WhatsApp-Button ist */
+    left: 25px;
     background-color: #B03133; 
     color: white;
-    padding: 10px 20px 10px 12px;
+    padding: 14px 24px 14px 14px; /* Innenabstand erhöht */
     border-radius: 50px;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     text-decoration: none;
     font-weight: bold;
-    font-size: 0.9rem;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    font-size: 1.05rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
     z-index: 9999;
     transition: transform 0.3s ease;
+    overflow: hidden; /* Schneidet das Bild sauber ab, wenn es rund wird */
 }
 .phone-widget:hover { transform: scale(1.05); background-color: #8c2426; }
-.phone-btn-img { width: 25px; height: 25px; border-radius: 50%; object-fit: cover; }
+
+/* Telefon-Bild füllt jetzt auf Mobilgeräten den kompletten runden Button aus */
+.phone-btn-img { 
+    width: 30px; 
+    height: 30px; 
+    border-radius: 50%; 
+    object-fit: cover; 
+}
 
 /* ==========================================================================
 5. NAVIGATION
@@ -204,12 +212,36 @@ footer a { color: white; text-decoration: none; margin: 0 10px; }
 footer a:hover { color: #B03133; }
 
 /* ==========================================================================
-7. RESPONSIVE
+7. RESPONSIVE (MOBIL-VORSCHRIFTEN GEÄNDERT)
 ========================================================================== */
 @media (max-width: 768px) {
     .hero h1 { font-size: 1.9rem; }
+    
+    /* Blendet auf dem Smartphone die Texte aus */
     .whatsapp-widget span, .phone-widget span { display: none; }
-    .whatsapp-widget, .phone-widget { padding: 0; width: 49px; height: 49px; justify-content: center; border-radius: 50%; }
+    
+    /* Macht die Buttons auf dem Handy zu großen, perfekten Kreisen */
+    .whatsapp-widget, .phone-widget { 
+        padding: 0; 
+        width: 60px;   /* Deutlich größer auf dem Handy (vorher 49px) */
+        height: 60px;  /* Deutlich größer auf dem Handy (vorher 49px) */
+        justify-content: center; 
+        border-radius: 50%; 
+    }
+    
+    /* Das Telefon-Bild nimmt jetzt 100% des runden Buttons ein und verdrängt den roten Rand */
+    .phone-widget .phone-btn-img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+    
+    /* Passt das WhatsApp-Icon auf dem Handy proportional an */
+    .whatsapp-widget img {
+        width: 34px;
+        height: 34px;
+    }
 }
 
 /* ==========================================================================
@@ -225,8 +257,8 @@ footer a:hover { color: #B03133; }
 }
 
 .acc-card {
-    background: transparent; /* Geändert: Transparent für freie Sicht auf das Papier */
-    border: 1px solid rgba(23, 47, 27, 0.15); /* Behalten für leichte Konturierung */
+    background: transparent; 
+    border: 1px solid rgba(23, 47, 27, 0.15); 
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.03);
     border-bottom: 4px solid #B03133;
@@ -244,7 +276,7 @@ footer a:hover { color: #B03133; }
 .acc-panel { 
     display: none; 
     padding: 0 20px 20px 20px; 
-    background: transparent; /* Geändert: Text-Hintergrund ebenfalls transparent */
+    background: transparent; 
     color: #172F1B; 
 }
 
