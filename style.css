@@ -127,92 +127,98 @@ body {
 }
 
 /* ==========================================================================
-4. NEU: DYNAMISCHE FLOATING BUTTONS (Skizzen-Anpassung)
+4. REINES FLOATING-ACTION-BUTTON (FAB) SYSTEM
 ========================================================================== */
 
-/* Basis-Ausblendung für beide Zustände */
-.fab-container, .fab-container-stack {
+/* Standardzustand: Komplett unsichtbar im Hintergrund */
+#floating-notruf, 
+#floating-gutachter-group {
     display: none;
     position: fixed;
-    z-index: 9999;
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 99999 !important; /* Überlagert garantiert alles, auch den Footer */
 }
 
-/* Aktivierungsklasse über JS */
-.fab-container.active {
-    display: block;
-}
-.fab-container-stack.active {
-    display: flex;
-    flex-direction: column;
-    gap: 15px; /* Abstand zwischen WhatsApp und Telefon */
+/* Aktivierungsklassen – werden sauber über JavaScript gesteuert */
+#floating-notruf.active {
+    display: flex !important;
 }
 
-/* Positionierung laut Skizze */
+#floating-gutachter-group.active {
+    display: flex !important;
+    flex-direction: column; /* Stapelt die Buttons exakt vertikal */
+    gap: 12px;              /* Definiert den Abstand zwischen den beiden Buttons */
+}
+
+/* Positionierung laut deinen Skizzen */
 #floating-notruf {
-    bottom: 30px;
-    left: 30px; /* Erste Hilfe Button ist LINKS unten */
+    bottom: 25px;
+    left: 25px; /* Erste Hilfe Modus: Ein einzelner Button LINKS unten */
 }
 
-#floating-gutachter {
-    bottom: 30px;
-    right: 30px; /* Gutachter Buttons sind RECHTS unten übereinander */
+#floating-gutachter-group {
+    bottom: 25px;
+    right: 25px; /* Gutachter Modus: Buttons RECHTS unten */
 }
 
-/* Gemeinsame Button-Eigenschaften (Kreisrund) */
-.fab-btn {
-    width: 65px;
-    height: 65px;
-    border-radius: 50%;
+/* Einheitsgröße & Form für ALLE schwebenden Buttons */
+.fab-button {
+    width: 65px !important;
+    height: 65px !important;
+    border-radius: 50% !important; /* Macht den Button perfekt kreisrund */
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Kräftiger Schatten für Tiefenwirkung */
     text-decoration: none;
-    overflow: hidden;
-    transition: transform 0.2s;
+    overflow: hidden; /* Schneidet überstehende Bildränder kreisrund ab */
+    transition: transform 0.15s ease-in-out;
+    -webkit-tap-highlight-color: transparent; /* Verhindert unschöne blaue Boxen beim Tippen auf Handys */
 }
 
-.fab-btn:active {
+/* Klick-/Touch-Feedback für eine native App-Optik */
+.fab-button:active {
     transform: scale(0.9);
 }
 
-/* Styles für die einzelnen Button-Typen */
-.fab-btn.call-emergency {
-    background-color: #B03133; /* Dein Notruf-Rot */
-    color: white;
+/* SPEZIFISCHE BUTTON-STYLES */
+
+/* 1. Notruf 112 (Rot mit weißem Rand) */
+.emergency-red {
+    background-color: #B03133 !important;
+    color: white !important;
+    border: 2px solid white;
+}
+
+.fab-text {
     font-weight: bold;
-    font-size: 0.9rem;
-    text-align: center;
-    border: 2px solid white;
-}
-
-.fab-btn.whatsapp {
-    background-color: #25d366; /* WhatsApp Grün */
-}
-
-.fab-btn.whatsapp img {
-    width: 35px;
-    height: 35px;
-}
-
-.fab-btn.gutachter-call {
-    background-color: #B03133;
-    border: 2px solid white;
-}
-
-/* Das Profilbild füllt den runden Button komplett aus */
-.fab-btn.gutachter-call img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* Text-Icon Fallback Styling */
-.fab-icon {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     line-height: 1.2;
+    text-align: center;
 }
+
+/* 2. WhatsApp Button (Grün) */
+.whatsapp-green {
+    background-color: #25d366 !important;
+}
+
+.whatsapp-green img {
+    width: 35px !important;
+    height: 35px !important;
+    object-fit: contain;
+}
+
+/* 3. Gutachter Telefon-Button (Papas Bild füllt den Kreis) */
+.gutachter-phone {
+    background-color: #B03133 !important;
+    border: 2px solid white;
+}
+
+.gutachter-phone img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover; /* Verhindert das Verzerren von Papas Gesicht */
+}
+
 
 
 /* ==========================================================================
