@@ -2,15 +2,15 @@
    INDEX-EXKLUSIVE STYLES (Nur für die Startseite)
    ========================================================================== */
 
-/* 1. LOGO-ANPASSUNG (Riesig, OBEN LINKS & beim Scrollen fixiert) */
+/* 1. LOGO-ANPASSUNG DESKTOP (Brutal groß, OBEN LINKS & beim Scrollen fixiert) */
 .logo-container {
     display: block;  /* Aktiviert das Logo exklusiv auf der Startseite */
     position: fixed; /* Bleibt beim Scrollen fest am Bildschirm kleben */
     top: 25px;
-    left: 25px;      /* Setzt das Logo fest nach oben links (gegenüber vom Menü) */
-    right: auto;     /* Löscht alte Rechts-Ausrichtungen */
-    width: 320px !important;  /* RIESIG: Nochmal doppelt so groß wie vorher */
-    height: 320px !important; 
+    left: 25px;      /* Fest oben links verankert */
+    right: auto;     
+    width: 640px !important;  /* 4-MAL SO GROSS wie die 160px-Version! */
+    height: 640px !important; 
     z-index: 10001;
     transition: all 0.3s ease;
 }
@@ -19,6 +19,11 @@
     width: 100%;
     height: 100%;
     object-fit: contain;
+}
+
+/* Drückt den Hauptinhalt auf dem Desktop nach unten, damit das Riesen-Logo nichts verdeckt */
+.content {
+    padding-top: 250px !important;
 }
 
 
@@ -52,7 +57,6 @@
     gap: 12px;
 }
 
-/* Allgemeine Formatierung der runden Buttons (FAB) */
 .fab-button {
     width: 65px !important;
     height: 65px !important;
@@ -72,7 +76,6 @@
     transform: scale(0.9);
 }
 
-/* Spezifische Button-Farben und Inhalte */
 .emergency-red {
     background-color: #B03133 !important;
     color: white !important;
@@ -110,23 +113,9 @@
    RESPONSIVE ANPASSUNGEN (Smartphone-Optimierung für die Startseite)
    ========================================================================== */
 @media (max-width: 768px) {
-    /* Hält das Logo links, verkleinert es aber, damit Platz zum Menü rechts bleibt */
-    .logo-container {
-        top: 15px;
-        left: 15px;
-        right: auto;
-        width: 110px !important; /* Mobil-Größe, perfekt lesbar aber kompakt */
-        height: 110px !important;
+    /* Setzt den Inhaltsabstand auf Handys wieder zurück */
+    .content {
+        padding-top: 40px !important;
     }
 
-    .fab-button {
-        width: 58px !important;
-        height: 58px !important;
-    }
-    
-    #floating-notruf, 
-    #floating-gutachter-group {
-        bottom: 20px;
-        left: 20px;
-    }
-}
+    /* Auf Smartphones bleibt es oben links, wird
