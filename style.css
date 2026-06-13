@@ -127,87 +127,36 @@ body {
 }
 
 /* ==========================================================================
-4. REINES FLOATING-ACTION-BUTTON (FAB) SYSTEM (Immer unten links fixiert)
+4. WHATSAPP-WIDGET FÜR DIE UNTERSEITEN (Immer fest unten links präsent)
 ========================================================================== */
-
-/* Standardzustand: Unsichtbar im Hintergrund */
-#floating-notruf, 
-#floating-gutachter-group {
-    display: none;
+.whatsapp-widget {
     position: fixed;
     bottom: 25px;
-    left: 25px; /* Beide Elemente sitzen exakt unten LINKS am Rand */
-    z-index: 99999 !important; /* Steht stabil über allen Elementen & Footern */
-    transition: all 0.3s ease;
-}
-
-/* Aktivierungsklassen über JavaScript */
-#floating-notruf.active {
-    display: flex !important;
-}
-
-#floating-gutachter-group.active {
-    display: flex !important;
-    flex-direction: column-reverse; /* Telefon wandert nach oben, WhatsApp nach unten */
-    gap: 12px;                      /* Abstand zwischen den beiden Buttons */
-}
-
-/* Einheitsgröße & runde Form für alle schwebenden Buttons */
-.fab-button {
-    width: 65px !important;
-    height: 65px !important;
-    border-radius: 50% !important; /* Perfekter Kreis */
+    left: 25px;
+    z-index: 99999; /* Steht stabil über dem gesamten Seiteninhalt */
     display: flex;
-    justify-content: center;
     align-items: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    gap: 10px;
+    background-color: #25d366; /* Original WhatsApp-Grün */
+    color: white !important;
     text-decoration: none;
-    overflow: hidden; /* Schneidet Bilder exakt kreisrund ab */
-    border: none !important; /* Verhindert jegliche Rahmen- oder Randlinien */
+    padding: 12px 20px;
+    border-radius: 30px; /* Abgerundete Pillen-Form */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    font-weight: bold;
+    font-size: 0.95rem;
     transition: transform 0.15s ease-in-out;
     -webkit-tap-highlight-color: transparent;
 }
 
-/* Klick-/Touch-Effekt */
-.fab-button:active {
-    transform: scale(0.9);
-}
-
-/* SPEZIFISCHE STYLES FÜR DIE INHALTE DER BUTTONS */
-
-/* 1. Notruf Button (Reines Rot) */
-.emergency-red {
-    background-color: #B03133 !important;
-    color: white !important;
-}
-
-.fab-text {
-    font-weight: bold;
-    font-size: 0.8rem;
-    line-height: 1.2;
-    text-align: center;
-}
-
-/* 2. WhatsApp Button (Reines WhatsApp-Grün) */
-.whatsapp-green {
-    background-color: #25d366 !important;
-}
-
-.whatsapp-green img {
-    width: 35px !important;
-    height: 35px !important;
+.whatsapp-widget img {
+    width: 28px !important;
+    height: 28px !important;
     object-fit: contain;
 }
 
-/* 3. Gutachter Telefon-Button (Bild füllt den Kreis komplett) */
-.gutachter-phone {
-    background-color: #B03133 !important;
-}
-
-.gutachter-phone img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover; /* Verhindert Verzerrungen des Gesichts */
+.whatsapp-widget:active {
+    transform: scale(0.95);
 }
 
 /* ==========================================================================
@@ -405,11 +354,5 @@ footer a:hover {
         height: 65px;
         top: 15px;
         left: 15px;
-    }
-    
-    /* Auf sehr kleinen Bildschirmen die Buttons minimal anpassen */
-    .fab-button {
-        width: 58px !important;
-        height: 58px !important;
     }
 }
