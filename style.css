@@ -215,13 +215,20 @@ footer a:hover { color: #B03133; }
 /* ==========================================================================
 8. ZENTRIERTE AKKORDEONS & ZUSATZ-BUTTON
 ========================================================================== */
-.minimal-wrap { width: 100%; max-width: 650px; margin: 0 auto; display: flex; flex-direction: column; justify-content: center; }
+.minimal-wrap { 
+    width: 100%; 
+    max-width: 650px; 
+    margin: 0 auto; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+}
 
 .acc-card {
-    background: rgba(255, 255, 255, 0.9);
-    border: 1px solid rgba(23, 47, 27, 0.1);
+    background: transparent; /* Geändert: Transparent für freie Sicht auf das Papier */
+    border: 1px solid rgba(23, 47, 27, 0.15); /* Behalten für leichte Konturierung */
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
     border-bottom: 4px solid #B03133;
     overflow: hidden;
 }
@@ -234,7 +241,13 @@ footer a:hover { color: #B03133; }
     cursor: pointer; display: flex; justify-content: space-between; align-items: center;
 }
 
-.acc-panel { display: none; padding: 0 20px 20px 20px; color: #2c3e50; }
+.acc-panel { 
+    display: none; 
+    padding: 0 20px 20px 20px; 
+    background: transparent; /* Geändert: Text-Hintergrund ebenfalls transparent */
+    color: #172F1B; 
+}
+
 .acc-icon { font-size: 1.4rem; color: #B03133; font-weight: bold; }
 
 /* FLACHER ZENTRIERTER BUTTON */
