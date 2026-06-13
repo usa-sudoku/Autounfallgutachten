@@ -401,23 +401,82 @@ footer a:hover {
 }
 
 /* ==========================================================================
-8. RESPONSIVE ANPASSUNGEN (SMARTPHONE)
+8. FLOATING CALL-TO-ACTION (FAB BUTTONS)
 ========================================================================== */
-@media (max-width: 768px) {
-    .hero h1 { 
-        font-size: 1.9rem; 
-    }
-    
-    .logo-container {
-        width: 65px;
-        height: 65px;
-        top: 15px;
-        left: 15px;
-    }
-    
-    /* Auf sehr kleinen Bildschirmen die Buttons minimal verkleinern */
-    .fab-button {
-        width: 58px !important;
-        height: 58px !important;
-    }
+
+/* Basis-Klasse für alle Floating-Elemente: Standardmäßig unsichtbar */
+#floating-notruf,
+#floating-gutachter-group {
+    position: fixed;
+    bottom: 20px;
+    z-index: 9999;
+    display: none; /* Versteckt die Buttons standardmäßig */
+    transition: all 0.3s ease;
+}
+
+/* Wird vom JavaScript hinzugefügt, wenn das jeweilige Akkordeon geöffnet wird */
+#floating-notruf.active {
+    display: flex; /* Zeigt den Notruf-Button als Flexbox an */
+}
+
+#floating-gutachter-group.active {
+    display: flex; /* Zeigt die Gutachter-Gruppe als Flexbox an */
+}
+
+/* Spezifische Positionierung */
+#floating-notruf {
+    left: 20px; /* Erste Hilfe unten LINKS */
+}
+
+#floating-gutachter-group {
+    right: 20px; /* Gutachter unten RECHTS */
+    flex-direction: column; /* Buttons untereinander (Nutze 'row' für nebeneinander) */
+    gap: 15px; /* Abstand zwischen WhatsApp und normalem Telefon-Button */
+}
+
+/* Gemeinsame Styles für die einzelnen runden Buttons */
+.fab-button {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.fab-button:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Farben & Inhalte der Buttons */
+.emergency-red {
+    background-color: #B03133; /* Dein dunkles Rot passend zum Design */
+    color: white;
+    border: 3px solid white;
+}
+
+.fab-text {
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.whatsapp-green {
+    background-color: #25D366;
+}
+
+.whatsapp-green img {
+    width: 35px;
+    height: 35px;
+}
+
+.phone-blue {
+    background-color: #00305f; /* Dein edles Dunkelblau */
+    color: white;
+    font-size: 1.6rem;
 }
