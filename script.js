@@ -19,7 +19,6 @@ if (menuIcon && sideMenu) {
         }
     });
 }
-
 /* ==========================================================================
 2. AKKORDEON-STEUERUNG & DYNAMISCHE FLOATING BUTTONS (Geprüfte Logik)
 ========================================================================== */
@@ -33,10 +32,10 @@ accButtons.forEach(btn => {
         const icon = this.querySelector('.acc-icon');
         const dataType = this.getAttribute('data-type');
         
-        // Prüfen, ob das angeklickte Panel aktuell bereits geöffnet ist
+        // Prüfen, ob das angeklickte Panel bereits offen ist
         const isAlreadyOpen = panel && panel.style.display === "block";
 
-        // 1. SCHRITT: Alle Akkordeon-Panels schließen & Icons auf "+" zurücksetzen
+        // 1. SCHRITT: Erstmal ALLE Panels schließen und alle Icons auf "+" zurücksetzen
         accButtons.forEach(otherBtn => {
             const otherPanel = otherBtn.nextElementSibling;
             const otherIcon = otherBtn.querySelector('.acc-icon');
@@ -66,10 +65,10 @@ accButtons.forEach(btn => {
             // Aktivierung anhand des data-type Attributs des Buttons
             if (dataType === 'erste-hilfe' && floatingNotruf) {
                 floatingNotruf.classList.add('active');
-            } else if (dataType === 'gutachter' && floatingGutachterGroup) {
+            } else if (dataType === 'gutachten' && floatingGutachterGroup) { 
+                // KORREKTUR: 'gutachten' statt 'gutachter', passend zur index.html!
                 floatingGutachterGroup.classList.add('active');
             }
         }
-        // WICHTIG: War das Panel bereits offen, greift Schritt 1 & 2 -> Alles schließt sich, Buttons verschwinden (reine Start-Übersicht).
     });
 });
