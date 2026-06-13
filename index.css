@@ -2,7 +2,27 @@
    INDEX-EXKLUSIVE STYLES (Nur für die Startseite)
    ========================================================================== */
 
-/* Basis-Positionierung der schwebenden Elemente */
+/* 1. LOGO-ANPASSUNG (Groß, oben rechts & beim Scrollen fixiert) */
+.logo-container {
+    display: block;  /* Aktiviert das Logo exklusiv auf der Startseite */
+    position: fixed; /* Bleibt beim Scrollen fest am Bildschirm kleben */
+    top: 25px;
+    right: 85px;     /* Platziert das Logo links neben das Burger-Menü-Icon */
+    left: auto;      /* Hebt eventuelle Links-Ausrichtungen auf */
+    width: 140px !important;  /* Deutlich vergrößerte Breite */
+    height: 140px !important; /* Deutlich vergrößerte Höhe */
+    z-index: 10001;
+    transition: all 0.3s ease;
+}
+
+.logo-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+
+/* 2. FLOATING BUTTONS STEUERUNG (Basis-Positionierung) */
 #floating-notruf, 
 #floating-gutachter-group {
     display: none; /* Standardmäßig ausgeblendet, wird per JS aktiviert */
@@ -12,7 +32,7 @@
     transition: all 0.3s ease;
 }
 
-/* 1. Erste-Hilfe Notruf-Button (unten links) */
+/* Erste-Hilfe Notruf-Button (unten links) */
 #floating-notruf {
     left: 25px;
 }
@@ -21,14 +41,14 @@
     display: flex !important;
 }
 
-/* 2. Gutachter-Gruppe (unten links, vertikal gestapelt) */
+/* Gutachter-Gruppe (unten links, vertikal gestapelt) */
 #floating-gutachter-group {
     left: 25px;
 }
 
 #floating-gutachter-group.active {
     display: flex !important;
-    flex-direction: column-reverse; /* Stapelt die Buttons nach oben */
+    flex-direction: column-reverse;
     gap: 12px;
 }
 
@@ -48,7 +68,6 @@
     -webkit-tap-highlight-color: transparent;
 }
 
-/* Klick-Effekt für Touch-Geräte */
 .fab-button:active {
     transform: scale(0.9);
 }
@@ -86,8 +105,19 @@
     object-fit: cover;
 }
 
-/* Responsive Anpassung für kleinere Smartphone-Displays */
+
+/* ==========================================================================
+   RESPONSIVE ANPASSUNGEN (Smartphone-Optimierung für die Startseite)
+   ========================================================================== */
 @media (max-width: 768px) {
+    /* Logo auf Smartphones etwas kompakter, damit es nicht zu viel Raum einnimmt */
+    .logo-container {
+        top: 15px;
+        right: 75px;
+        width: 85px !important;
+        height: 85px !important;
+    }
+
     .fab-button {
         width: 58px !important;
         height: 58px !important;
