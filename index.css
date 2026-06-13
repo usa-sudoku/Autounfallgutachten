@@ -1,0 +1,101 @@
+/* ==========================================================================
+   INDEX-EXKLUSIVE STYLES (Nur für die Startseite)
+   ========================================================================== */
+
+/* Basis-Positionierung der schwebenden Elemente */
+#floating-notruf, 
+#floating-gutachter-group {
+    display: none; /* Standardmäßig ausgeblendet, wird per JS aktiviert */
+    position: fixed;
+    bottom: 25px;
+    z-index: 99999 !important;
+    transition: all 0.3s ease;
+}
+
+/* 1. Erste-Hilfe Notruf-Button (unten links) */
+#floating-notruf {
+    left: 25px;
+}
+
+#floating-notruf.active {
+    display: flex !important;
+}
+
+/* 2. Gutachter-Gruppe (unten links, vertikal gestapelt) */
+#floating-gutachter-group {
+    left: 25px;
+}
+
+#floating-gutachter-group.active {
+    display: flex !important;
+    flex-direction: column-reverse; /* Stapelt die Buttons nach oben */
+    gap: 12px;
+}
+
+/* Allgemeine Formatierung der runden Buttons (FAB) */
+.fab-button {
+    width: 65px !important;
+    height: 65px !important;
+    border-radius: 50% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    text-decoration: none;
+    overflow: hidden;
+    border: none !important;
+    transition: transform 0.15s ease-in-out;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Klick-Effekt für Touch-Geräte */
+.fab-button:active {
+    transform: scale(0.9);
+}
+
+/* Spezifische Button-Farben und Inhalte */
+.emergency-red {
+    background-color: #B03133 !important;
+    color: white !important;
+}
+
+.fab-text {
+    font-weight: bold;
+    font-size: 0.8rem;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.whatsapp-green {
+    background-color: #25d366 !important;
+}
+
+.whatsapp-green img {
+    width: 35px !important;
+    height: 35px !important;
+    object-fit: contain;
+}
+
+.gutachter-phone {
+    background-color: #B03133 !important;
+}
+
+.gutachter-phone img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+}
+
+/* Responsive Anpassung für kleinere Smartphone-Displays */
+@media (max-width: 768px) {
+    .fab-button {
+        width: 58px !important;
+        height: 58px !important;
+    }
+    
+    #floating-notruf, 
+    #floating-gutachter-group {
+        bottom: 20px;
+        left: 20px;
+    }
+}
