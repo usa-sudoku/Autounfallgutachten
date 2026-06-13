@@ -1,4 +1,171 @@
 /* ==========================================================================
+1. GLOBALE EINSTELLUNGEN & RESET
+========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #172F1B;
+    line-height: 1.6;
+    transition: padding-bottom 0.3s ease;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* ==========================================================================
+2. HERO-BEREICH & VIDEO-HINTERGRUND
+========================================================================== */
+.hero {
+    position: relative;
+    height: 80vh;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
+
+.hero video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(23, 47, 27, 0.7);
+    z-index: 2;
+}
+
+.hero .container {
+    position: relative;
+    z-index: 3;
+}
+
+.region-badge {
+    display: inline-block;
+    background-color: #B03133;
+    color: white;
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.hero h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+}
+
+.promo-text {
+    font-size: 1.25rem;
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #B03133;
+    color: white !important;
+    text-decoration: none;
+    padding: 16px 32px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 5px;
+    box-shadow: 0 4px 15px rgba(176, 49, 51, 0.4);
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.cta-button:hover {
+    background-color: #8c2426;
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+3. HAUPTINHALT & PAPIERHINTERGRUND
+========================================================================== */
+.content {
+    background-image: url('Bilder/1781190149157(2).png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%; 
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 0;
+}
+
+/* ==========================================================================
+4. WHATSAPP-WIDGET FÜR DIE UNTERSEITEN (Pille auf Desktop, Kreis auf Mobil)
+========================================================================== */
+.whatsapp-widget {
+    position: fixed;
+    bottom: 25px;
+    left: 25px;
+    z-index: 99999 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    gap: 12px;
+    background-color: #25d366;
+    color: white !important;
+    text-decoration: none;
+    padding: 12px 22px;
+    border-radius: 30px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.35);
+    font-weight: bold;
+    font-size: 0.95rem;
+    transition: all 0.2s ease-in-out;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.whatsapp-widget img {
+    width: 26px !important;
+    height: 26px !important;
+    object-fit: contain;
+}
+
+.whatsapp-widget span {
+    display: inline-block;
+}
+
+.whatsapp-widget:active {
+    transform: scale(0.95);
+}
+
+/* ==========================================================================
 5. NAVIGATION & SEITENMENÜ (Logo entfernt für Unterseiten)
 ========================================================================== */
 
@@ -44,4 +211,153 @@
     color: white; 
     text-decoration: none; 
     border-bottom: 1px solid rgba(255,255,255,0.05); 
+}
+
+/* ==========================================================================
+6. ZENTRIERTE AKKORDEONS & ERWEITERTE INFOS
+========================================================================== */
+.minimal-wrap { 
+    width: 100%; 
+    max-width: 650px; 
+    margin: 0 auto; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+}
+
+.acc-card {
+    background: transparent; 
+    border: 1px solid rgba(23, 47, 27, 0.15); 
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    border-bottom: 4px solid #B03133;
+    overflow: hidden;
+}
+
+.acc-card:first-child { 
+    margin-bottom: 20px; 
+}
+
+.acc-header-btn {
+    width: 100%; 
+    background: none; 
+    border: none; 
+    padding: 20px;
+    text-align: left; 
+    font-size: 1.25rem; 
+    font-weight: bold; 
+    color: #172F1B;
+    cursor: pointer; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+}
+
+.acc-panel { 
+    display: none; 
+    padding: 0 20px 20px 20px; 
+    background: transparent; 
+    color: #172F1B; 
+}
+
+.acc-icon { 
+    font-size: 1.4rem; 
+    color: #B03133; 
+    font-weight: bold; 
+}
+
+/* Flacher zentrierter Button (Erweiterte Infos) */
+.extra-info-container {
+    width: 100%; 
+    background-color: #172F1B; 
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.extra-info-btn {
+    width: 100%; 
+    background-color: #172F1B; 
+    color: rgba(255,255,255,0.7);
+    padding: 4px 25px; 
+    font-size: 0.95rem; 
+    font-weight: normal;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    gap: 10px; 
+    cursor: pointer; 
+    border: none;
+}
+
+.extra-panel-bg {
+    background-color: rgba(255, 255, 255, 0.95); 
+    color: #172F1B;
+}
+
+.extra-content-wrap {
+    max-width: 650px; 
+    margin: 0 auto; 
+    padding: 30px 20px;
+}
+
+.extra-content-wrap h1 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+/* ==========================================================================
+7. FOOTER
+========================================================================== */
+footer {
+    background-image: url('Bilder/1781263694012(1).png');
+    background-position: center center;
+    background-size: cover; 
+    color: rgba(255,255,255,0.7);
+    padding: 40px 0;
+    text-align: center;
+    font-size: 0.95rem;
+    border-top: none;
+}
+
+footer a { 
+    color: white; 
+    text-decoration: none; 
+    margin: 0 10px; 
+}
+
+footer a:hover { 
+    color: #B03133; 
+}
+
+.footer-links {
+    margin-top: 15px;
+}
+
+/* ==========================================================================
+8. RESPONSIVE ANPASSUNGEN (SMARTPHONE)
+========================================================================== */
+@media (max-width: 768px) {
+    .hero h1 { 
+        font-size: 1.9rem; 
+    }
+
+    /* Macht das Widget auf Smartphones zu einem perfekten Kreis */
+    .whatsapp-widget {
+        bottom: 20px;
+        left: 20px;
+        width: 58px !important;
+        height: 58px !important;
+        padding: 0 !important;
+        border-radius: 50% !important;
+    }
+    
+    /* Blendet die Textbeschreibung auf Smartphones komplett aus */
+    .whatsapp-widget span {
+        display: none !important;
+    }
+    
+    /* Zentriert das WhatsApp-Icon vergrößert im Kreis */
+    .whatsapp-widget img {
+        width: 32px !important;
+        height: 32px !important;
+    }
 }
