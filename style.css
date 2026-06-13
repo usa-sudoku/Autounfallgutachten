@@ -127,26 +127,27 @@ body {
 }
 
 /* ==========================================================================
-4. WHATSAPP-WIDGET FÜR DIE UNTERSEITEN (Sichtbar auf Desktop & Mobilversion)
+4. WHATSAPP-WIDGET FÜR DIE UNTERSEITEN (Pille auf Desktop, Kreis auf Mobil)
 ========================================================================== */
 .whatsapp-widget {
     position: fixed;
     bottom: 25px;
     left: 25px;
-    z-index: 99999 !important; /* Erzwingt, dass das Widget über allen Bildern/Inhalten bleibt */
+    z-index: 99999 !important; /* Steht stabil über allen Inhalten */
     display: flex;
     align-items: center;
-    white-space: nowrap; /* Verhindert das Umbrechen des Textes auf Smartphones */
+    justify-content: center;
+    white-space: nowrap;
     gap: 12px;
     background-color: #25d366; /* WhatsApp-Grün */
     color: white !important;
     text-decoration: none;
     padding: 12px 22px;
-    border-radius: 30px; /* Pillen-Form */
+    border-radius: 30px; /* Standardmäßig Pillen-Form für Desktop */
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.35);
     font-weight: bold;
     font-size: 0.95rem;
-    transition: transform 0.15s ease-in-out;
+    transition: all 0.2s ease-in-out;
     -webkit-tap-highlight-color: transparent;
 }
 
@@ -157,7 +158,7 @@ body {
 }
 
 .whatsapp-widget span {
-    display: inline-block; /* Garantiert die Lesbarkeit des Textes neben dem Icon */
+    display: inline-block;
 }
 
 /* Klick-Feedback */
@@ -362,16 +363,24 @@ footer a:hover {
         left: 15px;
     }
 
-    /* Mobil-Optimierung für das Unterseiten-Widget */
+    /* KORREKTUR: Macht das Widget auf Smartphones zu einem perfekten Kreis */
     .whatsapp-widget {
         bottom: 20px;
         left: 20px;
-        padding: 10px 18px;
-        font-size: 0.88rem;
+        width: 58px !important;   /* Feste Breite für Kreisform */
+        height: 58px !important;  /* Feste Höhe für Kreisform */
+        padding: 0 !important;    /* Entfernt Innenabstände für perfekte Zentrierung */
+        border-radius: 50% !important; /* Macht das Element komplett rund */
     }
     
+    /* Blendet die Textbeschreibung auf Smartphones komplett aus */
+    .whatsapp-widget span {
+        display: none !important;
+    }
+    
+    /* Zentriert das WhatsApp-Icon vergrößert im Kreis */
     .whatsapp-widget img {
-        width: 22px !important;
-        height: 22px !important;
+        width: 32px !important;
+        height: 32px !important;
     }
 }
