@@ -31,7 +31,9 @@
     <div class="minimal-wrap">
         
         <div class="acc-card">
-            <button class="acc-header-btn" data-type="erste-hilfe">Erste Hilfe <span class="acc-icon">+</span></button>
+            <button class="acc-header-btn" data-type="erste-hilfe">
+                Erste Hilfe <span class="acc-icon">+</span>
+            </button>
             <div class="acc-panel">
                 <ol>
                     <li><strong>Unfallstelle absichern:</strong> Warnweste, Warnblinkanlage, Warndreieck.</li>
@@ -42,7 +44,9 @@
         </div>
 
         <div class="acc-card">
-            <button class="acc-header-btn" data-type="gutachter">Beweissicherung <span class="acc-icon">+</span></button>
+            <button class="acc-header-btn" data-type="gutachter">
+                Beweissicherung <span class="acc-icon">+</span>
+            </button>
             <div class="acc-panel">
                 <ol>
                     <li><strong>Fotos:</strong> Unfallstelle und Schäden dokumentieren.</li>
@@ -55,12 +59,12 @@
     </div>
 </main>
 
-<div style="width: 100%; background-color: #172F1B; border-bottom: 1px solid rgba(255,255,255,0.1);">
+<div class="extra-info-container">
     <button class="extra-info-btn acc-header-btn" data-type="extra">
-        Erweiterte Informationen <span class="acc-icon" style="font-size: 1rem; color: rgba(255,255,255,0.7);">+</span>
+        Erweiterte Informationen <span class="acc-icon">+</span>
     </button>
-    <div class="acc-panel" style="background-color: rgba(255, 255, 255, 0.95); color: #172F1B;">
-        <div style="max-width: 650px; margin: 0 auto; padding: 30px 20px;">
+    <div class="acc-panel extra-panel-bg">
+        <div class="extra-content-wrap">
             <h1>Ihr unabhängiger KFZ-Sachverständiger in MV & Brandenburg</h1>
             <p>Wir helfen Ihnen bei unverschuldeten Unfällen. Neutral, unabhängig und schnell vor Ort in ganz Mecklenburg-Vorpommern und Brandenburg.</p>
         </div>
@@ -70,28 +74,27 @@
 <footer>
     <div class="container">
         <span>© 2026 Ihr KFZ-Sachverständigenbüro - MV & Brandenburg</span>
-        <div style="margin-top: 15px;">
+        <div class="footer-links">
             <a href="impressum.html">Impressum</a> |
             <a href="datenschutz.html">Datenschutz</a>
         </div>
     </div>
 </footer>
 
-<a href="tel:112" id="floating-notruf" class="fab-container">
-    <div class="fab-btn call-emergency">
-        <span class="fab-icon">📞 112</span>
-    </div>
+<a href="tel:112" id="floating-notruf" class="fab-button emergency-red">
+    <span class="fab-text">📞<br>112</span>
 </a>
 
-<div id="floating-gutachter" class="fab-container-stack">
-    <a href="https://wa.me/4915205270675" class="fab-btn whatsapp" target="_blank">
+<div id="floating-gutachter-group">
+    <a href="https://wa.me/4915205270675" class="fab-button whatsapp-green" target="_blank">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
     </a>
-    <a href="tel:039812629866" class="fab-btn gutachter-call">
+    <a href="tel:039812629866" class="fab-button gutachter-phone">
         <img src="Bilder/1781296524343.png" alt="Gutachter Anrufen">
     </a>
 </div>
 
 <script src="script.js" defer></script>
+
 </body>
 </html>
