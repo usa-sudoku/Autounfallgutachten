@@ -22,7 +22,7 @@ body {
 }
 
 /* ==========================================================================
-2. HERO-BEREICH & VIDEO-HINTERGRUND (Falls verwendet)
+2. HERO-BEREICH & VIDEO-HINTERGRUND
 ========================================================================== */
 .hero {
     position: relative;
@@ -60,7 +60,7 @@ body {
 }
 
 /* ==========================================================================
-3. BRANDING / DAS NEUE RUNDE LOGO
+3. BRANDING / LOGO (KORRIGIERT FÜR RUNDEN CONTAINER)
 ========================================================================== */
 .logo-link {
     position: absolute;
@@ -80,7 +80,7 @@ body {
     justify-content: center;
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    border: 2px solid #B03133; /* Roter Rahmen, passend zu deiner Akzentfarbe */
+    border: 2px solid #B03133; /* Roter Rahmen passend zur Akzentfarbe */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -92,7 +92,7 @@ body {
 .logo-circle img {
     width: 80%;
     height: 80%;
-    object-fit: contain; /* Verhindert das Verzerren des Logos */
+    object-fit: contain;
 }
 
 /* ==========================================================================
@@ -157,7 +157,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 140px 20px 60px 20px; /* Oben genug Platz wegen des Logos */
+    padding: 140px 20px 60px 20px; /* Genug Platz nach oben wegen des Logos */
 }
 
 /* ==========================================================================
@@ -183,7 +183,7 @@ footer a:hover {
 }
 
 /* ==========================================================================
-7. WHATSAPP FLOATING WIDGET
+7. FLOATING WIDGETS (WHATSAPP & PHONE)
 ========================================================================== */
 .whatsapp-widget {
     position: fixed;
@@ -213,11 +213,43 @@ footer a:hover {
     height: 24px;
 }
 
+.phone-widget {
+    position: fixed;
+    bottom: 25px;
+    left: 25px;
+    background-color: #B03133;
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.phone-widget:hover {
+    transform: scale(1.05);
+    background-color: #942527;
+}
+
+.phone-btn-img {
+    width: 24px;
+    height: 24px;
+    filter: invert(1);
+}
+
 /* ==========================================================================
 8. ZENTRIERTE AKKORDEONS & ZUSATZ-BUTTON
 ========================================================================== */
 .minimal-wrap { 
-    width: 100%; \n    max-width: 650px; \n    margin: 0 auto; \n    display: flex; \n    flex-direction: column; \n    justify-content: center; \n}
+    width: 100%; 
+    max-width: 650px; 
+    margin: 0 auto; 
+    display: flex; \n    flex-direction: column; \n    justify-content: center; \n}
 
 .acc-card {
     background: transparent; 
@@ -276,8 +308,6 @@ footer a:hover {
     .logo-circle {
         width: 65px;
         height: 65px;
-        top: 15px;
-        left: 15px;
     }
     
     .logo-link {
@@ -292,21 +322,23 @@ footer a:hover {
     }
 
     .content {
-        padding-top: 110px; /* Weniger Abstand nach oben auf Mobilgeräten */
+        padding-top: 110px;
     }
 
-    .whatsapp-widget span {
-        display: none; /* Text ausblenden, nur Icon anzeigen auf kleinen Displays */
+    .whatsapp-widget span, .phone-widget span {
+        display: none;
     }
 
-    .whatsapp-widget {
+    .whatsapp-widget, .phone-widget {
         padding: 12px;
         border-radius: 50%;
         bottom: 20px;
-        right: 20px;
     }
+    
+    .whatsapp-widget { right: 20px; }
+    .phone-widget { left: 20px; }
 
-    .whatsapp-widget img {
+    .whatsapp-widget img, .phone-btn-img {
         width: 34px;
         height: 34px;
     }
