@@ -55,191 +55,193 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
+    background: rgba(23, 47, 27, 0.7);
     z-index: 2;
 }
 
-/* ==========================================================================
-3. BRANDING / LOGO (KORRIGIERT FÜR RUNDEN CONTAINER)
-========================================================================== */
-.logo-link {
-    position: absolute;
-    top: 25px;
-    left: 25px;
-    z-index: 1000;
-    text-decoration: none;
+.hero .container {
+    position: relative;
+    z-index: 3;
 }
 
-.logo-circle {
-    width: 85px;
-    height: 85px;
-    background-color: #ffffff;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    border: 2px solid #B03133; /* Roter Rahmen passend zur Akzentfarbe */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.logo-circle:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-}
-
-.logo-circle img {
-    width: 80%;
-    height: 80%;
-    object-fit: contain;
-}
-
-/* ==========================================================================
-4. NAVIGATION & MENÜ-ICON
-========================================================================== */
-#menu-icon {
-    position: absolute;
-    top: 25px;
-    right: 25px;
-    z-index: 1001;
-    cursor: pointer;
-    background: #172F1B;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-#menu-icon .bar {
-    width: 25px;
-    height: 3px;
-    background-color: white;
-    margin: 4px 0;
-    transition: 0.4s;
-}
-
-#side-menu {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1000;
-    top: 0;
-    right: 0;
-    background-color: #172F1B;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 80px;
-    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
-}
-
-#side-menu a {
-    padding: 15px 30px;
-    text-decoration: none;
-    font-size: 1.15rem;
-    color: rgba(255, 255, 255, 0.85);
-    display: block;
-    transition: 0.3s;
-    font-weight: bold;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-}
-
-#side-menu a:hover {
+.region-badge {
+    display: inline-block;
+    background-color: #B03133;
     color: white;
-    background-color: rgba(255,255,255,0.05);
-    padding-left: 35px;
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.hero h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+}
+
+.promo-text {
+    font-size: 1.25rem;
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #B03133;
+    color: white !important;
+    text-decoration: none;
+    padding: 16px 32px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 5px;
+    box-shadow: 0 4px 15px rgba(176, 49, 51, 0.4);
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.cta-button:hover {
+    background-color: #8c2426;
+    transform: translateY(-2px);
 }
 
 /* ==========================================================================
-5. MAIN CONTENT LAYOUT
+3. HAUPTINHALT & PAPIERHINTERGRUND (FIXIERT & GESTRECKT)
 ========================================================================== */
 .content {
-    min-height: calc(100vh - 120px);
+    background-image: url('Bilder/1781190149157(2).png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%; 
+    background-attachment: fixed;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 140px 20px 60px 20px; /* Genug Platz nach oben wegen des Logos */
+    padding: 40px 0;
 }
 
 /* ==========================================================================
-6. FOOTER STYLING
-========================================================================== */
-footer {
-    background-color: #112214;
-    color: rgba(255, 255, 255, 0.7);
-    padding: 30px 0;
-    text-align: center;
-    font-size: 0.9rem;
-}
-
-footer a {
-    color: rgba(255, 255, 255, 0.8);
-    text-decoration: none;
-    margin: 0 10px;
-    transition: color 0.3s;
-}
-
-footer a:hover {
-    color: white;
-}
-
-/* ==========================================================================
-7. FLOATING WIDGETS (WHATSAPP & PHONE)
+4. WHATSAPP & TELEFON WIDGETS (VERGRÖSSERT)
 ========================================================================== */
 .whatsapp-widget {
     position: fixed;
     bottom: 25px;
-    right: 25px;
-    background-color: #25D366;
+    left: 25px;
+    background-color: #25d366;
     color: white;
-    text-decoration: none;
-    padding: 12px 20px;
+    padding: 14px 24px 14px 16px; /* Mehr Padding für einen größeren Button */
     border-radius: 50px;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
+    text-decoration: none;
     font-weight: bold;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    z-index: 999;
-    transition: transform 0.3s ease, background-color 0.3s ease;
+    font-size: 1.05rem; /* Schrift etwas größer */
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+    z-index: 9999;
+    transition: transform 0.3s ease;
 }
 
-.whatsapp-widget:hover {
-    transform: scale(1.05);
-    background-color: #20ba5a;
-}
-
-.whatsapp-widget img {
-    width: 24px;
-    height: 24px;
-}
+.whatsapp-widget:hover { transform: scale(1.05); }
+.whatsapp-widget img { width: 30px; height: 30px; } /* Icon vergrößert */
 
 .phone-widget {
     position: fixed;
-    bottom: 25px;
+    bottom: 105px; /* Höher gesetzt, damit Platz zum größeren WhatsApp-Button ist */
     left: 25px;
-    background-color: #B03133;
+    background-color: #B03133; 
     color: white;
-    text-decoration: none;
-    padding: 12px 20px;
+    padding: 14px 24px 14px 14px; /* Innenabstand erhöht */
     border-radius: 50px;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
+    text-decoration: none;
     font-weight: bold;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    z-index: 999;
-    transition: transform 0.3s ease, background-color 0.3s ease;
+    font-size: 1.05rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+    z-index: 9999;
+    transition: transform 0.3s ease;
+    overflow: hidden; /* Schneidet das Bild sauber ab, wenn es rund wird */
+}
+.phone-widget:hover { transform: scale(1.05); background-color: #8c2426; }
+
+/* Telefon-Bild füllt jetzt auf Mobilgeräten den kompletten runden Button aus */
+.phone-btn-img { 
+    width: 30px; 
+    height: 30px; 
+    border-radius: 50%; 
+    object-fit: cover; 
 }
 
-.phone-widget:hover {
-    transform: scale(1.05);
-    background-color: #942527;
+/* ==========================================================================
+5. NAVIGATION
+========================================================================== */
+#menu-icon {
+    position: fixed; top: 20px; right: 20px; width: 45px; height: 45px;
+    background-color: #172F1B; border-radius: 5px; padding: 10px; cursor: pointer;
+    z-index: 10001; display: flex; flex-direction: column; justify-content: space-between;
 }
+#menu-icon .bar { width: 100%; height: 4px; background-color: white; border-radius: 2px; }
 
-.phone-btn-img {
-    width: 24px;
-    height: 24px;
-    filter: invert(1);
+#side-menu {
+    position: fixed; top: 0; right: -250px; width: 250px; height: 100%;
+    background-color: #172F1B; padding-top: 80px; z-index: 10000; transition: 0.4s;
+}
+#side-menu a { display: block; padding: 15px 25px; color: white; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.05); }
+
+/* ==========================================================================
+6. FOOTER
+========================================================================== */
+footer {
+    background-image: url('Bilder/1781263694012(1).png');
+    background-position: center center;
+    background-size: cover; 
+    color: rgba(255,255,255,0.7);
+    padding: 40px 0;
+    text-align: center;
+    font-size: 0.95rem;
+    border-top: none;
+}
+footer a { color: white; text-decoration: none; margin: 0 10px; }
+footer a:hover { color: #B03133; }
+
+/* ==========================================================================
+7. RESPONSIVE (MOBIL-VORSCHRIFTEN GEÄNDERT)
+========================================================================== */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 1.9rem; }
+    
+    /* Blendet auf dem Smartphone die Texte aus */
+    .whatsapp-widget span, .phone-widget span { display: none; }
+    
+    /* Macht die Buttons auf dem Handy zu großen, perfekten Kreisen */
+    .whatsapp-widget, .phone-widget { 
+        padding: 0; 
+        width: 60px;   /* Deutlich größer auf dem Handy (vorher 49px) */
+        height: 60px;  /* Deutlich größer auf dem Handy (vorher 49px) */
+        justify-content: center; 
+        border-radius: 50%; 
+    }
+    
+    /* Das Telefon-Bild nimmt jetzt 100% des runden Buttons ein und verdrängt den roten Rand */
+    .phone-widget .phone-btn-img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+    
+    /* Passt das WhatsApp-Icon auf dem Handy proportional an */
+    .whatsapp-widget img {
+        width: 34px;
+        height: 34px;
+    }
 }
 
 /* ==========================================================================
@@ -249,7 +251,10 @@ footer a:hover {
     width: 100%; 
     max-width: 650px; 
     margin: 0 auto; 
-    display: flex; \n    flex-direction: column; \n    justify-content: center; \n}
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+}
 
 .acc-card {
     background: transparent; 
@@ -271,75 +276,17 @@ footer a:hover {
 .acc-panel { 
     display: none; 
     padding: 0 20px 20px 20px; 
-    background: transparent;
+    background: transparent; 
+    color: #172F1B; 
 }
 
-.acc-panel ol {
-    padding-left: 20px;
-}
+.acc-icon { font-size: 1.4rem; color: #B03133; font-weight: bold; }
 
-.acc-panel li {
-    margin-bottom: 12px;
-    color: #333;
-}
-
-.acc-panel li a {
-    color: #B03133;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.acc-icon {
-    font-size: 1.5rem;
-    color: #B03133;
-    transition: transform 0.3s;
-}
-
+/* FLACHER ZENTRIERTER BUTTON */
 .extra-info-btn {
-    color: white;
-    max-width: 650px;
-    margin: 0 auto;
+    width: 100%; background-color: #172F1B; color: rgba(255,255,255,0.7);
+    padding: 4px 25px; font-size: 0.95rem; font-weight: normal;
+    display: flex; justify-content: center; align-items: center; gap: 10px; cursor: pointer; border: none;
 }
 
-/* ==========================================================================
-9. RESPONSIVE DESIGN (MOBILOPTIMIERUNG)
-========================================================================== */
-@media (max-width: 600px) {
-    .logo-circle {
-        width: 65px;
-        height: 65px;
-    }
-    
-    .logo-link {
-        top: 15px;
-        left: 15px;
-    }
-
-    #menu-icon {
-        top: 15px;
-        right: 15px;
-        padding: 8px;
-    }
-
-    .content {
-        padding-top: 110px;
-    }
-
-    .whatsapp-widget span, .phone-widget span {
-        display: none;
-    }
-
-    .whatsapp-widget, .phone-widget {
-        padding: 12px;
-        border-radius: 50%;
-        bottom: 20px;
-    }
-    
-    .whatsapp-widget { right: 20px; }
-    .phone-widget { left: 20px; }
-
-    .whatsapp-widget img, .phone-btn-img {
-        width: 34px;
-        height: 34px;
-    }
 }
