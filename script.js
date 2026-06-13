@@ -21,11 +21,11 @@ if (menuIcon && sideMenu) {
 }
 
 /* ==========================================================================
-2. AKKORDEON-STEUERUNG & DYNAMISCHE STICKY-BUTTONS
+2. AKKORDEON-STEUERUNG & DYNAMISCHE FLOATING BUTTONS
 ========================================================================== */
 const accButtons = document.querySelectorAll('.acc-header-btn');
-const stickyNotruf = document.getElementById('sticky-notruf');
-const stickyGutachter = document.getElementById('sticky-gutachter');
+const floatingNotruf = document.getElementById('floating-notruf');
+const floatingGutachter = document.getElementById('floating-gutachter');
 
 accButtons.forEach(btn => {
     btn.addEventListener('click', function() {
@@ -34,9 +34,9 @@ accButtons.forEach(btn => {
         const dataType = this.getAttribute('data-type');
         
         // Prüfen, ob das aktuell angeklickte Panel bereits offen ist
-        const isAlreadyOpen = panel.style.display === "block";
+        const isAlreadyOpen = panel && panel.style.display === "block";
 
-        // 1. ZUERST ALLE PANELS SCHLIESSEN & ALLE BUTTONS AUSBLENDEN (One-Accordion-Logik)
+        // 1. ZUERST ALLE PANELS SCHLIESSEN & ALLE BUTTONS AUSBLENDEN
         accButtons.forEach(otherBtn => {
             const otherPanel = otherBtn.nextElementSibling;
             const otherIcon = otherBtn.querySelector('.acc-icon');
@@ -44,21 +44,20 @@ accButtons.forEach(btn => {
             if (otherIcon) otherIcon.textContent = "+";
         });
         
-        if (stickyNotruf) stickyNotruf.classList.remove('active');
-        if (stickyGutachter) stickyGutachter.classList.remove('active');
+        if (floatingNotruf) floatingNotruf.classList.remove('active');
+        if (floatingGutachter) floatingGutachter.classList.remove('active');
 
         // 2. WENN ES NICHT SCHON OFFEN WAR, JETZT DAS ANGEKLICKTE ÖFFNEN
-        if (!isAlreadyOpen) {
+        if (!isAlreadyOpen && panel) {
             panel.style.display = "block";
             if (icon) icon.textContent = "−";
 
-            // 3. JE NACH BEREICH DEN PASSENDEN STICKY-BUTTON EINBLENDEN
-            if (dataType === 'erste-hilfe' && stickyNotruf) {
-                stickyNotruf.classList.add('active');
-            } else if (dataType === 'gutachter' && stickyGutachter) {
-                stickyGutachter.classList.add('active');
+            // 3. JE NACH BEREICH DEN PASSENDEN FLOATING-BUTTON ANZEIGEN
+            if (dataType === 'erste-hilfe' && floatingNotruf) {
+                floatingNotruf.classList.add('active');
+            } else if (dataType === 'gutachter' && floatingGutachter) {
+                floatingGutachter.classList.add('active');
             }
         }
-        // Wenn es bereits offen war, bleibt es jetzt geschlossen -> Der Nutzer sieht wieder die reine Übersicht!
     });
 });
