@@ -30,6 +30,7 @@
 <main class="content">
     <div class="minimal-wrap">
         
+        <!-- Erste Hilfe Akkordeon -->
         <div class="acc-card">
             <button class="acc-header-btn" data-type="erste-hilfe">
                 Erste Hilfe <span class="acc-icon">+</span>
@@ -43,8 +44,9 @@
             </div>
         </div>
 
+        <!-- Gutachter / Beweissicherung Akkordeon -->
         <div class="acc-card">
-            <button class="acc-header-btn" data-type="gutachter">
+            <button class="acc-header-btn" data-type="gutachten">
                 Beweissicherung <span class="acc-icon">+</span>
             </button>
             <div class="acc-panel">
@@ -81,14 +83,20 @@
     </div>
 </footer>
 
+<!-- FLOATING BUTTONS STEUERUNG -->
+
+<!-- 1. Erste Hilfe Notruf-Button (Wird unten links angezeigt) -->
 <a href="tel:112" id="floating-notruf" class="fab-button emergency-red">
     <span class="fab-text">📞<br>112</span>
 </a>
 
+<!-- 2. Gutachter Kontakt-Gruppe (Wird unten rechts angezeigt: WhatsApp + Telefon) -->
 <div id="floating-gutachter-group">
-    <a href="https://wa.me/4915205270675" class="fab-button whatsapp-green" target="_blank">
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/4915205270675" class="fab-button whatsapp-green" target="_blank" rel="noopener noreferrer">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
     </a>
+    <!-- Telefon Button mit Papas Bild -->
     <a href="tel:039812629866" class="fab-button gutachter-phone">
         <img src="Bilder/1781296524343.png" alt="Gutachter Anrufen">
     </a>
