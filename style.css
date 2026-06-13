@@ -182,20 +182,21 @@ body {
 /* ==========================================================================
 5. NAVIGATION
 ========================================================================== */
-/* Positioniert das runde Logo oben links fest auf der Seite */
+/* Positioniert das Logo fest oben links über dem Hintergrund, ohne Platz zu fressen */
 .logo-container {
     position: fixed;
-    top: 15px;
+    top: 20px;
     left: 20px;
     z-index: 10001;
-    display: inline-block;
+    display: block;
+    width: 80px; /* Saubere Größe für das runde Abzeichen */
+    height: 80px;
 }
 
 .logo-container img {
-    width: 85px;
-    height: auto;
-    display: block;
-    filter: drop-shadow(0px 2px 8px rgba(0,0,0,0.3));
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 #menu-icon {
@@ -233,9 +234,12 @@ footer a:hover { color: #B03133; }
 @media (max-width: 768px) {
     .hero h1 { font-size: 1.9rem; }
     
-    /* Macht das Logo auf Smartphones etwas kompakter */
-    .logo-container img {
+    /* Passt die Logo-Größe für Smartphones leicht an */
+    .logo-container {
         width: 65px;
+        height: 65px;
+        top: 15px;
+        left: 15px;
     }
     
     /* Blendet auf dem Smartphone die Texte aus */
