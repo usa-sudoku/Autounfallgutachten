@@ -12,6 +12,7 @@ body {
     background-color: #f4f4f4;
     color: #172F1B;
     line-height: 1.6;
+    transition: padding-bottom 0.3s ease; /* Puffer für die Sticky-Leisten unten */
 }
 
 .container {
@@ -126,70 +127,85 @@ body {
 }
 
 /* ==========================================================================
-4. WHATSAPP & TELEFON WIDGETS (VERGRÖSSERT)
+4. NEU: DYNAMISCHE STRIP-BUTTONS AM UNTEREN RAND (Vollbildbreite)
 ========================================================================== */
-.whatsapp-widget {
+.dynamic-sticky-bar {
     position: fixed;
-    bottom: 25px;
-    left: 25px;
-    background-color: #25d366;
-    color: white;
-    padding: 14px 24px 14px 16px; /* Mehr Padding für einen größeren Button */
-    border-radius: 50px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.05rem; /* Schrift etwas größer */
-    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 75px;
     z-index: 9999;
-    transition: transform 0.3s ease;
+    display: none; /* Standardmäßig komplett unsichtbar */
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.2);
 }
 
-.whatsapp-widget:hover { transform: scale(1.05); }
-.whatsapp-widget img { width: 30px; height: 30px; } /* Icon vergrößert */
-
-.phone-widget {
-    position: fixed;
-    bottom: 105px; /* Höher gesetzt, damit Platz zum größeren WhatsApp-Button ist */
-    left: 25px;
-    background-color: #B03133; 
-    color: white;
-    padding: 14px 24px 14px 14px; /* Innenabstand erhöht */
-    border-radius: 50px;
+/* JS schaltet diese Klasse aktiv, wenn ein Bereich geöffnet wird */
+.dynamic-sticky-bar.active {
     display: flex;
-    align-items: center;
-    gap: 12px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.05rem;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
-    z-index: 9999;
-    transition: transform 0.3s ease;
-    overflow: hidden; /* Schneidet das Bild sauber ab, wenn es rund wird */
 }
-.phone-widget:hover { transform: scale(1.05); background-color: #8c2426; }
 
-/* Telefon-Bild füllt jetzt auf Mobilgeräten den kompletten runden Button aus */
-.phone-btn-img { 
-    width: 30px; 
-    height: 30px; 
-    border-radius: 50%; 
-    object-fit: cover; 
+/* NOTRUF-STRIP (Volle Breite, dein Standard-Rot) */
+#sticky-notruf {
+    background-color: #B03133;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+#sticky-notruf img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+}
+
+/* GUTACHTER-STRIP (Geteilte Ansicht für Anrufen & WhatsApp) */
+#sticky-gutachter {
+    background-color: #172F1B; /* Neutraler dunkler Ton als Basis */
+}
+
+.gutachter-btn {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    transition: background-color 0.2s ease;
+}
+
+.gutachter-btn.call {
+    background-color: #B03133; /* Papas Telefon-Rot */
+}
+.gutachter-btn.call:hover { background-color: #8c2426; }
+
+.gutachter-btn.whatsapp {
+    background-color: #25d366; /* WhatsApp Grün */
+}
+.gutachter-btn.whatsapp:hover { background-color: #1ebd59; }
+
+.gutachter-btn img {
+    height: 45px;
+    width: 45px;
+    object-fit: contain;
+}
+
+/* Wenn Papa-Anrufen aktiv ist, soll das Bild wie auf dem Handy den Button füllen */
+.gutachter-btn.call img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 
 /* ==========================================================================
 5. NAVIGATION
 ========================================================================== */
-/* Positioniert das Logo fest oben links über dem Hintergrund, ohne Platz zu fressen */
 .logo-container {
     position: fixed;
     top: 20px;
     left: 20px;
     z-index: 10001;
     display: block;
-    width: 80px; /* Saubere Größe für das runde Abzeichen */
+    width: 80px; 
     height: 80px;
 }
 
@@ -229,43 +245,16 @@ footer a { color: white; text-decoration: none; margin: 0 10px; }
 footer a:hover { color: #B03133; }
 
 /* ==========================================================================
-7. RESPONSIVE (MOBIL-VORSCHRIFTEN GEÄNDERT)
+7. RESPONSIVE
 ========================================================================== */
 @media (max-width: 768px) {
     .hero h1 { font-size: 1.9rem; }
     
-    /* Passt die Logo-Größe für Smartphones leicht an */
     .logo-container {
         width: 65px;
         height: 65px;
         top: 15px;
         left: 15px;
-    }
-    
-    /* Blendet auf dem Smartphone die Texte aus */
-    .whatsapp-widget span, .phone-widget span { display: none; }
-    
-    /* Macht die Buttons auf dem Handy zu großen, perfekten Kreisen */
-    .whatsapp-widget, .phone-widget { 
-        padding: 0; 
-        width: 60px;   /* Deutlich größer auf dem Handy (vorher 49px) */
-        height: 60px;  /* Deutlich größer auf dem Handy (vorher 49px) */
-        justify-content: center; 
-        border-radius: 50%; 
-    }
-    
-    /* Das Telefon-Bild nimmt jetzt 100% des runden Buttons ein und verdrängt den roten Rand */
-    .phone-widget .phone-btn-img {
-        width: 100%;
-        height: 100%;
-        border-radius: 50%;
-        object-fit: cover;
-    }
-    
-    /* Passt das WhatsApp-Icon auf dem Handy proportional an */
-    .whatsapp-widget img {
-        width: 34px;
-        height: 34px;
     }
 }
 
@@ -312,6 +301,4 @@ footer a:hover { color: #B03133; }
     width: 100%; background-color: #172F1B; color: rgba(255,255,255,0.7);
     padding: 4px 25px; font-size: 0.95rem; font-weight: normal;
     display: flex; justify-content: center; align-items: center; gap: 10px; cursor: pointer; border: none;
-}
-
 }
