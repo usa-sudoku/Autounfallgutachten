@@ -2,15 +2,15 @@
    INDEX-EXKLUSIVE STYLES (Nur für die Startseite)
    ========================================================================== */
 
-/* 1. LOGO-ANPASSUNG DESKTOP (Brutal groß, OBEN LINKS & beim Scrollen fixiert) */
+/* 1. LOGO-ANPASSUNG DESKTOP (Angenehm groß, OBEN LINKS & scrollt nach oben weg) */
 .logo-container {
     display: block;  /* Aktiviert das Logo exklusiv auf der Startseite */
-    position: fixed; /* Bleibt beim Scrollen fest am Bildschirm kleben */
+    position: absolute; /* ÄNDERUNG: Logo scrollt jetzt auf dem PC mit nach oben weg! */
     top: 25px;
-    left: 25px;      /* Fest oben links verankert */
+    left: 25px;      
     right: auto;     
-    width: 640px !important;  /* 4-MAL SO GROSS wie die 160px-Version! */
-    height: 640px !important; 
+    width: 280px !important;  /* Harmonische, deutliche Größe für den PC */
+    height: 280px !important; 
     z-index: 10001;
     transition: all 0.3s ease;
 }
@@ -21,17 +21,17 @@
     object-fit: contain;
 }
 
-/* Drückt den Hauptinhalt auf dem Desktop nach unten, damit das Riesen-Logo nichts verdeckt */
+/* Platzhalter oben für den Desktop-Inhalt, damit das Logo nicht über den ersten Texten liegt */
 .content {
-    padding-top: 250px !important;
+    padding-top: 320px !important;
 }
 
 
 /* 2. FLOATING BUTTONS STEUERUNG (Basis-Positionierung) */
 #floating-notruf, 
 #floating-gutachter-group {
-    display: none; /* Standardmäßig ausgeblendet, wird per JS aktiviert */
-    position: fixed;
+    display: none; 
+    position: fixed; /* Die Kontakt-Buttons unten links bleiben natürlich fest im Sichtfeld */
     bottom: 25px;
     z-index: 99999 !important;
     transition: all 0.3s ease;
@@ -57,6 +57,7 @@
     gap: 12px;
 }
 
+/* Allgemeine Formatierung der runden Buttons (FAB) */
 .fab-button {
     width: 65px !important;
     height: 65px !important;
@@ -76,6 +77,7 @@
     transform: scale(0.9);
 }
 
+/* Spezifische Button-Farben und Inhalte */
 .emergency-red {
     background-color: #B03133 !important;
     color: white !important;
@@ -113,9 +115,30 @@
    RESPONSIVE ANPASSUNGEN (Smartphone-Optimierung für die Startseite)
    ========================================================================== */
 @media (max-width: 768px) {
-    /* Setzt den Inhaltsabstand auf Handys wieder zurück */
-    .content {
-        padding-top: 40px !important;
+    
+    /* Mobil-Version: Kompakt und scrollt ebenfalls nach oben weg */
+    .logo-container {
+        position: absolute !important; 
+        top: 20px;
+        left: 20px;
+        right: auto;
+        width: 100px !important;  /* Saubere, dezente Größe auf dem Handy */
+        height: 100px !important;
     }
 
-    /* Auf Smartphones bleibt es oben links, wird
+    /* Drückt die Akkordeons auf dem Handy passend nach unten */
+    .content {
+        padding-top: 140px !important;
+    }
+
+    .fab-button {
+        width: 58px !important;
+        height: 58px !important;
+    }
+    
+    #floating-notruf, 
+    #floating-gutachter-group {
+        bottom: 20px;
+        left: 20px;
+    }
+}
